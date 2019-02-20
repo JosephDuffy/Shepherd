@@ -10,6 +10,9 @@
 		D91505B9221E024900EB5215 /* Shepherd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D91505AF221E024900EB5215 /* Shepherd.framework */; };
 		D91505BE221E024900EB5215 /* ShepherdTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D91505BD221E024900EB5215 /* ShepherdTests.swift */; };
 		D91505C0221E024900EB5215 /* Shepherd.h in Headers */ = {isa = PBXBuildFile; fileRef = D91505B2221E024900EB5215 /* Shepherd.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D91505CA221E04EB00EB5215 /* ActivityHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = D91505C9221E04EB00EB5215 /* ActivityHandler.swift */; };
+		D91505CC221E050500EB5215 /* ActivityHandlerNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = D91505CB221E050500EB5215 /* ActivityHandlerNode.swift */; };
+		D91505CE221E052600EB5215 /* ActivityHandlerAggregate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D91505CD221E052600EB5215 /* ActivityHandlerAggregate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,6 +32,9 @@
 		D91505B8221E024900EB5215 /* ShepherdTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ShepherdTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D91505BD221E024900EB5215 /* ShepherdTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShepherdTests.swift; sourceTree = "<group>"; };
 		D91505BF221E024900EB5215 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D91505C9221E04EB00EB5215 /* ActivityHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityHandler.swift; sourceTree = "<group>"; };
+		D91505CB221E050500EB5215 /* ActivityHandlerNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityHandlerNode.swift; sourceTree = "<group>"; };
+		D91505CD221E052600EB5215 /* ActivityHandlerAggregate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityHandlerAggregate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +77,9 @@
 		D91505B1221E024900EB5215 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				D91505C9221E04EB00EB5215 /* ActivityHandler.swift */,
+				D91505CB221E050500EB5215 /* ActivityHandlerNode.swift */,
+				D91505CD221E052600EB5215 /* ActivityHandlerAggregate.swift */,
 				D91505B2221E024900EB5215 /* Shepherd.h */,
 				D91505B3221E024900EB5215 /* Info.plist */,
 			);
@@ -148,6 +157,7 @@
 				TargetAttributes = {
 					D91505AE221E024900EB5215 = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1010;
 					};
 					D91505B7221E024900EB5215 = {
 						CreatedOnToolsVersion = 10.1;
@@ -194,6 +204,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D91505CA221E04EB00EB5215 /* ActivityHandler.swift in Sources */,
+				D91505CE221E052600EB5215 /* ActivityHandlerAggregate.swift in Sources */,
+				D91505CC221E050500EB5215 /* ActivityHandlerNode.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -341,6 +354,7 @@
 		D91505C4221E024900EB5215 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
@@ -358,6 +372,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = uk.josephduffy.Shepherd;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -366,6 +381,7 @@
 		D91505C5221E024900EB5215 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
@@ -391,6 +407,7 @@
 		D91505C7221E024900EB5215 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = UHD73N826Y;
 				INFOPLIST_FILE = Tests/Info.plist;
@@ -409,6 +426,7 @@
 		D91505C8221E024900EB5215 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = UHD73N826Y;
 				INFOPLIST_FILE = Tests/Info.plist;
