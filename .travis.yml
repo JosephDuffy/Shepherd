@@ -16,7 +16,7 @@ jobs:
       script:
         - if [ "$TRAVIS_PULL_REQUEST" != "false" ]; then bundle exec fastlane perform_pr_checks; fi
         - if [ "$TRAVIS_PULL_REQUEST" = "false" ]; then bundle exec fastlane test; fi
-    - stage: GitHub Release
+    - stage: deploy
       script: skip
       before_deploy:
         - carthage build --archive --cache-builds --platform iOS
@@ -29,8 +29,7 @@ jobs:
         on:
           repo: JosephDuffy/shepherd
           tags: true
-    - stage: CocoaPods Release
-      script: skip
+    - script: skip
       deploy:
         provider: script
         script: pod trunk push
