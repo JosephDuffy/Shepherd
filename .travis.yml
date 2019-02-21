@@ -8,16 +8,21 @@ cache:
     - Carthage
     - /home/travis/.rvm/
 
+stages:
+  - "Prepare Cache"
+  - "Test"
+  - name: "Deploy"
+    if: branch = master AND tag IS present
 jobs:
   include:
-    - stage: prepare cache
+    - stage: "Prepare Cache"
       script: skip
-    - stage: test
+    - stage: "Test"
       script:
         - if [ "$TRAVIS_PULL_REQUEST" != "false" ]; then bundle exec fastlane perform_pr_checks; fi
         - if [ "$TRAVIS_PULL_REQUEST" = "false" ]; then bundle exec fastlane test; fi
-    - stage: deploy
-      if: tag IS present
+    - stage: "Deploy"
+      name: "GitHub Release"
       script: skip
       before_deploy:
         - carthage build --archive --cache-builds --platform iOS
@@ -32,9 +37,10 @@ jobs:
           repo: JosephDuffy/shepherd
           tags: true
     - script: skip
+      name: "CocoaPods release"
       deploy:
-        provider: script
-        script: pod trunk push
-        on:
-          repo: JosephDuffy/shepherd
-          tags: true
+      provider: script
+      script: pod trunk push
+      on:
+        repo: JosephDuffy/shepherd
+        tags: true
