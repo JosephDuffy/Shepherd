@@ -6,16 +6,18 @@ cache:
   bundler: true
   directories:
     - Carthage
+    - .build
     - /home/travis/.rvm/
 
 jobs:
   include:
     - stage: prepare cache
-      script: skip
+      script: swift build
     - stage: test
       script:
-        - if [ "$TRAVIS_PULL_REQUEST" != "false" ]; then bundle exec fastlane perform_pr_checks; fi
-        - if [ "$TRAVIS_PULL_REQUEST" = "false" ]; then bundle exec fastlane test; fi
+        - swift test
+        - if [ "$TRAVIS_PULL_REQUEST" != "false" ]; then bundle exec pod lib lint; fi
+        - if [ "$TRAVIS_PULL_REQUEST" != "false" ]; then swift run danger-swift ci; fi
     - stage: deploy
       if: tag IS present
       - script: skip
