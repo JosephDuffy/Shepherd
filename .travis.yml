@@ -11,7 +11,7 @@ cache:
 jobs:
   include:
     - stage: prepare cache
-      script: bundle install --deployment
+      script: skip
     - stage: test
       script:
         - if [ "$TRAVIS_PULL_REQUEST" != "false" ]; then bundle exec fastlane perform_pr_checks; fi
