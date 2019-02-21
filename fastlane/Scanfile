@@ -1,0 +1,3 @@
+scheme "Shepherd"
+clean true
+code_coverage true
