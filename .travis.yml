@@ -36,9 +36,6 @@ jobs:
         api_key: $GITHUB_TOKEN
         file: Shepherd.framework.zip
         skip_cleanup: true
-        on:
-          repo: JosephDuffy/shepherd
-          tags: true
     - script: skip
       name: "CocoaPods release"
       deploy:
