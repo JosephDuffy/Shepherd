@@ -41,8 +41,5 @@ jobs:
     - script: skip
       name: "CocoaPods release"
       deploy:
-      provider: script
-      script: pod trunk push
-      on:
-        repo: JosephDuffy/shepherd
-        tags: true
+        provider: script
+        script: pod trunk push
