@@ -24,7 +24,12 @@ jobs:
     - stage: "Test"
       script:
         - swift test
+    - stage: "Test"
+      script:
         - if [ "$TRAVIS_PULL_REQUEST" != "false" ]; then bundle exec pod lib lint; fi
+    - stage: "Test"
+      script:
+        - npm install -g danger
         - if [ "$TRAVIS_PULL_REQUEST" != "false" ]; then swift run danger-swift ci; fi
     - stage: "Deploy"
       name: "GitHub Release"
