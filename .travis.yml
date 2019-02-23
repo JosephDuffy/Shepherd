@@ -27,11 +27,11 @@ jobs:
         - swift test
     - stage: "Test"
       name: "pod lib lint"
-      if: env(TRAVIS_PULL_REQUEST) != "false"
+      if: env(TRAVIS_PULL_REQUEST) != false
       script: bundle exec pod lib lint
     - stage: "Test"
       name: "Danger"
-      if: env(TRAVIS_PULL_REQUEST) != "false"
+      if: env(TRAVIS_PULL_REQUEST) != false
       script:
         - npm install -g danger
         - swift run danger-swift ci
