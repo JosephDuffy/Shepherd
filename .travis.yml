@@ -22,12 +22,15 @@ jobs:
         - npm install -g danger
         - swift build
     - stage: "Test"
+      name: "Unit tests"
       script:
         - swift test
     - stage: "Test"
       script:
         - if [ "$TRAVIS_PULL_REQUEST" != "false" ]; then bundle exec pod lib lint; fi
+      name: "pod lib lint"
     - stage: "Test"
+      name: "Danger"
       script:
         - npm install -g danger
         - if [ "$TRAVIS_PULL_REQUEST" != "false" ]; then swift run danger-swift ci; fi
