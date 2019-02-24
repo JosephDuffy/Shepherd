@@ -48,6 +48,8 @@ struct VersionFile {
 
 let projectName = "Shepherd"
 let swiftVersionPath = ".swift-version"
+let danger = Danger()
+let isPR = danger.github != nil
 
 func checkSwiftVersions() {
     check(versionFiles: [
@@ -85,7 +87,7 @@ func check(versionFiles: [VersionFile], versionKind: String) {
 
     if versions.isEmpty {
         warn("Found no \(versionKind) versions in files: \(paths)")
-    } else {
+    } else if !isPR {
         message("All \(versionKind) versions are in-sync: \(paths)")
     }
 }
