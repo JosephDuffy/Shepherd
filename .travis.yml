@@ -18,9 +18,7 @@ stages:
 jobs:
   include:
     - stage: "Prepare Cache"
-      script:
-        - npm install -g danger
-        - swift build
+      script: swift build
     - stage: "Test"
       name: "Unit tests"
       script:
