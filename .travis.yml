@@ -12,8 +12,6 @@ cache:
 stages:
   - "Prepare Cache"
   - "Test"
-  - name: "PR Checks"
-    if: env(TRAVIS_PULL_REQUEST) != false
   - name: "Deploy"
     if: tag IS present
 
@@ -27,11 +25,13 @@ jobs:
       name: "Unit tests"
       script:
         - swift test
-    - stage: "PR Checks"
+    - stage: "Test"
       name: "pod lib lint"
+      if: type = pull_request
       script: bundle exec pod lib lint
-    - stage: "PR Checks"
+    - stage: "Test"
       name: "Danger"
+      if: type = pull_request
       script:
         - npm install -g danger
         - swift run danger-swift ci
