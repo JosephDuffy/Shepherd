@@ -5,9 +5,7 @@ language: objective-c
 cache:
   bundler: true
   directories:
-    - Carthage
     - .build
-    - /home/travis/.rvm/
 
 stages:
   - "Prepare Cache"
