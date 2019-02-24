@@ -26,12 +26,6 @@ xcuserdata/
 *.dSYM.zip
 *.dSYM
 
-## fastlane
+## Swift Package Manager
 
-fastlane/report.xml
-fastlane/test_output
-
-## Carthage
-
-Carthage/Checkouts
-Carthage/Build
+.build

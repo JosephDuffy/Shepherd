@@ -1,46 +1,48 @@
 os: osx
 osx_image: xcode10.1
-language: swift
+language: objective-c
 
 cache:
   bundler: true
   directories:
-    - Carthage
-    - /home/travis/.rvm/
+    - .build
 
 stages:
   - "Prepare Cache"
   - "Test"
   - name: "Deploy"
     if: branch = master AND tag IS present
+
 jobs:
   include:
     - stage: "Prepare Cache"
-      script: skip
+      script: swift build
     - stage: "Test"
+      name: "Unit tests"
+      script: swift test
+    - stage: "Test"
+      name: "pod lib lint"
+      if: type = pull_request
+      script: bundle exec pod lib lint
+    - stage: "Test"
+      name: "Danger"
+      if: type = pull_request
       script:
-        - if [ "$TRAVIS_PULL_REQUEST" != "false" ]; then bundle exec fastlane perform_pr_checks; fi
-        - if [ "$TRAVIS_PULL_REQUEST" = "false" ]; then bundle exec fastlane test; fi
+        - npm install -g danger
+        - swift run danger-swift ci
     - stage: "Deploy"
       name: "GitHub Release"
       script: skip
-      before_deploy:
-        - carthage build --archive --cache-builds --platform iOS
+      before_deploy: carthage build --archive --cache-builds --platform iOS
       deploy:
         provider: releases
         prerelease: true
-        api_key:
-          secure: "aKfkyDhuvftr/epga4T+CQmjPmN0F96cIe0wxA1rldh941d+16urMbvE4lTmZ445nuppsq40aQOsqcUgFVnDqIfgE7u6QDAtPCZ/fecdZBf1lGfRTIQeE0EIW2VDcG94yRLHcZdHp6P8LZZLv1XJiugYTF0rnoYDh5B6ybOr4Kga/BK5r5ZND6+9s3padHE8up6O/CurVzfECbUT9DYkKav9+/IVJ61qRKwcw6ajOVz0JAm78biimGLMLu8Zj/FkAU4nh0htlTJc6WbyaM7wI9CbmbIfD1fmSS6rwGIaymmfxK89D9KyFCxWSLk0cn0amvXPhlWwtgT/0ZhZQgJmjDqVkaT6PTGT5xXTtTnLMMllnQrkNyckuGW6Yrch3vPEL1L3O51thoIb6NgBeXsHawXv9W8qBcSAt5YO8NB2MpstEAXnRYChW8aP3cyu2vwA9g3py2UXuszXjNq2dKlG+WNIxvfnhleC5cNIZnvboxzPdaRSDu0IVzSOEZvFurD9U8nePEG3LetS2yGnhWZcVkFjbNnKLRkEqxqtiwlmharQiCTOhOjO/7ad/LyuVSghArEwhkoEJK7ouPBrkaRMEo0fVZZ7ZRxNOIiMLkfFefDGq/Q6UpVoWOJXU4TzIIl2YBAw//+2mV8sm/gZxtHpDss9ty17q+U6VzASpEl4jc8="
+        api_key: $GITHUB_TOKEN
         file: Shepherd.framework.zip
         skip_cleanup: true
-        on:
-          repo: JosephDuffy/shepherd
-          tags: true
-    - script: skip
+    - stage: "Deploy"
       name: "CocoaPods release"
+      script: skip
       deploy:
-      provider: script
-      script: pod trunk push
-      on:
-        repo: JosephDuffy/shepherd
-        tags: true
+        provider: script
+        script: pod trunk push
