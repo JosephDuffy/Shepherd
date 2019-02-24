@@ -1,6 +1,4 @@
 import Foundation
-// A hack to allow this file to be used as the source of the DangerDeps target in Package.swift
-#if canImport(Danger)
 import Danger
 
 struct VersionFile {
@@ -95,4 +93,3 @@ func check(versionFiles: [VersionFile], versionKind: String) {
 
 checkSwiftVersions()
 checkPodspec()
-#endif

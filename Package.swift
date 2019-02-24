@@ -13,6 +13,7 @@ let package = Package(
         .target(name: "Shepherd", path: "Source"),
         .testTarget(name: "ShepherdTests", dependencies: ["Shepherd"], path: "Tests"),
         // Danger seems to look "DangerDeps": https://github.com/danger/swift/blob/master/Sources/RunnerLib/SPMDanger.swift
-        .target(name: "DangerDeps", dependencies: ["Danger"], path: ".", sources: ["Dangerfile.swift"]), // dev
+        // Using the Package.swift source produces a warning but it can be ignored
+        .target(name: "DangerDeps", dependencies: ["Danger"], path: ".", sources: ["Package.swift"]), // dev
     ]
 )
