@@ -11,7 +11,7 @@ stages:
   - "Prepare Cache"
   - "Test"
   - name: "Deploy"
-    if: tag IS present
+    if: branch = master AND tag IS present
 
 jobs:
   include:
