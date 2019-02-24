@@ -27,7 +27,9 @@ jobs:
     - stage: "Test"
       name: "Danger"
       if: type = pull_request
-      script: swift run danger-swift ci
+      script:
+        - npm install -g danger
+        - swift run danger-swift ci
     - stage: "Deploy"
       name: "GitHub Release"
       script: skip
