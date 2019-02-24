@@ -47,7 +47,6 @@ struct VersionFile {
 }
 
 let projectName = "Shepherd"
-let projectPath = "./\(projectName).xcodeproj/project.pbxproj"
 let swiftVersionPath = ".swift-version"
 
 func checkSwiftVersions() {
