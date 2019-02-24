@@ -47,7 +47,6 @@ struct VersionFile {
 }
 
 let projectName = "Shepherd"
-let swiftVersionPath = ".swift-version"
 let danger = Danger()
 let isPR = danger.github != nil
 
