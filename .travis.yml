@@ -19,8 +19,7 @@ jobs:
       script: swift build
     - stage: "Test"
       name: "Unit tests"
-      script:
-        - swift test
+      script: swift test
     - stage: "Test"
       name: "pod lib lint"
       if: type = pull_request
@@ -28,13 +27,11 @@ jobs:
     - stage: "Test"
       name: "Danger"
       if: type = pull_request
-      script:
-        - swift run danger-swift ci
+      script: swift run danger-swift ci
     - stage: "Deploy"
       name: "GitHub Release"
       script: skip
-      before_deploy:
-        - carthage build --archive --cache-builds --platform iOS
+      before_deploy: carthage build --archive --cache-builds --platform iOS
       deploy:
         provider: releases
         prerelease: true
