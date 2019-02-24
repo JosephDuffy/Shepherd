@@ -13,5 +13,9 @@ let package = Package(
     targets: [
         .target(name: "Shepherd", path: "Source"),
         .testTarget(name: "ShepherdTests", dependencies: ["Shepherd"], path: "Tests"),
+        // This is just an arbitrary Swift file in our app, that has
+        // no dependencies outside of Foundation, the dependencies section
+        // ensures that the library for Danger gets build also.
+        .target(name: "DangerDeps", dependencies: ["Danger"], path: ".", sources: ["Fake.swift"]), // dev
     ]
 )
