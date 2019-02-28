@@ -96,3 +96,4 @@ func check(versionFiles: [VersionFile], versionKind: String) {
 
 checkSwiftVersions()
 checkPodspec()
+SwiftLint.lint()
