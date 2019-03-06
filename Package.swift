@@ -9,6 +9,7 @@ let package = Package(
     ],
     dependencies: [
         .package(url: "https://github.com/danger/swift.git", from: "1.0.0"), // dev
+        .package(url: "https://github.com/f-meloni/Rocket", from: "0.1.0"), // dev
     ],
     targets: [
         .target(name: "Shepherd", path: "Source"),
