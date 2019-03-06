@@ -54,10 +54,10 @@ extension ActivityHandlerAggregate {
 
      With a tree as follows:
 
-     (A)
-     /   \
-     (B)   (C)
-     / | \     \
+           (A)
+          /   \
+        (B)   (C)
+       / | \     \
      (D)(E)(F)   (G)
 
      If the current handler is (D) and (G) can handle the activity the handlers would be called in the
