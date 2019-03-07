@@ -24,7 +24,11 @@ struct VersionFile {
         case .regex(let regex):
             do {
                 let regex = try NSRegularExpression(pattern: regex, options: [])
-                let matches = regex.matches(in: content, options: [], range: NSRange(location: 0, length: content.count))
+                let matches = regex.matches(
+                    in: content,
+                    options: [],
+                    range: NSRange(location: 0, length: content.count)
+                )
                 return matches.compactMap { match in
                     guard match.numberOfRanges > 1 else {
                         warn("Failed to find capture group for match \(match)")
@@ -55,15 +59,27 @@ let isPR = danger.github != nil
 
 func checkSwiftVersions() {
     check(versionFiles: [
-        VersionFile(path: "./\(projectName).xcodeproj/project.pbxproj", interpreter: .regex("SWIFT_VERSION = (.*);")),
-        VersionFile(path: ".swift-version", interpreter: .closure({ $0.trimmingCharacters(in: .whitespacesAndNewlines) })),
+        VersionFile(
+            path: "./\(projectName).xcodeproj/project.pbxproj",
+            interpreter: .regex("SWIFT_VERSION = (.*);")
+        ),
+        VersionFile(
+            path: ".swift-version",
+            interpreter: .closure({ $0.trimmingCharacters(in: .whitespacesAndNewlines) })
+        ),
     ], versionKind: "Swift")
 }
 
 func checkPodspec() {
     check(versionFiles: [
-        VersionFile(path: "./Source/Info.plist", interpreter: .regex("<key>CFBundleShortVersionString</key>\\s*<string>(.*)</string>")),
-        VersionFile(path: "./\(projectName).podspec", interpreter: .regex("version\\s*= \"(.*)\"")),
+        VersionFile(
+            path: "./Source/Info.plist",
+            interpreter: .regex("<key>CFBundleShortVersionString</key>\\s*<string>(.*)</string>")
+        ),
+        VersionFile(
+            path: "./\(projectName).podspec",
+            interpreter: .regex("version\\s*= \"(.*)\"")
+        ),
     ], versionKind: "framework")
 }
 
@@ -75,7 +91,14 @@ func check(versionFiles: [VersionFile], versionKind: String) {
 
         for fileVersion in fileVersions {
             if let first = versions.first, !versions.contains(fileVersion) {
-                warn("Found mismatched version. Expected " + first + ", found " + fileVersion + " in " + versionFile.path)
+                warn(
+                    "Found mismatched version. Expected "
+                    + first
+                    + ", found "
+                    + fileVersion
+                    + " in "
+                    + versionFile.path
+                )
                 versions.insert(fileVersion)
             } else if versions.isEmpty {
                 versions.insert(fileVersion)

@@ -1,3 +1,6 @@
-included:
-  - Source
-  - Tests
+excluded:
+  - .build
+  - Resources
+
+trailing_comma:
+  mandatory_comma: true
