@@ -96,4 +96,4 @@ func check(versionFiles: [VersionFile], versionKind: String) {
 
 checkSwiftVersions()
 checkPodspec()
-SwiftLint.lint()
+SwiftLint.lint(lintAllFiles: !isPR)
