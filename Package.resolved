@@ -11,6 +11,15 @@
         }
       },
       {
+        "package": "danger-swift",
+        "repositoryURL": "https://github.com/JosephDuffy/danger-swift.git",
+        "state": {
+          "branch": null,
+          "revision": "0cc45ee3e5f26847e422bdec1d8e694d44a11229",
+          "version": "1.4.1"
+        }
+      },
+      {
         "package": "Files",
         "repositoryURL": "https://github.com/JohnSundell/Files.git",
         "state": {
@@ -134,15 +143,6 @@
           "branch": null,
           "revision": "176f04295a09324673245d8ec0afcce21ace8722",
           "version": "0.22.0"
-        }
-      },
-      {
-        "package": "danger-swift",
-        "repositoryURL": "https://github.com/danger/swift.git",
-        "state": {
-          "branch": null,
-          "revision": "9d1ae06905f28c486b01058194e3e7acfa839949",
-          "version": "1.4.0"
         }
       },
       {
