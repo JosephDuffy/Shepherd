@@ -36,6 +36,7 @@
 		D91505C9221E04EB00EB5215 /* ActivityHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityHandler.swift; sourceTree = "<group>"; };
 		D91505CB221E050500EB5215 /* ActivityHandlerNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityHandlerNode.swift; sourceTree = "<group>"; };
 		D91505CD221E052600EB5215 /* ActivityHandlerAggregate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityHandlerAggregate.swift; sourceTree = "<group>"; };
+		D979608A2231B3FF00769ED6 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text; path = .swiftlint.yml; sourceTree = SOURCE_ROOT; };
 		D9CA4437222FF3CD000E424B /* Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = SOURCE_ROOT; };
 		D9CA4439222FF3F0000E424B /* DangerDeps.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DangerDeps.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -104,6 +105,7 @@
 			children = (
 				D9CA4437222FF3CD000E424B /* Package.swift */,
 				D9CA4439222FF3F0000E424B /* DangerDeps.swift */,
+				D979608A2231B3FF00769ED6 /* .swiftlint.yml */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
