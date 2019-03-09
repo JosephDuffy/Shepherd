@@ -19,6 +19,7 @@ jobs:
       script: swift build
     - stage: "Test"
       name: "Unit tests"
+      install: skip
       script: swift test
     - stage: "Test"
       name: "pod lib lint"
@@ -31,6 +32,7 @@ jobs:
       script: swift run danger-swift ci
     - stage: "Deploy"
       name: "GitHub Release"
+      install: skip
       script: skip
       before_deploy: carthage build --archive --cache-builds --platform iOS
       deploy:
@@ -44,4 +46,4 @@ jobs:
       script: skip
       deploy:
         provider: script
-        script: pod trunk push
+        script: bundle exec pod trunk push
