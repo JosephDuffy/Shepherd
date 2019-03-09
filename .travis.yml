@@ -24,7 +24,6 @@ jobs:
     - stage: "Test"
       name: "pod lib lint"
       if: type = pull_request
-      install: skip
       script: bundle exec pod lib lint
     - stage: "Test"
       name: "Danger"
