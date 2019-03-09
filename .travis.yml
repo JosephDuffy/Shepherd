@@ -43,8 +43,7 @@ jobs:
         skip_cleanup: true
     - stage: "Deploy"
       name: "CocoaPods release"
-      install: skip
       script: skip
       deploy:
         provider: script
-        script: pod trunk push
+        script: bundle exec pod trunk push
