@@ -19,10 +19,12 @@ jobs:
       script: swift build
     - stage: "Test"
       name: "Unit tests"
+      install: skip
       script: swift test
     - stage: "Test"
       name: "pod lib lint"
       if: type = pull_request
+      install: skip
       script: bundle exec pod lib lint
     - stage: "Test"
       name: "Danger"
@@ -31,6 +33,7 @@ jobs:
       script: swift run danger-swift ci
     - stage: "Deploy"
       name: "GitHub Release"
+      install: skip
       script: skip
       before_deploy: carthage build --archive --cache-builds --platform iOS
       deploy:
@@ -41,6 +44,7 @@ jobs:
         skip_cleanup: true
     - stage: "Deploy"
       name: "CocoaPods release"
+      install: skip
       script: skip
       deploy:
         provider: script
