@@ -20,6 +20,16 @@
 		D9E601DF2233EBED00B36B1E /* ActivityHandlerNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = D91505CB221E050500EB5215 /* ActivityHandlerNode.swift */; };
 		D9E601E02233EBED00B36B1E /* ActivityHandlerAggregate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D91505CD221E052600EB5215 /* ActivityHandlerAggregate.swift */; };
 		D9E601E12233EBFA00B36B1E /* Shepherd.h in Headers */ = {isa = PBXBuildFile; fileRef = D91505B2221E024900EB5215 /* Shepherd.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D9FFA6292235A223005D9A4D /* Shepherd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9FFA6202235A223005D9A4D /* Shepherd.framework */; };
+		D9FFA6372235A3FF005D9A4D /* ShepherdTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D91505BD221E024900EB5215 /* ShepherdTests.swift */; };
+		D9FFA6382235A407005D9A4D /* ActivityHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = D91505C9221E04EB00EB5215 /* ActivityHandler.swift */; };
+		D9FFA6392235A407005D9A4D /* ActivityHandlerNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = D91505CB221E050500EB5215 /* ActivityHandlerNode.swift */; };
+		D9FFA63A2235A407005D9A4D /* ActivityHandlerAggregate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D91505CD221E052600EB5215 /* ActivityHandlerAggregate.swift */; };
+		D9FFA63B2235A408005D9A4D /* ActivityHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = D91505C9221E04EB00EB5215 /* ActivityHandler.swift */; };
+		D9FFA63C2235A408005D9A4D /* ActivityHandlerNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = D91505CB221E050500EB5215 /* ActivityHandlerNode.swift */; };
+		D9FFA63D2235A408005D9A4D /* ActivityHandlerAggregate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D91505CD221E052600EB5215 /* ActivityHandlerAggregate.swift */; };
+		D9FFA63E2235A40B005D9A4D /* Shepherd.h in Headers */ = {isa = PBXBuildFile; fileRef = D91505B2221E024900EB5215 /* Shepherd.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D9FFA63F2235A40B005D9A4D /* Shepherd.h in Headers */ = {isa = PBXBuildFile; fileRef = D91505B2221E024900EB5215 /* Shepherd.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +46,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = D9E601C52233E99D00B36B1E;
 			remoteInfo = "Shepherd-macOS";
+		};
+		D9FFA62A2235A223005D9A4D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D91505A6221E024900EB5215 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D9FFA61F2235A223005D9A4D;
+			remoteInfo = "Shepherd-tvOS";
 		};
 /* End PBXContainerItemProxy section */
 
@@ -54,6 +71,8 @@
 		D9D933B4223492FD00E94AAE /* Shepherd.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Shepherd.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9E601C62233E99D00B36B1E /* Shepherd.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Shepherd.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9E601CE2233E99D00B36B1E /* ShepherdTests-macOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ShepherdTests-macOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D9FFA6202235A223005D9A4D /* Shepherd.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Shepherd.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D9FFA6282235A223005D9A4D /* ShepherdTests-tvOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ShepherdTests-tvOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +113,21 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		D9FFA61D2235A223005D9A4D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D9FFA6252235A223005D9A4D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D9FFA6292235A223005D9A4D /* Shepherd.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -115,6 +149,8 @@
 				D9E601C62233E99D00B36B1E /* Shepherd.framework */,
 				D9E601CE2233E99D00B36B1E /* ShepherdTests-macOS.xctest */,
 				D9D933B4223492FD00E94AAE /* Shepherd.framework */,
+				D9FFA6202235A223005D9A4D /* Shepherd.framework */,
+				D9FFA6282235A223005D9A4D /* ShepherdTests-tvOS.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -164,6 +200,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D9FFA63E2235A40B005D9A4D /* Shepherd.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -172,6 +209,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				D9E601E12233EBFA00B36B1E /* Shepherd.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D9FFA61B2235A223005D9A4D /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D9FFA63F2235A40B005D9A4D /* Shepherd.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -268,6 +313,42 @@
 			productReference = D9E601CE2233E99D00B36B1E /* ShepherdTests-macOS.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		D9FFA61F2235A223005D9A4D /* Shepherd-tvOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D9FFA6352235A223005D9A4D /* Build configuration list for PBXNativeTarget "Shepherd-tvOS" */;
+			buildPhases = (
+				D9FFA61B2235A223005D9A4D /* Headers */,
+				D9FFA61C2235A223005D9A4D /* Sources */,
+				D9FFA61D2235A223005D9A4D /* Frameworks */,
+				D9FFA61E2235A223005D9A4D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Shepherd-tvOS";
+			productName = "Shepherd-tvOS";
+			productReference = D9FFA6202235A223005D9A4D /* Shepherd.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		D9FFA6272235A223005D9A4D /* ShepherdTests-tvOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D9FFA6362235A223005D9A4D /* Build configuration list for PBXNativeTarget "ShepherdTests-tvOS" */;
+			buildPhases = (
+				D9FFA6242235A223005D9A4D /* Sources */,
+				D9FFA6252235A223005D9A4D /* Frameworks */,
+				D9FFA6262235A223005D9A4D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D9FFA62B2235A223005D9A4D /* PBXTargetDependency */,
+			);
+			name = "ShepherdTests-tvOS";
+			productName = "Shepherd-tvOSTests";
+			productReference = D9FFA6282235A223005D9A4D /* ShepherdTests-tvOS.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -294,6 +375,12 @@
 					D9E601CD2233E99D00B36B1E = {
 						CreatedOnToolsVersion = 10.1;
 					};
+					D9FFA61F2235A223005D9A4D = {
+						CreatedOnToolsVersion = 10.1;
+					};
+					D9FFA6272235A223005D9A4D = {
+						CreatedOnToolsVersion = 10.1;
+					};
 				};
 			};
 			buildConfigurationList = D91505A9221E024900EB5215 /* Build configuration list for PBXProject "Shepherd" */;
@@ -313,6 +400,8 @@
 				D9E601C52233E99D00B36B1E /* Shepherd-macOS */,
 				D9E601CD2233E99D00B36B1E /* ShepherdTests-macOS */,
 				D9D933B3223492FD00E94AAE /* Shepherd-watchOS */,
+				D9FFA61F2235A223005D9A4D /* Shepherd-tvOS */,
+				D9FFA6272235A223005D9A4D /* ShepherdTests-tvOS */,
 			);
 		};
 /* End PBXProject section */
@@ -353,6 +442,20 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		D9FFA61E2235A223005D9A4D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D9FFA6262235A223005D9A4D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -379,6 +482,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D9FFA6382235A407005D9A4D /* ActivityHandler.swift in Sources */,
+				D9FFA63A2235A407005D9A4D /* ActivityHandlerAggregate.swift in Sources */,
+				D9FFA6392235A407005D9A4D /* ActivityHandlerNode.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -400,6 +506,24 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		D9FFA61C2235A223005D9A4D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D9FFA63B2235A408005D9A4D /* ActivityHandler.swift in Sources */,
+				D9FFA63D2235A408005D9A4D /* ActivityHandlerAggregate.swift in Sources */,
+				D9FFA63C2235A408005D9A4D /* ActivityHandlerNode.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D9FFA6242235A223005D9A4D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D9FFA6372235A3FF005D9A4D /* ShepherdTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -412,6 +536,11 @@
 			isa = PBXTargetDependency;
 			target = D9E601C52233E99D00B36B1E /* Shepherd-macOS */;
 			targetProxy = D9E601D02233E99D00B36B1E /* PBXContainerItemProxy */;
+		};
+		D9FFA62B2235A223005D9A4D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D9FFA61F2235A223005D9A4D /* Shepherd-tvOS */;
+			targetProxy = D9FFA62A2235A223005D9A4D /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -480,6 +609,7 @@
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.2;
+				TVOS_DEPLOYMENT_TARGET = 9.0;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 				VERSION_NUMBER = 0.1.0;
@@ -544,6 +674,7 @@
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				SWIFT_VERSION = 4.2;
+				TVOS_DEPLOYMENT_TARGET = 9.0;
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -741,6 +872,80 @@
 			};
 			name = Release;
 		};
+		D9FFA6312235A223005D9A4D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				SDKROOT = appletvos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 3;
+			};
+			name = Debug;
+		};
+		D9FFA6322235A223005D9A4D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				SDKROOT = appletvos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 3;
+			};
+			name = Release;
+		};
+		D9FFA6332235A223005D9A4D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				INFOPLIST_FILE = Tests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "uk.josephduffy.ShepherdTests-tvOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = appletvos;
+				TARGETED_DEVICE_FAMILY = 3;
+			};
+			name = Debug;
+		};
+		D9FFA6342235A223005D9A4D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				INFOPLIST_FILE = Tests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "uk.josephduffy.ShepherdTests-tvOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = appletvos;
+				TARGETED_DEVICE_FAMILY = 3;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -794,6 +999,24 @@
 			buildConfigurations = (
 				D9E601D92233E99D00B36B1E /* Debug */,
 				D9E601DA2233E99D00B36B1E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D9FFA6352235A223005D9A4D /* Build configuration list for PBXNativeTarget "Shepherd-tvOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D9FFA6312235A223005D9A4D /* Debug */,
+				D9FFA6322235A223005D9A4D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D9FFA6362235A223005D9A4D /* Build configuration list for PBXNativeTarget "ShepherdTests-tvOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D9FFA6332235A223005D9A4D /* Debug */,
+				D9FFA6342235A223005D9A4D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
