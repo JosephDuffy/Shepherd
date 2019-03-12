@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "D91505AE221E024900EB5215"
+               BlueprintIdentifier = "D9E601C52233E99D00B36B1E"
                BuildableName = "Shepherd.framework"
-               BlueprintName = "Shepherd"
+               BlueprintName = "Shepherd-macOS"
                ReferencedContainer = "container:Shepherd.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -29,12 +29,13 @@
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
          <TestableReference
-            skipped = "NO">
+            skipped = "NO"
+            parallelizable = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "D91505B7221E024900EB5215"
-               BuildableName = "ShepherdTests.xctest"
-               BlueprintName = "ShepherdTests"
+               BlueprintIdentifier = "D9E601CD2233E99D00B36B1E"
+               BuildableName = "ShepherdTests-macOS.xctest"
+               BlueprintName = "ShepherdTests-macOS"
                ReferencedContainer = "container:Shepherd.xcodeproj">
             </BuildableReference>
          </TestableReference>
@@ -42,9 +43,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "D91505AE221E024900EB5215"
+            BlueprintIdentifier = "D9E601C52233E99D00B36B1E"
             BuildableName = "Shepherd.framework"
-            BlueprintName = "Shepherd"
+            BlueprintName = "Shepherd-macOS"
             ReferencedContainer = "container:Shepherd.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -64,9 +65,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "D91505AE221E024900EB5215"
+            BlueprintIdentifier = "D9E601C52233E99D00B36B1E"
             BuildableName = "Shepherd.framework"
-            BlueprintName = "Shepherd"
+            BlueprintName = "Shepherd-macOS"
             ReferencedContainer = "container:Shepherd.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -82,9 +83,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "D91505AE221E024900EB5215"
+            BlueprintIdentifier = "D9E601C52233E99D00B36B1E"
             BuildableName = "Shepherd.framework"
-            BlueprintName = "Shepherd"
+            BlueprintName = "Shepherd-macOS"
             ReferencedContainer = "container:Shepherd.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
