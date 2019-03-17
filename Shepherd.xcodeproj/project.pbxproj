@@ -18,6 +18,10 @@
 		D9D7E08E223DC26000DE353D /* StackableActivityHandlerAggregate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9D7E08C223DC26000DE353D /* StackableActivityHandlerAggregate.swift */; };
 		D9D7E08F223DC26000DE353D /* StackableActivityHandlerAggregate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9D7E08C223DC26000DE353D /* StackableActivityHandlerAggregate.swift */; };
 		D9D7E090223DC26000DE353D /* StackableActivityHandlerAggregate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9D7E08C223DC26000DE353D /* StackableActivityHandlerAggregate.swift */; };
+		D9D7E092223DC31E00DE353D /* ActivityHandler+traverseTree.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9D7E091223DC31E00DE353D /* ActivityHandler+traverseTree.swift */; };
+		D9D7E093223DC31E00DE353D /* ActivityHandler+traverseTree.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9D7E091223DC31E00DE353D /* ActivityHandler+traverseTree.swift */; };
+		D9D7E094223DC31E00DE353D /* ActivityHandler+traverseTree.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9D7E091223DC31E00DE353D /* ActivityHandler+traverseTree.swift */; };
+		D9D7E095223DC31E00DE353D /* ActivityHandler+traverseTree.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9D7E091223DC31E00DE353D /* ActivityHandler+traverseTree.swift */; };
 		D9E601CF2233E99D00B36B1E /* Shepherd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9E601C62233E99D00B36B1E /* Shepherd.framework */; };
 		D9E601DD2233EBE300B36B1E /* ShepherdTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D91505BD221E024900EB5215 /* ShepherdTests.swift */; };
 		D9E601DE2233EBED00B36B1E /* ActivityHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = D91505C9221E04EB00EB5215 /* ActivityHandler.swift */; };
@@ -73,6 +77,7 @@
 		D9CA4437222FF3CD000E424B /* Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = SOURCE_ROOT; };
 		D9CA4439222FF3F0000E424B /* DangerDeps.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DangerDeps.swift; sourceTree = "<group>"; };
 		D9D7E08C223DC26000DE353D /* StackableActivityHandlerAggregate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackableActivityHandlerAggregate.swift; sourceTree = "<group>"; };
+		D9D7E091223DC31E00DE353D /* ActivityHandler+traverseTree.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ActivityHandler+traverseTree.swift"; sourceTree = "<group>"; };
 		D9D933B4223492FD00E94AAE /* Shepherd.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Shepherd.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9E601C62233E99D00B36B1E /* Shepherd.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Shepherd.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9E601CE2233E99D00B36B1E /* ShepherdTests-macOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ShepherdTests-macOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -167,6 +172,7 @@
 				D91505CB221E050500EB5215 /* ActivityHandlerNode.swift */,
 				D91505CD221E052600EB5215 /* ActivityHandlerAggregate.swift */,
 				D9D7E08C223DC26000DE353D /* StackableActivityHandlerAggregate.swift */,
+				D9D7E091223DC31E00DE353D /* ActivityHandler+traverseTree.swift */,
 				D91505B2221E024900EB5215 /* Shepherd.h */,
 				D91505B3221E024900EB5215 /* Info.plist */,
 			);
@@ -470,6 +476,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D9D7E08D223DC26000DE353D /* StackableActivityHandlerAggregate.swift in Sources */,
+				D9D7E092223DC31E00DE353D /* ActivityHandler+traverseTree.swift in Sources */,
 				D91505CA221E04EB00EB5215 /* ActivityHandler.swift in Sources */,
 				D91505CE221E052600EB5215 /* ActivityHandlerAggregate.swift in Sources */,
 				D91505CC221E050500EB5215 /* ActivityHandlerNode.swift in Sources */,
@@ -490,6 +497,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D9FFA6382235A407005D9A4D /* ActivityHandler.swift in Sources */,
+				D9D7E094223DC31E00DE353D /* ActivityHandler+traverseTree.swift in Sources */,
 				D9FFA63A2235A407005D9A4D /* ActivityHandlerAggregate.swift in Sources */,
 				D9D7E08F223DC26000DE353D /* StackableActivityHandlerAggregate.swift in Sources */,
 				D9FFA6392235A407005D9A4D /* ActivityHandlerNode.swift in Sources */,
@@ -501,6 +509,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D9E601DE2233EBED00B36B1E /* ActivityHandler.swift in Sources */,
+				D9D7E093223DC31E00DE353D /* ActivityHandler+traverseTree.swift in Sources */,
 				D9E601E02233EBED00B36B1E /* ActivityHandlerAggregate.swift in Sources */,
 				D9D7E08E223DC26000DE353D /* StackableActivityHandlerAggregate.swift in Sources */,
 				D9E601DF2233EBED00B36B1E /* ActivityHandlerNode.swift in Sources */,
@@ -520,6 +529,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D9FFA63B2235A408005D9A4D /* ActivityHandler.swift in Sources */,
+				D9D7E095223DC31E00DE353D /* ActivityHandler+traverseTree.swift in Sources */,
 				D9FFA63D2235A408005D9A4D /* ActivityHandlerAggregate.swift in Sources */,
 				D9D7E090223DC26000DE353D /* StackableActivityHandlerAggregate.swift in Sources */,
 				D9FFA63C2235A408005D9A4D /* ActivityHandlerNode.swift in Sources */,
