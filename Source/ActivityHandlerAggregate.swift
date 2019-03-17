@@ -79,22 +79,42 @@ extension ActivityHandlerAggregate {
      */
     @discardableResult
     public func traverseTreeToHandle(activity: NSUserActivity, ignoring: ActivityHandler?) -> ActivityHandler? {
-        for child in children.reversed() {
-            guard child !== ignoring else { continue }
-            if let child = child as? ActivityHandlerAggregate {
-                if let handler = child.handle(activity: activity, ignoring: self) {
-                    return handler
+        if let self = self as? StackableActivityHandlerAggregate {
+            let stackedHandler: ActivityHandler?
+            if let ignoring = ignoring {
+                let split = self.stackedHandlers.split(maxSplits: 1, whereSeparator: { $0 !== ignoring }).first!
+                stackedHandler = Array(split).last
+            } else {
+                stackedHandler = self.stackedHandlers.last
+            }
+            
+            if let stackedHandler = stackedHandler {
+                if let stackedHandler = stackedHandler as? ActivityHandlerAggregate {
+                    if let handler = stackedHandler.handle(activity: activity, ignoring: self) {
+                        return handler
+                    }
+                } else if stackedHandler.handle(activity: activity) {
+                    return stackedHandler
                 }
             }
-            if child.handle(activity: activity) {
-                return child
+        }
+        
+        if let self = self as? ActivityHandlerAggregate {
+            for child in self.children.reversed() where child !== ignoring {
+                if let child = child as? ActivityHandlerAggregate {
+                    if let handler = child.handle(activity: activity, ignoring: self) {
+                        return handler
+                    }
+                } else if child.handle(activity: activity) {
+                    return child
+                }
             }
         }
-
-        if let parent = (self as? ActivityHandlerNode)?.parent, parent !== ignoring {
-            return parent.handle(activity: activity, ignoring: self)
+        
+        if let self = self as? ActivityHandlerNode, self.parent !== ignoring {
+            return self.parent.handle(activity: activity, ignoring: self)
         }
-
+        
         return nil
     }
 
