@@ -18,24 +18,24 @@ jobs:
     - stage: "Prepare Cache"
       script: swift build
     - stage: "Test"
-      name: "Unit tests (SPM)"
+      name: "Unit tests (macOS, SPM)"
       install: skip
       script: swift test
     - stage: "Test"
-      name: "Unit tests (Xcode)"
+      name: "Unit tests (iOS, Xcode)"
       install: skip
-      xcode_project:
-        - Shepherd.xcodeproj
-        - Shepherd.xcodeproj
-        - Shepherd.xcodeproj
-      xcode_scheme:
-        - Shepherd-iOS
-        - Shepherd-macOS
-        - Shepherd-tvOS
-      xcode_destination:
-        - platform=iOS
-        - platform=macOS
-        - platform=tvOS
+      xcode_project: Shepherd.xcodeproj
+      xcode_scheme: Shepherd-iOS
+    - stage: "Test"
+      name: "Unit tests (macOS, Xcode)"
+      install: skip
+      xcode_project: Shepherd.xcodeproj
+      xcode_scheme: Shepherd-macOS
+    - stage: "Test"
+      name: "Unit tests (tvOS, Xcode)"
+      install: skip
+      xcode_project: Shepherd.xcodeproj
+      xcode_scheme:  Shepherd-tvOS
     - stage: "Test"
       name: "pod lib lint"
       if: type = pull_request
