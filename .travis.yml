@@ -16,7 +16,9 @@ stages:
 jobs:
   include:
     - stage: "Prepare Cache"
-      script: swift build
+      script:
+        - swift build --skip-update --build-tests
+        - swift build --skip-update --configuration release --product danger-swift
     - stage: "Test"
       name: "Unit tests (macOS, SPM)"
       install: skip
