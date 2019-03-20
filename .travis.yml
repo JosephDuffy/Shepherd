@@ -18,29 +18,20 @@ jobs:
     - stage: "Prepare Cache"
       script: swift build
     - stage: "Test"
-      name: "Unit tests (macOS)"
+      name: "Unit tests (SPM)"
       install: skip
       script: swift test
     - stage: "Test"
-      name: "Unit tests (iOS)"
+      name: "Unit tests (Xcode)"
       install: skip
-      xcode_scheme: Shepherd-iOS
-      xcode_sdk: iphonesimulator12.1
-      env: DESTINATION="platform=iOS Simulator,OS=12.1,name=iPhone XS"
+      xcode_scheme:
+        - Shepherd-iOS
+        - Shepherd-macOS
+        - Shepherd-tvOS
       script:
         - set -o pipefail
-        - xcodebuild clean build build-for-testing -project Shepherd.xcodeproj -scheme "${TRAVIS_XCODE_SCHEME}" -sdk "${TRAVIS_XCODE_SDK}" -destination "${DESTINATION}" | xcpretty
-        - xcodebuild test-without-building -project Shepherd.xcodeproj -scheme "${TRAVIS_XCODE_SCHEME}" -sdk "${TRAVIS_XCODE_SDK}" -destination "${DESTINATION}" | xcpretty
-    - stage: "Test"
-      name: "Unit tests (tvOS)"
-      install: skip
-      xcode_scheme: Shepherd-tvOS
-      xcode_sdk: appletvsimulator12.1
-      env: DESTINATION="platform=tvOS Simulator,OS=12.1,name=Apple TV"
-      script:
-        - set -o pipefail
-        - xcodebuild clean build build-for-testing -project Shepherd.xcodeproj -scheme "${TRAVIS_XCODE_SCHEME}" -sdk "${TRAVIS_XCODE_SDK}" -destination "${DESTINATION}" | xcpretty
-        - xcodebuild test-without-building -project Shepherd.xcodeproj -scheme "${TRAVIS_XCODE_SCHEME}" -sdk "${TRAVIS_XCODE_SDK}" -destination "${DESTINATION}" | xcpretty
+        - xcodebuild clean build build-for-testing -project Shepherd.xcodeproj -scheme "${TRAVIS_XCODE_SCHEME}" | xcpretty
+        - xcodebuild test-without-building -project Shepherd.xcodeproj -scheme "${TRAVIS_XCODE_SCHEME}" | xcpretty
     - stage: "Test"
       name: "pod lib lint"
       if: type = pull_request
