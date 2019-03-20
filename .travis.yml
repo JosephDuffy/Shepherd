@@ -24,14 +24,11 @@ jobs:
     - stage: "Test"
       name: "Unit tests (Xcode)"
       install: skip
+      xcode_project: Shepherd.xcodeproj
       xcode_scheme:
         - Shepherd-iOS
         - Shepherd-macOS
         - Shepherd-tvOS
-      script:
-        - set -o pipefail
-        - xcodebuild clean build build-for-testing -project Shepherd.xcodeproj -scheme "${TRAVIS_XCODE_SCHEME}" | xcpretty
-        - xcodebuild test-without-building -project Shepherd.xcodeproj -scheme "${TRAVIS_XCODE_SCHEME}" | xcpretty
     - stage: "Test"
       name: "pod lib lint"
       if: type = pull_request
