@@ -26,6 +26,8 @@ xcuserdata/
 *.dSYM.zip
 *.dSYM
 
-## Swift Package Manager
-
+# Swift Package Manager
 .build
+
+# Carthage
+Carthage
