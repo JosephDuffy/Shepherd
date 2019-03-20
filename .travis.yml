@@ -29,6 +29,10 @@ jobs:
         - Shepherd-iOS
         - Shepherd-macOS
         - Shepherd-tvOS
+      xcode_destination:
+        - platform=iOS
+        - platform=macOS
+        - platform=tvOS
     - stage: "Test"
       name: "pod lib lint"
       if: type = pull_request
