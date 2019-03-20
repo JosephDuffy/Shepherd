@@ -24,7 +24,10 @@ jobs:
     - stage: "Test"
       name: "Unit tests (Xcode)"
       install: skip
-      xcode_project: Shepherd.xcodeproj
+      xcode_project:
+        - Shepherd.xcodeproj
+        - Shepherd.xcodeproj
+        - Shepherd.xcodeproj
       xcode_scheme:
         - Shepherd-iOS
         - Shepherd-macOS
