@@ -29,12 +29,14 @@ extension ActivityHandler {
      be asked to handle the activity (unless the `ignoring` parameter is the parent).
      
      With a tree as follows:
-     
+
+     ```
            (A)
           /   \
         (B)   (C)
        / | \     \
      (D)(E)(F)   (G)
+     ```
      
      If the current handler is (D) and (G) can handle the activity the handlers would be called in the
      following order:
@@ -58,8 +60,11 @@ extension ActivityHandler {
         if let self = self as? StackableActivityHandlerAggregate {
             let stackedHandler: ActivityHandler?
             if let ignoring = ignoring {
-                let split = self.stackedHandlers.split(maxSplits: 1, whereSeparator: { $0 !== ignoring }).first!
-                stackedHandler = Array(split).last
+                stackedHandler = self
+                    .stackedHandlers
+                    .split(maxSplits: 1, whereSeparator: { $0 !== ignoring })
+                    .first?
+                    .last
             } else {
                 stackedHandler = self.stackedHandlers.last
             }

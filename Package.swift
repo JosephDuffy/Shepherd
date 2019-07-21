@@ -13,7 +13,7 @@ let package = Package(
         .package(url: "https://github.com/Quick/Nimble.git", from: "8.0.0"), // dev
     ],
     targets: [
-        .target(name: "Shepherd", path: "Source"),
-        .testTarget(name: "ShepherdTests", dependencies: ["Shepherd", "Quick", "Nimble"], path: "Tests"),
+        .target(name: "Shepherd"),
+        .testTarget(name: "ShepherdTests", dependencies: ["Shepherd", "Quick", "Nimble"]),
     ]
 )
