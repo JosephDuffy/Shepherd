@@ -15,5 +15,6 @@ let package = Package(
     targets: [
         .target(name: "Shepherd"),
         .testTarget(name: "ShepherdTests", dependencies: ["Shepherd", "Quick", "Nimble"]),
-    ]
+    ],
+    swiftLanguageVersions: [.v5]
 )
