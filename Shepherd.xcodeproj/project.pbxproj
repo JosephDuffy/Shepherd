@@ -145,7 +145,7 @@
 		D91505A5221E024900EB5215 = {
 			isa = PBXGroup;
 			children = (
-				D91505B1221E024900EB5215 /* Source */,
+				D91505B1221E024900EB5215 /* Sources */,
 				D91505BC221E024900EB5215 /* Tests */,
 				D9CA4436222FF3B5000E424B /* Resources */,
 				D91505B0221E024900EB5215 /* Products */,
@@ -166,14 +166,14 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		D91505B1221E024900EB5215 /* Source */ = {
+		D91505B1221E024900EB5215 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
 				D95A638B22E4B18600968641 /* Shepherd */,
 				D91505B2221E024900EB5215 /* Shepherd.h */,
 				D91505B3221E024900EB5215 /* Info.plist */,
 			);
-			path = Source;
+			path = Sources;
 			sourceTree = "<group>";
 		};
 		D91505BC221E024900EB5215 /* Tests */ = {
@@ -640,7 +640,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				INFOPLIST_FILE = Source/Info.plist;
+				INFOPLIST_FILE = Sources/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
@@ -707,7 +707,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				INFOPLIST_FILE = Source/Info.plist;
+				INFOPLIST_FILE = Sources/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				MTL_ENABLE_DEBUG_INFO = NO;
