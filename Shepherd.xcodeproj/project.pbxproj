@@ -409,6 +409,7 @@
 					};
 					D9E601C52233E99D00B36B1E = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1100;
 					};
 					D9E601CD2233E99D00B36B1E = {
 						CreatedOnToolsVersion = 10.1;
@@ -648,9 +649,10 @@
 				PRODUCT_BUNDLE_IDENTIFIER = uk.josephduffy.Shepherd;
 				PRODUCT_NAME = Shepherd;
 				SDKROOT = iphoneos;
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TVOS_DEPLOYMENT_TARGET = 9.0;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -713,9 +715,10 @@
 				PRODUCT_BUNDLE_IDENTIFIER = uk.josephduffy.Shepherd;
 				PRODUCT_NAME = Shepherd;
 				SDKROOT = iphoneos;
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TVOS_DEPLOYMENT_TARGET = 9.0;
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
