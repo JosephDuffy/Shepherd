@@ -1,29 +1,48 @@
 import Foundation
 
-public protocol ActivityHandlerAggregate: ActivityHandler {
+open class ActivityHandlerAggregate: ActivityHandler {
 
-    var children: [ActivityHandler] { get }
+    public private(set) var children: [ActivityHandler]
 
-    func add(child: ActivityHandler)
-
-    @discardableResult
-    func handle(activity: NSUserActivity, ignoring: ActivityHandler?) -> ActivityHandler?
-
-}
-
-extension ActivityHandlerAggregate {
+    public override required init() {
+        children = []
+    }
 
     /**
-     Attempts to handle the provided activity by traversing the tree of the handler
+     Adds the activity handler to the array of children that will be queried when attempting to handle
+     an activity. It will also set the parent to this aggregate.
+     */
+    open func append(_ child: ActivityHandler) {
+        children.append(child)
+        child.parent = self
+    }
 
-     - see: traverseTree(toHandle:ignoring:)
+    /**
+     Removes the activity handler from the array of children that will be queried when attempting to handle
+     an activity. It will also set the parent to `nil`
+     */
+    open func remove(_ child: ActivityHandler) {
+        children.removeAll(where: { $0 === child })
+        child.parent = nil
+    }
 
-     - parameter activity: The activity to be handled
-     - returns: The handler that handled the activity, or `nil` if the activity went unhandled
+    /**
+     Attempts to handle the provided activity by asking children to handle the activity. If none
+     of the children can handle the activity the parent will also be queried.
+
+     - Parameter activity: The activity to be handled
+     - Parameter ignoring: An optional activity handler that should be ignored while traversing
+     - Returns: The handler that handled the activity, or `nil` if the activity was not handled
      */
     @discardableResult
-    public func handle(activity: NSUserActivity, ignoring: ActivityHandler?) -> ActivityHandler? {
-        return traverseTree(toHandle: activity, ignoring: ignoring)
+    open override func handle(activity: NSUserActivity, ignoring: ActivityHandler? = nil) -> ActivityHandler? {
+        for child in self.children where child !== ignoring {
+            if let handler = child.handle(activity: activity, ignoring: self) {
+                return handler
+            }
+        }
+
+        return super.handle(activity: activity, ignoring: ignoring)
     }
 
 }
