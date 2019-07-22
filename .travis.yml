@@ -1,72 +1,135 @@
-os: osx
-osx_image: xcode10.1
-language: objective-c
-
 cache:
   bundler: true
+  yarn: true
   directories:
-    - .build
     - Carthage
+    - ~/.swiftenv
+    - .build
 
 stages:
-  - "Prepare Cache"
-  - "Test"
+  - name: "Test"
+    if: tag IS NOT present
   - name: "Deploy"
-    if: branch = master AND tag IS present
+    if: tag IS present
+
+_base_envs:
+- &macos_env
+  os: osx
+  language: objective-c
+  osx_image: xcode10.2
+- &macos_swift_beta_env
+  <<: *macos_env
+  <<: *swift_beta_install
+- &xcode_env
+  <<: *macos_env
+  xcode_project: Shepherd.xcodeproj
+  after_success:
+    - bash <(curl -s https://codecov.io/bash)
+- &macos_xcode_env
+  <<: *xcode_env
+  install: carthage bootstrap --platform macOS --cache-builds
+  xcode_scheme: Shepherd-macOS
+  xcode_destination: platform=macOS
+- &ios_xcode_env
+  <<: *xcode_env
+  install: carthage bootstrap --platform iOS --cache-builds
+  xcode_scheme: Shepherd-iOS
+  xcode_destination: platform=iOS Simulator,OS=12.1,name=iPhone XS
+- &tvos_xcode_env
+  <<: *xcode_env
+  install: carthage bootstrap --platform tvOS --cache-builds
+  xcode_scheme: Shepherd-tvOS
+  xcode_destination: platform=tvOS Simulator,OS=12.1,name=Apple TV 4K
 
 jobs:
   include:
-    - stage: "Prepare Cache"
-      install:
-        - carthage bootstrap --platform iOS,macOS,tvOS --cache-builds
-        - swift build --skip-update --build-tests
-        - swift build --skip-update --configuration release --product danger-swift
-      script: skip
-    - stage: "Test"
-      name: "Unit tests (macOS, SPM)"
-      install: skip
-      script: swift test
-    - stage: "Test"
-      name: "Unit tests (iOS, Xcode)"
-      install: skip
-      xcode_project: Shepherd.xcodeproj
-      xcode_scheme: Shepherd-iOS
-      xcode_destination: platform=iOS Simulator,OS=12.1,name=iPhone XS
-    - stage: "Test"
-      name: "Unit tests (macOS, Xcode)"
-      install: skip
-      xcode_project: Shepherd.xcodeproj
-      xcode_scheme: Shepherd-macOS
-      xcode_destination: platform=macOS
-    - stage: "Test"
-      name: "Unit tests (tvOS, Xcode)"
-      install: skip
-      xcode_project: Shepherd.xcodeproj
-      xcode_scheme: Shepherd-tvOS
-      xcode_destination: platform=tvOS Simulator,OS=12.1,name=Apple TV 4K
-    - stage: "Test"
-      name: "pod lib lint"
-      if: type = pull_request
-      script: bundle exec pod lib lint
-    - stage: "Test"
+    - <<: *macos_env
+      stage: "Test"
       name: "Danger"
       if: type = pull_request
-      install: npm install -g danger
-      script: swift run danger-swift ci
-    - stage: "Deploy"
-      name: "GitHub Release"
+      addons:
+        homebrew:
+          packages:
+            - yarn
+      install:
+        - yarn install
+        - swift build --skip-update --target CIDependencies
+        - swift build --skip-update --product danger-swift
+      script: swift run --skip-update danger-swift ci --danger-js-path $(yarn bin danger) --verbose
+
+    - <<: *macos_env
+      stage: "Test"
+      name: "pod lib lint"
+      if: type = pull_request
+      install: bundle install --deployment
+      script: bundle exec pod lib lint
+
+    - <<: *macos_env
+      stage: "Test"
+      name: "Unit tests (macOS, SwiftPM)"
+      if: type != pull_request
+      script: swift test
+
+    - <<: *macos_swift_beta_env
+      stage: "Test"
+      name: "Unit tests (macOS, Swift Beta, SwiftPM)"
+      if: type != pull_request
+      script: swift test
+
+    - <<: *ios_xcode_env
+      stage: "Test"
+      name: "Unit tests (iOS, Xcode)"
+      if: type != pull_request
+
+    - <<: *macos_xcode_env
+      stage: "Test"
+      name: "Unit tests (macOS, Xcode)"
+      if: type != pull_request
+
+    - <<: *tvos_xcode_env
+      stage: "Test"
+      name: "Unit tests (tvOS, Xcode)"
+      if: type != pull_request
+
+    - <<: *macos_env
+      stage: "Deploy"
+      name: "Upload Prebuilt Frameworks to GitHub"
       install: skip
       script: skip
-      before_deploy: carthage build --archive --cache-builds --platform iOS
+      before_deploy: carthage build --archive --platform iOS,macOS,tvOS,watchOS
       deploy:
         provider: releases
-        prerelease: true
-        api_key: $GITHUB_TOKEN
+        api_key: $GITHUB_ACCESS_TOKEN
         file: Shepherd.framework.zip
         skip_cleanup: true
-    - stage: "Deploy"
+        on:
+          tags: true
+          branch: master
+
+    - <<: *macos_env
+      stage: "Deploy"
       name: "CocoaPods release"
+      install: bundle install --deployment
       script: skip
       deploy:
         provider: script
+        skip_cleanup: true
         script: bundle exec pod trunk push
+        on:
+          tags: true
+          branch: master
+
+    - <<: *macos_env
+      stage: "Deploy"
+      name: "Upload docs to GitHub Pages"
+      install: bundle install --deployment
+      script: bundle exec jazzy
+      deploy:
+        provider: pages
+        skip_cleanup: true
+        local_dir: docs
+        github_token: $GITHUB_ACCESS_TOKEN
+        keep_history: true
+        on:
+          tags: true
+          branch: master

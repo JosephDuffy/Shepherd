@@ -1,19 +1,16 @@
 Pod::Spec.new do |spec|
   spec.name         = "Shepherd"
   spec.version      = "0.1.0"
-  spec.summary      = <<-SUMM
-                   A collection of protocol and extensions to aid with `NSUserActivity`s
-                   SUMM
-  spec.description  = <<-DESC
-                   A collection of protocol and extensions to aid with the handling and creation of `NSUserActivity`s
-                   DESC
-  spec.homepage     = "https://github.com/JosephDuffy/shepherd"
+  spec.summary      = "A collection of classes and extensions to aid with `NSUserActivity`s"
+  spec.description  = "A collection of classes and extensions to aid with the handling and creation of `NSUserActivity`s"
+  spec.homepage     = "https://github.com/JosephDuffy/Shepherd"
   spec.license      = { :type => "MIT", :file => "LICENSE" }
   spec.author       = "Joseph Duffy"
   spec.source       = {
-    :git => "https://github.com/JosephDuffy/shepherd.git",
+    :git => "https://github.com/JosephDuffy/Shepherd.git",
     :tag => "v#{spec.version}"
   }
-  spec.source_files = "Source/**/*.{swift,h,m}"
-  spec.ios.deployment_target = '8.0'
+  spec.source_files = "Sources/Shepherd/*.swift"
+  spec.ios.deployment_target = "8.0"
+  spec.swift_versions = "5.0"
 end
