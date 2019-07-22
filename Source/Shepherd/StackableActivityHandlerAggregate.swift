@@ -10,6 +10,8 @@ import Foundation
 open class StackableActivityHandlerAggregate: ActivityHandlerAggregate {
     
     open private(set) var stackedHandler: ActivityHandler?
+
+    public override init() {}
     
     open func push(stackedHandler: ActivityHandler) {
         self.stackedHandler = stackedHandler

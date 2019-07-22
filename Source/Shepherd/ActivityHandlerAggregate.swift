@@ -2,11 +2,9 @@ import Foundation
 
 open class ActivityHandlerAggregate: ActivityHandler {
 
-    public private(set) var children: [ActivityHandler]
+    public private(set) var children: [ActivityHandler] = []
 
-    public override required init() {
-        children = []
-    }
+    public override init() {}
 
     /**
      Adds the activity handler to the array of children that will be queried when attempting to handle
