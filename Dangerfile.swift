@@ -96,7 +96,6 @@ public struct InfoPlistFile: File {
         }
     }
 
-
 }
 
 struct InfoPlistFileProvider: FileProvider {
@@ -112,10 +111,20 @@ struct InfoPlistFileProvider: FileProvider {
     private let fileManager: FileManager
 
     init(discoveryMethod: DiscoveryMethod, plistKey: InfoPlistFile.PlistKey, projectFilePath: String) {
-        self.init(discoveryMethod: discoveryMethod, plistKey: plistKey, projectFilePath: projectFilePath, fileManager: .default)
+        self.init(
+            discoveryMethod: discoveryMethod,
+            plistKey: plistKey,
+            projectFilePath: projectFilePath,
+            fileManager: .default
+        )
     }
 
-    init(discoveryMethod: DiscoveryMethod, plistKey: InfoPlistFile.PlistKey, projectFilePath: String, fileManager: FileManager) {
+    init(
+        discoveryMethod: DiscoveryMethod,
+        plistKey: InfoPlistFile.PlistKey,
+        projectFilePath: String,
+        fileManager: FileManager
+    ) {
         self.discoveryMethod = discoveryMethod
         self.plistKey = plistKey
         self.projectFilePath = projectFilePath
@@ -140,7 +149,14 @@ struct InfoPlistFileProvider: FileProvider {
             return urls
         case .searchDirectory(let rootPath, let fileNames):
             let rootURL = URL(fileURLWithPath: rootPath)
-            guard let enumerator = fileManager.enumerator(at: rootURL, includingPropertiesForKeys: nil, options: [.skipsHiddenFiles]) else { return [] }
+
+            guard
+                let enumerator = fileManager.enumerator(
+                    at: rootURL,
+                    includingPropertiesForKeys: nil,
+                    options: [.skipsHiddenFiles]
+                )
+            else { return [] }
 
             var versions: [URL] = []
             for case let fileURL as URL in enumerator {
@@ -189,7 +205,11 @@ public struct VersionFile: File {
         case .regex(let regex):
             do {
                 let regex = try NSRegularExpression(pattern: regex, options: [])
-                let matches = regex.matches(in: content, options: [], range: NSRange(location: 0, length: content.count))
+                let matches = regex.matches(
+                    in: content,
+                    options: [],
+                    range: NSRange(location: 0, length: content.count)
+                )
                 return matches.compactMap { match in
                     guard match.numberOfRanges > 1 else {
                         warn("Failed to find capture group for match \(match)")
@@ -221,24 +241,30 @@ let isPR = danger.github != nil
 func checkSwiftVersions() {
     check(
         files: [
-            VersionFile(path: "./\(projectName).xcodeproj/project.pbxproj", interpreter: .regex("SWIFT_VERSION = (.*);")),
-            VersionFile(path: ".swift-version", interpreter: .closure({ $0.trimmingCharacters(in: .whitespacesAndNewlines) })),
+            VersionFile(
+                path: "./\(projectName).xcodeproj/project.pbxproj",
+                interpreter: .regex("SWIFT_VERSION = (.*);")
+            ),
+            VersionFile(
+                path: "./\(projectName).podspec",
+                interpreter: .regex("\\.swift_version\\s*= \"(.*)\"")
+            ),
         ],
         versionKind: "Swift"
     )
 }
 
-func checkPodspec() {
+func checkProjectVersions() {
     check(
         fileProviders: [
             InfoPlistFileProvider(
-                discoveryMethod: .searchDirectory("./Source", fileNames: ["Info.plist"]),
+                discoveryMethod: .searchDirectory("./Sources", fileNames: ["Info.plist"]),
                 plistKey: .versionNumber,
-                projectFilePath: "./Shepherd.xcodeproj"
+                projectFilePath: "./\(projectName).xcodeproj"
             ),
         ],
         files: [
-            VersionFile(path: "./\(projectName).podspec", interpreter: .regex("version\\s*= \"(.*)\"")),
+            VersionFile(path: "./\(projectName).podspec", interpreter: .regex("\\.version\\s*= \"(.*)\"")),
         ],
         versionKind: "framework"
     )
@@ -276,4 +302,5 @@ func check(fileProviders: [FileProvider] = [], files: [File] = [], versionKind: 
 }
 
 checkSwiftVersions()
-checkPodspec()
+checkProjectVersions()
+SwiftLint.lint(inline: isPR)
