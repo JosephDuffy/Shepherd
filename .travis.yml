@@ -13,33 +13,50 @@ stages:
     if: tag IS present
 
 _base_envs:
+  # Bases
 - &macos_env
   os: osx
   language: objective-c
   osx_image: xcode10.2
-- &macos_swift_beta_env
+- &macos_beta_env
   <<: *macos_env
-  <<: *swift_beta_install
+  osx_image: xcode11
 - &xcode_env
   <<: *macos_env
   xcode_project: Shepherd.xcodeproj
   after_success:
     - bash <(curl -s https://codecov.io/bash)
+- &xcode_beta_env
+  <<: *xcode_env
+  <<: *macos_beta_env
+
+  # Deployment OSs
 - &macos_xcode_env
   <<: *xcode_env
   install: carthage bootstrap --platform macOS --cache-builds
   xcode_scheme: Shepherd-macOS
   xcode_destination: platform=macOS
+- &macos_xcode_beta_env
+  <<: *macos_xcode_env
+  <<: *xcode_beta_env
 - &ios_xcode_env
   <<: *xcode_env
   install: carthage bootstrap --platform iOS --cache-builds
   xcode_scheme: Shepherd-iOS
-  xcode_destination: platform=iOS Simulator,OS=12.1,name=iPhone XS
+  xcode_destination: platform=iOS Simulator,OS=12.2,name=iPhone XS
+- &ios_xcode_beta_env
+  <<: *ios_xcode_env
+  <<: *xcode_beta_env
+  xcode_destination: platform=iOS Simulator,OS=13,name=iPhone XS
 - &tvos_xcode_env
   <<: *xcode_env
   install: carthage bootstrap --platform tvOS --cache-builds
   xcode_scheme: Shepherd-tvOS
-  xcode_destination: platform=tvOS Simulator,OS=12.1,name=Apple TV 4K
+  xcode_destination: platform=tvOS Simulator,OS=12.2,name=Apple TV 4K
+- &tvos_xcode_beta_env
+  <<: *tvos_xcode_env
+  <<: *xcode_beta_env
+  xcode_destination: platform=tvOS Simulator,OS=13,name=Apple TV 4K
 
 jobs:
   include:
@@ -70,9 +87,9 @@ jobs:
       if: type != pull_request
       script: swift test
 
-    - <<: *macos_swift_beta_env
+    - <<: *macos_beta_env
       stage: "Test"
-      name: "Unit tests (macOS, Swift Beta, SwiftPM)"
+      name: "Unit tests (macOS, Xcode Beta, SwiftPM)"
       if: type != pull_request
       script: swift test
 
@@ -81,14 +98,29 @@ jobs:
       name: "Unit tests (iOS, Xcode)"
       if: type != pull_request
 
+    - <<: *ios_xcode_env
+      stage: "Test"
+      name: "Unit tests (iOS, Xcode Beta)"
+      if: type != pull_request
+
     - <<: *macos_xcode_env
       stage: "Test"
       name: "Unit tests (macOS, Xcode)"
       if: type != pull_request
 
+    - <<: *macos_xcode_env
+      stage: "Test"
+      name: "Unit tests (macOS, Xcode Beta)"
+      if: type != pull_request
+
     - <<: *tvos_xcode_env
       stage: "Test"
       name: "Unit tests (tvOS, Xcode)"
+      if: type != pull_request
+
+    - <<: *tvos_xcode_env
+      stage: "Test"
+      name: "Unit tests (tvOS, Xcode Beta)"
       if: type != pull_request
 
     - <<: *macos_env
