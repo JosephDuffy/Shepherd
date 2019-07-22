@@ -27,10 +27,19 @@ extension UIApplicationShortcutItem {
     /// - Parameter icon: The optional icon for the Home screen quick action.
     /// - Parameter userInfo: App-defined information about the Home screen quick action, to be used by your app to
     ///                       implement the action.
-    public convenience init(userActivity: NSUserActivity & NSSecureCoding, localizedTitle: String, localizedSubtitle: String?, icon: UIApplicationShortcutIcon?, userInfo: [String: NSSecureCoding]? = nil) throws {
+    public convenience init(
+        userActivity: NSUserActivity & NSSecureCoding,
+        localizedTitle: String,
+        localizedSubtitle: String?,
+        icon: UIApplicationShortcutIcon?,
+        userInfo: [String: NSSecureCoding]? = nil
+    ) throws {
         let archiveData: NSData
         if #available(iOS 11.0, *) {
-            archiveData = try NSKeyedArchiver.archivedData(withRootObject: userActivity, requiringSecureCoding: true) as NSData
+            archiveData = try NSKeyedArchiver.archivedData(
+                withRootObject: userActivity,
+                requiringSecureCoding: true
+            ) as NSData
         } else {
             let mutableData = NSMutableData()
             let archiver = NSKeyedArchiver(forWritingWith: mutableData)
