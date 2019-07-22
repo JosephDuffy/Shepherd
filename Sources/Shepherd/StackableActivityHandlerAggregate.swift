@@ -8,11 +8,11 @@ import Foundation
  an activity.
  */
 open class StackableActivityHandlerAggregate: ActivityHandlerAggregate {
-    
+
     open private(set) var stackedHandler: ActivityHandler?
 
     public override init() {}
-    
+
     open func push(stackedHandler: ActivityHandler) {
         self.stackedHandler = stackedHandler
         stackedHandler.parent = self
@@ -68,5 +68,5 @@ open class StackableActivityHandlerAggregate: ActivityHandlerAggregate {
 
         return super.handle(activity: activity, ignoring: ignoring)
     }
-    
+
 }

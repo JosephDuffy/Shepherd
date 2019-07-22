@@ -48,7 +48,7 @@ extension UIApplicationShortcutItem {
             archiver.finishEncoding()
             archiveData = mutableData
         }
-        
+
         var userInfo = userInfo ?? [:]
         userInfo[UIApplicationShortcutItem.userActivityDataUserInfoKey] = archiveData
 
