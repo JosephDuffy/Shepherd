@@ -71,7 +71,6 @@ jobs:
       install:
         - yarn install
         - swift build --skip-update --target CIDependencies
-        - swift build --skip-update --product danger-swift
       script: swift run --skip-update danger-swift ci --danger-js-path $(yarn bin danger) --verbose
 
     - <<: *macos_env
