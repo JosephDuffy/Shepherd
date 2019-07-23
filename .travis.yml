@@ -12,7 +12,7 @@ stages:
   - name: "Deploy"
     if: tag IS present
 
-_base_envs:
+aliases:
   # Bases
 - &macos_env
   os: osx
