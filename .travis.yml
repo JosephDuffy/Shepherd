@@ -75,6 +75,13 @@ jobs:
 
     - <<: *macos_env
       stage: "Test"
+      name: "Build Carthage Archive"
+      if: type = pull_request
+      install: skip
+      script: carthage build --archive --platform iOS,macOS,tvOS,watchOS
+
+    - <<: *macos_env
+      stage: "Test"
       name: "pod lib lint"
       if: type = pull_request
       install: bundle install --deployment
