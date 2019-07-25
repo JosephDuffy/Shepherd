@@ -4,6 +4,8 @@ open class ActivityHandler {
 
     open weak var parent: ActivityHandlerAggregate?
 
+    public init() {}
+
     /**
      Attempts to handle the provided activity. Subclasses should override this function and handle
      any activities that can be handled, in which case `self` should be returned. If the activity should
