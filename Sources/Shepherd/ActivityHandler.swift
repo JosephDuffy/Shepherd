@@ -12,7 +12,8 @@ open class ActivityHandler {
      not be handled further return `nil`, otherwise return the result of a call to `super`.
 
      - parameter activity: The activity to be handled
-     - returns: A bool indicating if a handler handled the activity
+     - parameter ignoring: An activity handler to ignore when traversing the handlers tree
+     - returns: The activity handler that handled the activity
      */
     @discardableResult
     open func handle(activity: NSUserActivity, ignoring: ActivityHandler? = nil) -> ActivityHandler? {
