@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		D91505B9221E024900EB5215 /* Shepherd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D91505AF221E024900EB5215 /* Shepherd.framework */; };
-		D91505BE221E024900EB5215 /* ShepherdTests in Sources */ = {isa = PBXBuildFile; fileRef = D91505BD221E024900EB5215 /* ShepherdTests */; };
 		D91505C0221E024900EB5215 /* Shepherd.h in Headers */ = {isa = PBXBuildFile; fileRef = D91505B2221E024900EB5215 /* Shepherd.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D91505CC221E050500EB5215 /* ActivityHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = D91505CB221E050500EB5215 /* ActivityHandler.swift */; };
 		D91505CE221E052600EB5215 /* ActivityHandlerAggregate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D91505CD221E052600EB5215 /* ActivityHandlerAggregate.swift */; };
@@ -24,12 +23,20 @@
 		D9D7E08F223DC26000DE353D /* StackableActivityHandlerAggregate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9D7E08C223DC26000DE353D /* StackableActivityHandlerAggregate.swift */; };
 		D9D7E090223DC26000DE353D /* StackableActivityHandlerAggregate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9D7E08C223DC26000DE353D /* StackableActivityHandlerAggregate.swift */; };
 		D9E601CF2233E99D00B36B1E /* Shepherd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9E601C62233E99D00B36B1E /* Shepherd.framework */; };
-		D9E601DD2233EBE300B36B1E /* ShepherdTests in Sources */ = {isa = PBXBuildFile; fileRef = D91505BD221E024900EB5215 /* ShepherdTests */; };
 		D9E601DF2233EBED00B36B1E /* ActivityHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = D91505CB221E050500EB5215 /* ActivityHandler.swift */; };
 		D9E601E02233EBED00B36B1E /* ActivityHandlerAggregate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D91505CD221E052600EB5215 /* ActivityHandlerAggregate.swift */; };
 		D9E601E12233EBFA00B36B1E /* Shepherd.h in Headers */ = {isa = PBXBuildFile; fileRef = D91505B2221E024900EB5215 /* Shepherd.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D9E99C2322EB766A00253C9E /* ActivityHandler+Ancestors.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E99C2222EB766A00253C9E /* ActivityHandler+Ancestors.swift */; };
+		D9E99C2422EB766A00253C9E /* ActivityHandler+Ancestors.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E99C2222EB766A00253C9E /* ActivityHandler+Ancestors.swift */; };
+		D9E99C2522EB766A00253C9E /* ActivityHandler+Ancestors.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E99C2222EB766A00253C9E /* ActivityHandler+Ancestors.swift */; };
+		D9E99C2622EB766A00253C9E /* ActivityHandler+Ancestors.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E99C2222EB766A00253C9E /* ActivityHandler+Ancestors.swift */; };
+		D9E99C2822EB796C00253C9E /* ShepherdTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E99C2722EB796C00253C9E /* ShepherdTests.swift */; };
+		D9E99C2922EB796C00253C9E /* ShepherdTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E99C2722EB796C00253C9E /* ShepherdTests.swift */; };
+		D9E99C2A22EB796C00253C9E /* ShepherdTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E99C2722EB796C00253C9E /* ShepherdTests.swift */; };
+		D9E99C3022EB7F4700253C9E /* ActivityHandlerAncestorsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E99C2B22EB798400253C9E /* ActivityHandlerAncestorsTests.swift */; };
+		D9E99C3122EB7F4800253C9E /* ActivityHandlerAncestorsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E99C2B22EB798400253C9E /* ActivityHandlerAncestorsTests.swift */; };
+		D9E99C3222EB7F4900253C9E /* ActivityHandlerAncestorsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E99C2B22EB798400253C9E /* ActivityHandlerAncestorsTests.swift */; };
 		D9FFA6292235A223005D9A4D /* Shepherd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9FFA6202235A223005D9A4D /* Shepherd.framework */; };
-		D9FFA6372235A3FF005D9A4D /* ShepherdTests in Sources */ = {isa = PBXBuildFile; fileRef = D91505BD221E024900EB5215 /* ShepherdTests */; };
 		D9FFA6392235A407005D9A4D /* ActivityHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = D91505CB221E050500EB5215 /* ActivityHandler.swift */; };
 		D9FFA63A2235A407005D9A4D /* ActivityHandlerAggregate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D91505CD221E052600EB5215 /* ActivityHandlerAggregate.swift */; };
 		D9FFA63C2235A408005D9A4D /* ActivityHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = D91505CB221E050500EB5215 /* ActivityHandler.swift */; };
@@ -67,7 +74,6 @@
 		D91505B2221E024900EB5215 /* Shepherd.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Shepherd.h; sourceTree = "<group>"; };
 		D91505B3221E024900EB5215 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D91505B8221E024900EB5215 /* ShepherdTests-iOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ShepherdTests-iOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		D91505BD221E024900EB5215 /* ShepherdTests */ = {isa = PBXFileReference; lastKnownFileType = folder; name = ShepherdTests; path = Tests/ShepherdTests; sourceTree = SOURCE_ROOT; };
 		D91505BF221E024900EB5215 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D91505CB221E050500EB5215 /* ActivityHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityHandler.swift; sourceTree = "<group>"; };
 		D91505CD221E052600EB5215 /* ActivityHandlerAggregate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityHandlerAggregate.swift; sourceTree = "<group>"; };
@@ -80,6 +86,9 @@
 		D9D933B4223492FD00E94AAE /* Shepherd.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Shepherd.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9E601C62233E99D00B36B1E /* Shepherd.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Shepherd.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9E601CE2233E99D00B36B1E /* ShepherdTests-macOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ShepherdTests-macOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D9E99C2222EB766A00253C9E /* ActivityHandler+Ancestors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ActivityHandler+Ancestors.swift"; sourceTree = "<group>"; };
+		D9E99C2722EB796C00253C9E /* ShepherdTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShepherdTests.swift; sourceTree = "<group>"; };
+		D9E99C2B22EB798400253C9E /* ActivityHandlerAncestorsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityHandlerAncestorsTests.swift; sourceTree = "<group>"; };
 		D9FFA6202235A223005D9A4D /* Shepherd.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Shepherd.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9FFA6282235A223005D9A4D /* ShepherdTests-tvOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ShepherdTests-tvOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -192,6 +201,7 @@
 				D91505CB221E050500EB5215 /* ActivityHandler.swift */,
 				D91505CD221E052600EB5215 /* ActivityHandlerAggregate.swift */,
 				D9D7E08C223DC26000DE353D /* StackableActivityHandlerAggregate.swift */,
+				D9E99C2222EB766A00253C9E /* ActivityHandler+Ancestors.swift */,
 				D95A639322E4B2CC00968641 /* UIApplicationShortcutItem+NSUserActivity.swift */,
 			);
 			path = Shepherd;
@@ -200,7 +210,8 @@
 		D95A638D22E4B1AE00968641 /* ShepherdTests */ = {
 			isa = PBXGroup;
 			children = (
-				D91505BD221E024900EB5215 /* ShepherdTests */,
+				D9E99C2722EB796C00253C9E /* ShepherdTests.swift */,
+				D9E99C2B22EB798400253C9E /* ActivityHandlerAncestorsTests.swift */,
 			);
 			path = ShepherdTests;
 			sourceTree = "<group>";
@@ -439,9 +450,9 @@
 				D91505B7221E024900EB5215 /* ShepherdTests-iOS */,
 				D9E601C52233E99D00B36B1E /* Shepherd-macOS */,
 				D9E601CD2233E99D00B36B1E /* ShepherdTests-macOS */,
-				D9D933B3223492FD00E94AAE /* Shepherd-watchOS */,
 				D9FFA61F2235A223005D9A4D /* Shepherd-tvOS */,
 				D9FFA6272235A223005D9A4D /* ShepherdTests-tvOS */,
+				D9D933B3223492FD00E94AAE /* Shepherd-watchOS */,
 			);
 		};
 /* End PBXProject section */
@@ -508,6 +519,7 @@
 				D91505CE221E052600EB5215 /* ActivityHandlerAggregate.swift in Sources */,
 				D91505CC221E050500EB5215 /* ActivityHandler.swift in Sources */,
 				D9CA443A222FF3F0000E424B /* DangerDeps.swift in Sources */,
+				D9E99C2322EB766A00253C9E /* ActivityHandler+Ancestors.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -515,7 +527,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D91505BE221E024900EB5215 /* ShepherdTests in Sources */,
+				D9E99C3022EB7F4700253C9E /* ActivityHandlerAncestorsTests.swift in Sources */,
+				D9E99C2922EB796C00253C9E /* ShepherdTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -527,6 +540,7 @@
 				D9D7E08F223DC26000DE353D /* StackableActivityHandlerAggregate.swift in Sources */,
 				D95A639622E4B2CC00968641 /* UIApplicationShortcutItem+NSUserActivity.swift in Sources */,
 				D9FFA6392235A407005D9A4D /* ActivityHandler.swift in Sources */,
+				D9E99C2522EB766A00253C9E /* ActivityHandler+Ancestors.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -538,6 +552,7 @@
 				D9D7E08E223DC26000DE353D /* StackableActivityHandlerAggregate.swift in Sources */,
 				D95A639522E4B2CC00968641 /* UIApplicationShortcutItem+NSUserActivity.swift in Sources */,
 				D9E601DF2233EBED00B36B1E /* ActivityHandler.swift in Sources */,
+				D9E99C2422EB766A00253C9E /* ActivityHandler+Ancestors.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -545,7 +560,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D9E601DD2233EBE300B36B1E /* ShepherdTests in Sources */,
+				D9E99C3122EB7F4800253C9E /* ActivityHandlerAncestorsTests.swift in Sources */,
+				D9E99C2A22EB796C00253C9E /* ShepherdTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -557,6 +573,7 @@
 				D9D7E090223DC26000DE353D /* StackableActivityHandlerAggregate.swift in Sources */,
 				D95A639722E4B2CC00968641 /* UIApplicationShortcutItem+NSUserActivity.swift in Sources */,
 				D9FFA63C2235A408005D9A4D /* ActivityHandler.swift in Sources */,
+				D9E99C2622EB766A00253C9E /* ActivityHandler+Ancestors.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -564,7 +581,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D9FFA6372235A3FF005D9A4D /* ShepherdTests in Sources */,
+				D9E99C3222EB7F4900253C9E /* ActivityHandlerAncestorsTests.swift in Sources */,
+				D9E99C2822EB796C00253C9E /* ShepherdTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
