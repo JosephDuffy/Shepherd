@@ -2,7 +2,11 @@ import Foundation
 
 open class ActivityHandlerAggregate: ActivityHandler {
 
-    public private(set) var children: [ActivityHandler] = []
+    private var _children: [ObjectStorage<ActivityHandler>] = []
+
+    public var children: [ActivityHandler] {
+        return _children.compactMap { $0.object }
+    }
 
     public override init() {}
 
@@ -10,8 +14,8 @@ open class ActivityHandlerAggregate: ActivityHandler {
      Adds the activity handler to the array of children that will be queried when attempting to handle
      an activity. It will also set the parent to this aggregate.
      */
-    open func append(_ child: ActivityHandler) {
-        children.append(child)
+    open func append(_ child: ActivityHandler, heldOnTo storageOption: StorageOption) {
+        _children.append(storageOption.store(child))
         child.parent = self
     }
 
@@ -20,7 +24,12 @@ open class ActivityHandlerAggregate: ActivityHandler {
      an activity. It will also set the parent to `nil`
      */
     open func remove(_ child: ActivityHandler) {
-        children.removeAll(where: { $0 === child })
+        let countBefore = _children.count
+        _children.removeAll(where: { $0.object === child })
+
+        let didRemove = countBefore != _children.count
+        guard didRemove else { return }
+
         child.parent = nil
     }
 

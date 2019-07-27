@@ -48,6 +48,14 @@
 		D9E99C4122ECB5DF00253C9E /* UIApplicationShortcutItemUserActivityTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E99C4022ECB5DF00253C9E /* UIApplicationShortcutItemUserActivityTests.swift */; };
 		D9E99C4322ECB81500253C9E /* SecureCodingUserActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E99C4222ECB81500253C9E /* SecureCodingUserActivity.swift */; };
 		D9E99C4522ECBB2D00253C9E /* FailingSecureCodingUserActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E99C4422ECBAAF00253C9E /* FailingSecureCodingUserActivity.swift */; };
+		D9E99C4B22ED05DC00253C9E /* ObjectStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E99C4A22ED05DC00253C9E /* ObjectStorage.swift */; };
+		D9E99C4C22ED05DC00253C9E /* ObjectStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E99C4A22ED05DC00253C9E /* ObjectStorage.swift */; };
+		D9E99C4D22ED05DC00253C9E /* ObjectStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E99C4A22ED05DC00253C9E /* ObjectStorage.swift */; };
+		D9E99C4E22ED05DC00253C9E /* ObjectStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E99C4A22ED05DC00253C9E /* ObjectStorage.swift */; };
+		D9E99C5022ED078A00253C9E /* StorageOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E99C4F22ED078A00253C9E /* StorageOption.swift */; };
+		D9E99C5122ED078A00253C9E /* StorageOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E99C4F22ED078A00253C9E /* StorageOption.swift */; };
+		D9E99C5222ED078A00253C9E /* StorageOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E99C4F22ED078A00253C9E /* StorageOption.swift */; };
+		D9E99C5322ED078A00253C9E /* StorageOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E99C4F22ED078A00253C9E /* StorageOption.swift */; };
 		D9FFA6292235A223005D9A4D /* Shepherd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9FFA6202235A223005D9A4D /* Shepherd.framework */; };
 		D9FFA6392235A407005D9A4D /* ActivityHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = D91505CB221E050500EB5215 /* ActivityHandler.swift */; };
 		D9FFA63A2235A407005D9A4D /* ActivityHandlerAggregate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D91505CD221E052600EB5215 /* ActivityHandlerAggregate.swift */; };
@@ -107,6 +115,8 @@
 		D9E99C4022ECB5DF00253C9E /* UIApplicationShortcutItemUserActivityTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIApplicationShortcutItemUserActivityTests.swift; sourceTree = "<group>"; };
 		D9E99C4222ECB81500253C9E /* SecureCodingUserActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecureCodingUserActivity.swift; sourceTree = "<group>"; };
 		D9E99C4422ECBAAF00253C9E /* FailingSecureCodingUserActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FailingSecureCodingUserActivity.swift; sourceTree = "<group>"; };
+		D9E99C4A22ED05DC00253C9E /* ObjectStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectStorage.swift; sourceTree = "<group>"; };
+		D9E99C4F22ED078A00253C9E /* StorageOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageOption.swift; sourceTree = "<group>"; };
 		D9FFA6202235A223005D9A4D /* Shepherd.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Shepherd.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9FFA6282235A223005D9A4D /* ShepherdTests-tvOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ShepherdTests-tvOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -221,6 +231,8 @@
 				D9D7E08C223DC26000DE353D /* StackableActivityHandlerAggregate.swift */,
 				D9E99C2222EB766A00253C9E /* ActivityHandler+Ancestors.swift */,
 				D95A639322E4B2CC00968641 /* UIApplicationShortcutItem+NSUserActivity.swift */,
+				D9E99C4F22ED078A00253C9E /* StorageOption.swift */,
+				D9E99C4A22ED05DC00253C9E /* ObjectStorage.swift */,
 			);
 			path = Shepherd;
 			sourceTree = "<group>";
@@ -547,8 +559,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				D9D7E08D223DC26000DE353D /* StackableActivityHandlerAggregate.swift in Sources */,
+				D9E99C4B22ED05DC00253C9E /* ObjectStorage.swift in Sources */,
 				D95A639422E4B2CC00968641 /* UIApplicationShortcutItem+NSUserActivity.swift in Sources */,
 				D91505CE221E052600EB5215 /* ActivityHandlerAggregate.swift in Sources */,
+				D9E99C5022ED078A00253C9E /* StorageOption.swift in Sources */,
 				D91505CC221E050500EB5215 /* ActivityHandler.swift in Sources */,
 				D9CA443A222FF3F0000E424B /* DangerDeps.swift in Sources */,
 				D9E99C2322EB766A00253C9E /* ActivityHandler+Ancestors.swift in Sources */,
@@ -576,6 +590,8 @@
 			files = (
 				D9FFA63A2235A407005D9A4D /* ActivityHandlerAggregate.swift in Sources */,
 				D9D7E08F223DC26000DE353D /* StackableActivityHandlerAggregate.swift in Sources */,
+				D9E99C4E22ED05DC00253C9E /* ObjectStorage.swift in Sources */,
+				D9E99C5322ED078A00253C9E /* StorageOption.swift in Sources */,
 				D95A639622E4B2CC00968641 /* UIApplicationShortcutItem+NSUserActivity.swift in Sources */,
 				D9FFA6392235A407005D9A4D /* ActivityHandler.swift in Sources */,
 				D9E99C2522EB766A00253C9E /* ActivityHandler+Ancestors.swift in Sources */,
@@ -588,6 +604,8 @@
 			files = (
 				D9E601E02233EBED00B36B1E /* ActivityHandlerAggregate.swift in Sources */,
 				D9D7E08E223DC26000DE353D /* StackableActivityHandlerAggregate.swift in Sources */,
+				D9E99C4C22ED05DC00253C9E /* ObjectStorage.swift in Sources */,
+				D9E99C5122ED078A00253C9E /* StorageOption.swift in Sources */,
 				D95A639522E4B2CC00968641 /* UIApplicationShortcutItem+NSUserActivity.swift in Sources */,
 				D9E601DF2233EBED00B36B1E /* ActivityHandler.swift in Sources */,
 				D9E99C2422EB766A00253C9E /* ActivityHandler+Ancestors.swift in Sources */,
@@ -612,6 +630,8 @@
 			files = (
 				D9FFA63D2235A408005D9A4D /* ActivityHandlerAggregate.swift in Sources */,
 				D9D7E090223DC26000DE353D /* StackableActivityHandlerAggregate.swift in Sources */,
+				D9E99C4D22ED05DC00253C9E /* ObjectStorage.swift in Sources */,
+				D9E99C5222ED078A00253C9E /* StorageOption.swift in Sources */,
 				D95A639722E4B2CC00968641 /* UIApplicationShortcutItem+NSUserActivity.swift in Sources */,
 				D9FFA63C2235A408005D9A4D /* ActivityHandler.swift in Sources */,
 				D9E99C2622EB766A00253C9E /* ActivityHandler+Ancestors.swift in Sources */,

@@ -28,7 +28,7 @@ final class ActivityHandlerTests: QuickSpec {
                         activity = NSUserActivity(activityType: "test-activity")
                     }
 
-                    context("passing `nil` to `ignoring`") {
+                    context("passing `nil` for `ignoring`") {
                         var result: ActivityHandler?
 
                         beforeEach {
@@ -52,7 +52,7 @@ final class ActivityHandlerTests: QuickSpec {
                         }
                     }
 
-                    context("passing the parent to `ignoring`") {
+                    context("passing the parent for `ignoring`") {
                         var result: ActivityHandler?
 
                         beforeEach {
