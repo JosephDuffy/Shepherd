@@ -20,20 +20,6 @@
                ReferencedContainer = "container:Shepherd.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
-         <BuildActionEntry
-            buildForTesting = "YES"
-            buildForRunning = "NO"
-            buildForProfiling = "NO"
-            buildForArchiving = "NO"
-            buildForAnalyzing = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "D9D933BC2234933F00E94AAE"
-               BuildableName = "ShepherdTests-watchOS.xctest"
-               BlueprintName = "ShepherdTests-watchOS"
-               ReferencedContainer = "container:Shepherd.xcodeproj">
-            </BuildableReference>
-         </BuildActionEntry>
       </BuildActionEntries>
    </BuildAction>
    <TestAction
@@ -43,17 +29,6 @@
       codeCoverageEnabled = "YES"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
-         <TestableReference
-            skipped = "NO"
-            parallelizable = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "D9D933BC2234933F00E94AAE"
-               BuildableName = "ShepherdTests-watchOS.xctest"
-               BlueprintName = "ShepherdTests-watchOS"
-               ReferencedContainer = "container:Shepherd.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference
