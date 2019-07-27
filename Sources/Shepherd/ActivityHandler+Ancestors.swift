@@ -10,30 +10,30 @@ extension ActivityHandler {
 
     public struct Ancestors: Sequence {
 
-        public struct Iterator: IteratorProtocol {
-
-            private var current: ActivityHandler
-
-            public init(activityHandler: ActivityHandler) {
-                current = activityHandler
-            }
-
-            public mutating func next() -> ActivityHandlerAggregate? {
-                guard let parent = current.parent else { return nil }
-                current = parent
-                return parent
-            }
-
-        }
-
         private let activityHandler: ActivityHandler
 
         public init(activityHandler: ActivityHandler) {
             self.activityHandler = activityHandler
         }
 
-        public func makeIterator() -> Iterator {
+        public func makeIterator() -> AncestorsIterator {
             return Iterator(activityHandler: activityHandler)
+        }
+
+    }
+
+    public struct AncestorsIterator: IteratorProtocol {
+
+        private var current: ActivityHandler
+
+        public init(activityHandler: ActivityHandler) {
+            current = activityHandler
+        }
+
+        public mutating func next() -> ActivityHandlerAggregate? {
+            guard let parent = current.parent else { return nil }
+            current = parent
+            return parent
         }
 
     }
