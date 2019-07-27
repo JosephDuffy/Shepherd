@@ -27,6 +27,7 @@ extension UIApplicationShortcutItem {
     /// - Parameter icon: The optional icon for the Home screen quick action.
     /// - Parameter userInfo: App-defined information about the Home screen quick action, to be used by your app to
     ///                       implement the action.
+    @available(iOS 11.0, *)
     public convenience init(
         userActivity: NSUserActivity & NSSecureCoding,
         localizedTitle: String,
@@ -34,25 +35,13 @@ extension UIApplicationShortcutItem {
         icon: UIApplicationShortcutIcon?,
         userInfo: [String: NSSecureCoding]? = nil
     ) throws {
-        let archiveData: NSData
-        if #available(iOS 11.0, *) {
-            archiveData = try NSKeyedArchiver.archivedData(
-                withRootObject: userActivity,
-                requiringSecureCoding: true
-            ) as NSData
-        } else {
-            let mutableData = NSMutableData()
-            let archiver = NSKeyedArchiver(forWritingWith: mutableData)
-            archiver.requiresSecureCoding = true
-            archiver.encode(userActivity, forKey: NSKeyedArchiveRootObjectKey)
-            archiver.finishEncoding()
-            archiveData = mutableData
-        }
-
-        var userInfo = userInfo ?? [:]
-        userInfo[UIApplicationShortcutItem.userActivityDataUserInfoKey] = archiveData
+        let archiveData = try NSKeyedArchiver.archivedData(
+            withRootObject: userActivity,
+            requiringSecureCoding: true
+        )
 
         self.init(
+            userActivityArchivedData: archiveData,
             type: userActivity.activityType,
             localizedTitle: localizedTitle,
             localizedSubtitle: localizedSubtitle,
@@ -61,5 +50,26 @@ extension UIApplicationShortcutItem {
         )
     }
 
+    public convenience init(
+        userActivityArchivedData archiveData: Data,
+        type: String,
+        localizedTitle: String,
+        localizedSubtitle: String?,
+        icon: UIApplicationShortcutIcon?,
+        userInfo: [String: NSSecureCoding]? = nil
+    ) {
+        var userInfo = userInfo ?? [:]
+        userInfo[UIApplicationShortcutItem.userActivityDataUserInfoKey] = archiveData as NSData
+
+        self.init(
+            type: type,
+            localizedTitle: localizedTitle,
+            localizedSubtitle: localizedSubtitle,
+            icon: icon,
+            userInfo: userInfo
+        )
+    }
+
 }
+
 #endif
