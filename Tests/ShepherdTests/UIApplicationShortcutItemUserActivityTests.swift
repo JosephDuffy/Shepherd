@@ -33,7 +33,7 @@ final class UIApplicationShortcutItemUserActivityTests: QuickSpec {
                         localizedSubtitle: nil,
                         icon: nil,
                         userInfo: [
-                            "userActivityData": NSData()
+                            "userActivityData": NSData(),
                         ]
                     )
                 }
