@@ -36,7 +36,7 @@ extension ActivityHandler {
     }
 
     /**
-     An iterator that can iterate over the ancestors of an activity handler
+     An iterator that can iterate over the ancestors of an activity handler.
      */
     public struct AncestorsIterator: IteratorProtocol {
 
