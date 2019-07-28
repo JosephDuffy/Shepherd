@@ -9,7 +9,7 @@ open class StackingActivityHandlerAggregate: ActivityHandlerAggregate {
 
     private var _stackedHandler: ObjectStorage<ActivityHandler>?
 
-    /// The handler that has been pushed
+    /// The handler that has been pushed/
     public var stackedHandler: ActivityHandler? {
         return _stackedHandler?.object
     }
@@ -21,7 +21,7 @@ open class StackingActivityHandlerAggregate: ActivityHandlerAggregate {
      Stacks the activity handler, holding on to it strongly or weakly. The stacked handler will be queried first when
      trying to handle an activity.
 
-     - Parameter stackedHandler: The activity hander the stack on top of this activity handler
+     - Parameter stackedHandler: The activity hander the stack on top of this activity handler.
      - Parameter storageOption: How to store the activity handler, weakly or strongly.
      */
     open func stack(_ stackedHandler: ActivityHandler, heldOnTo storageOption: StorageOption) {
@@ -32,7 +32,7 @@ open class StackingActivityHandlerAggregate: ActivityHandlerAggregate {
     }
 
     /**
-     Removes the stacked handler, resetting the parent to `nil`
+     Removes the stacked handler, resetting the parent to `nil`.
      */
     open func removeStackedHandler() {
         stackedHandler?.parent = nil

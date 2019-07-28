@@ -7,7 +7,7 @@ extension UIApplicationShortcutItem {
     private static let userActivityDataUserInfoKey = "userActivityData"
 
     /// A user activity that has been encoded in to the shortcut item's user info. For this property to be non-nil
-    /// the shortcut item must have been created via `init(userActivity:localizedTitle:localizedSubtitle:icon:)`
+    /// the shortcut item must have been created via `init(userActivity:localizedTitle:localizedSubtitle:icon:)`.
     public var userActivity: NSUserActivity? {
         guard let data = userInfo?[UIApplicationShortcutItem.userActivityDataUserInfoKey] as? NSData else { return nil }
         guard let userActivity = NSKeyedUnarchiver.unarchiveObject(with: data as Data) else { return nil }
