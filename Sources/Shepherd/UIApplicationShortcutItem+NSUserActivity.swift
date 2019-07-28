@@ -35,13 +35,13 @@ extension UIApplicationShortcutItem {
         icon: UIApplicationShortcutIcon?,
         userInfo: [String: NSSecureCoding]? = nil
     ) throws {
-        let archiveData = try NSKeyedArchiver.archivedData(
+        let archivedData = try NSKeyedArchiver.archivedData(
             withRootObject: userActivity,
             requiringSecureCoding: true
         )
 
         self.init(
-            userActivityArchivedData: archiveData,
+            userActivityArchivedData: archivedData,
             type: userActivity.activityType,
             localizedTitle: localizedTitle,
             localizedSubtitle: localizedSubtitle,
@@ -50,8 +50,20 @@ extension UIApplicationShortcutItem {
         )
     }
 
+    /// Create a shortcut item that encodes the provided user activity data in to the `userInfo` dictionary. This data
+    /// should have been created by archiving an `NSUserActivity` as the root object of an `NSKeyedArchiver`.
+    ///
+    /// - See: `init(type:localizedTitle:localizedSubtitle:icon:userInfo:)`
+    ///
+    /// - Parameter archivedData: The archived data created by `NSKeyedArchiver`
+    /// - Parameter type: The type of the user activity
+    /// - Parameter localizedTitle: The required, user-visible title of the Home screen quick action.
+    /// - Parameter localizedSubtitle: The optional, user-visible subtitle of the Home screen quick action.
+    /// - Parameter icon: The optional icon for the Home screen quick action.
+    /// - Parameter userInfo: App-defined information about the Home screen quick action, to be used by your app to
+    ///                       implement the action.
     public convenience init(
-        userActivityArchivedData archiveData: Data,
+        userActivityArchivedData archivedData: Data,
         type: String,
         localizedTitle: String,
         localizedSubtitle: String?,
@@ -59,7 +71,7 @@ extension UIApplicationShortcutItem {
         userInfo: [String: NSSecureCoding]? = nil
     ) {
         var userInfo = userInfo ?? [:]
-        userInfo[UIApplicationShortcutItem.userActivityDataUserInfoKey] = archiveData as NSData
+        userInfo[UIApplicationShortcutItem.userActivityDataUserInfoKey] = archivedData as NSData
 
         self.init(
             type: type,

@@ -21,7 +21,7 @@ open class ActivityHandlerAggregate: ActivityHandler {
      an activity. The `parent` of `child` will be set to this aggregate.
 
      - Parameter child: The child to add.
-     - Parameter storageOption: How to store the object, weakly or strongly.
+     - Parameter storageOption: How to store the activity handler, weakly or strongly.
      */
     open func append(_ child: ActivityHandler, heldOnTo storageOption: StorageOption) {
         _children.append(storageOption.store(child))
@@ -46,8 +46,29 @@ open class ActivityHandlerAggregate: ActivityHandler {
     }
 
     /**
-     Attempts to handle the provided activity by asking children to handle the activity. If none
-     of the children handle the activity the parent will also be asked to handle it.
+     Attempts to handle the provided activity by asking the children to handle the activity. If none of the children
+     handle the activity the parent will be asked to handle it.
+
+     For example, with a tree as follows:
+
+     ```
+          (A)
+         /   \
+        (B)  (C)
+       / | \    \
+     (D)(E)(F)  (G)
+     ```
+
+     If the current handler is (B) and (G) can handle the activity the handlers would be called in the following order:
+
+     - D
+     - E
+     - F
+     - A
+     - C
+     - G
+
+     This would result in (G) being returned.
 
      - Parameter activity: The activity to be handled.
      - Parameter ignoring: An optional activity handler that should be ignored. The only valid value is one of the
