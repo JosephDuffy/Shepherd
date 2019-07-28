@@ -75,6 +75,23 @@ final class ActivityHandlerAggregateTests: QuickSpec {
                 }
             }
 
+            context("passing an activity handler that is not a child to `remove(_:)`") {
+                var child: ActivityHandler!
+                var parent: ActivityHandlerAggregate!
+
+                beforeEach {
+                    child = ActivityHandler()
+                    parent = ActivityHandlerAggregate()
+                    parent.append(child, heldOnTo: .weakly)
+
+                    activityHandler.remove(child)
+                }
+
+                it("should not set the parent property on the activity handler") {
+                    expect(child.parent) === parent
+                }
+            }
+
             context("with 3 children") {
                 var activity: NSUserActivity!
                 var child1: MockActivityHandler!
