@@ -29,6 +29,16 @@ final class ActivityHandlerAggregateTests: QuickSpec {
                     expect(activityHandler.children).to(containElementSatisfying({ $0 === child }))
                 }
 
+                context("when all other references to the child have been set to `nil`") {
+                    beforeEach {
+                        child = nil
+                    }
+
+                    it("should have one child") {
+                        expect(activityHandler.children.count) == 1
+                    }
+                }
+
                 context("then removed via remove(_:)") {
                     beforeEach {
                         activityHandler.remove(child)
@@ -58,6 +68,16 @@ final class ActivityHandlerAggregateTests: QuickSpec {
 
                 it("should add the child to the array of children") {
                     expect(activityHandler.children).to(containElementSatisfying({ $0 === child }))
+                }
+
+                context("when all other references to the child have been set to `nil`") {
+                    beforeEach {
+                        child = nil
+                    }
+
+                    it("should have no children") {
+                        expect(activityHandler.children).to(beEmpty())
+                    }
                 }
 
                 context("then removed via remove(_:)") {

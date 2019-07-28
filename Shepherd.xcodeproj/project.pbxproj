@@ -56,6 +56,9 @@
 		D9E99C5122ED078A00253C9E /* StorageOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E99C4F22ED078A00253C9E /* StorageOption.swift */; };
 		D9E99C5222ED078A00253C9E /* StorageOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E99C4F22ED078A00253C9E /* StorageOption.swift */; };
 		D9E99C5322ED078A00253C9E /* StorageOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E99C4F22ED078A00253C9E /* StorageOption.swift */; };
+		D9E99C5522EDB90900253C9E /* StackingActivityHandlerAggregateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E99C5422EDB7EA00253C9E /* StackingActivityHandlerAggregateTests.swift */; };
+		D9E99C5622EDB90900253C9E /* StackingActivityHandlerAggregateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E99C5422EDB7EA00253C9E /* StackingActivityHandlerAggregateTests.swift */; };
+		D9E99C5722EDB90A00253C9E /* StackingActivityHandlerAggregateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E99C5422EDB7EA00253C9E /* StackingActivityHandlerAggregateTests.swift */; };
 		D9FFA6292235A223005D9A4D /* Shepherd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9FFA6202235A223005D9A4D /* Shepherd.framework */; };
 		D9FFA6392235A407005D9A4D /* ActivityHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = D91505CB221E050500EB5215 /* ActivityHandler.swift */; };
 		D9FFA63A2235A407005D9A4D /* ActivityHandlerAggregate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D91505CD221E052600EB5215 /* ActivityHandlerAggregate.swift */; };
@@ -117,6 +120,7 @@
 		D9E99C4422ECBAAF00253C9E /* FailingSecureCodingUserActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FailingSecureCodingUserActivity.swift; sourceTree = "<group>"; };
 		D9E99C4A22ED05DC00253C9E /* ObjectStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectStorage.swift; sourceTree = "<group>"; };
 		D9E99C4F22ED078A00253C9E /* StorageOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageOption.swift; sourceTree = "<group>"; };
+		D9E99C5422EDB7EA00253C9E /* StackingActivityHandlerAggregateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackingActivityHandlerAggregateTests.swift; sourceTree = "<group>"; };
 		D9FFA6202235A223005D9A4D /* Shepherd.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Shepherd.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9FFA6282235A223005D9A4D /* ShepherdTests-tvOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ShepherdTests-tvOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -243,6 +247,7 @@
 				D9E99C3322EC8EBB00253C9E /* Mocks */,
 				D9E99C2722EB796C00253C9E /* ActivityHandlerTests.swift */,
 				D9E99C3822ECAA1E00253C9E /* ActivityHandlerAggregateTests.swift */,
+				D9E99C5422EDB7EA00253C9E /* StackingActivityHandlerAggregateTests.swift */,
 				D9E99C2B22EB798400253C9E /* ActivityHandlerAncestorsTests.swift */,
 				D9E99C4022ECB5DF00253C9E /* UIApplicationShortcutItemUserActivityTests.swift */,
 			);
@@ -578,6 +583,7 @@
 				D9E99C4122ECB5DF00253C9E /* UIApplicationShortcutItemUserActivityTests.swift in Sources */,
 				D9E99C3522EC8EE800253C9E /* MockActivityHandlerAggregate.swift in Sources */,
 				D9E99C3E22ECAA5C00253C9E /* MockActivityHandler.swift in Sources */,
+				D9E99C5522EDB90900253C9E /* StackingActivityHandlerAggregateTests.swift in Sources */,
 				D9E99C4322ECB81500253C9E /* SecureCodingUserActivity.swift in Sources */,
 				D9E99C2922EB796C00253C9E /* ActivityHandlerTests.swift in Sources */,
 				D9E99C3922ECAA3000253C9E /* ActivityHandlerAggregateTests.swift in Sources */,
@@ -621,6 +627,7 @@
 				D9E99C3F22ECAA5C00253C9E /* MockActivityHandler.swift in Sources */,
 				D9E99C2A22EB796C00253C9E /* ActivityHandlerTests.swift in Sources */,
 				D9E99C3A22ECAA3100253C9E /* ActivityHandlerAggregateTests.swift in Sources */,
+				D9E99C5622EDB90900253C9E /* StackingActivityHandlerAggregateTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -647,6 +654,7 @@
 				D9E99C3D22ECAA5C00253C9E /* MockActivityHandler.swift in Sources */,
 				D9E99C2822EB796C00253C9E /* ActivityHandlerTests.swift in Sources */,
 				D9E99C3B22ECAA3300253C9E /* ActivityHandlerAggregateTests.swift in Sources */,
+				D9E99C5722EDB90A00253C9E /* StackingActivityHandlerAggregateTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

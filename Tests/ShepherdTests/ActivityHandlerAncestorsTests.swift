@@ -5,7 +5,7 @@ import Nimble
 final class ActivityHandlerAncestorsTests: QuickSpec {
 
     override func spec() {
-        describe("ActivityHandler") {
+        describe("ActivityHandler+Ancestors") {
             var activityHander: ActivityHandler!
 
             beforeEach {

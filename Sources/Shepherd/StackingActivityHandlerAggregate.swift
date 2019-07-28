@@ -24,7 +24,7 @@ open class StackingActivityHandlerAggregate: ActivityHandlerAggregate {
      - Parameter stackedHandler: The activity hander the stack on top of this activity handler
      - Parameter storageOption: How to store the activity handler, weakly or strongly.
      */
-    open func stack(activityHandler stackedHandler: ActivityHandler, heldOnTo storageOption: StorageOption) {
+    open func stack(_ stackedHandler: ActivityHandler, heldOnTo storageOption: StorageOption) {
         removeStackedHandler()
 
         _stackedHandler = storageOption.store(stackedHandler)
@@ -37,6 +37,21 @@ open class StackingActivityHandlerAggregate: ActivityHandlerAggregate {
     open func removeStackedHandler() {
         stackedHandler?.parent = nil
         _stackedHandler = nil
+    }
+
+    /**
+     Removes the activity handler from from stack or the array of children that will be queried when attempting to
+     handle an activity. If the passed activity handler was the stacked handler or a child of this activity handler the
+     `parent` property will be set to `nil`.
+
+     - Parameter activityHandler: The activity handler to be removed.
+     */
+    open override func remove(_ activityHandler: ActivityHandler) {
+        if activityHandler === stackedHandler {
+            removeStackedHandler()
+        } else {
+            super.remove(activityHandler)
+        }
     }
 
     /**
