@@ -68,9 +68,7 @@ jobs:
         homebrew:
           packages:
             - yarn
-      install:
-        - yarn install
-        - swift build --skip-update --target CIDependencies
+      install: yarn install
       script: swift run --skip-update danger-swift ci --danger-js-path $(yarn bin danger) --verbose
 
     - <<: *macos_env
