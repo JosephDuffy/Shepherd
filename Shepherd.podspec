@@ -7,11 +7,11 @@ Pod::Spec.new do |spec|
   spec.description  = <<-DESC
                    A collection of protocol and extensions to aid with the handling and creation of `NSUserActivity`s
                    DESC
-  spec.homepage     = "https://github.com/JosephDuffy/shepherd"
+  spec.homepage     = "https://github.com/JosephDuffy/Shepherd"
   spec.license      = { :type => "MIT", :file => "LICENSE" }
   spec.author       = "Joseph Duffy"
   spec.source       = {
-    :git => "https://github.com/JosephDuffy/shepherd.git",
+    :git => "https://github.com/JosephDuffy/Shepherd.git",
     :tag => "v#{spec.version}"
   }
   spec.source_files = "Source/**/*.{swift,h,m}"
