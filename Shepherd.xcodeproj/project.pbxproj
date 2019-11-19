@@ -168,7 +168,7 @@
 		D91505BC221E024900EB5215 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				D968996823846593005F3F24 /* Shepherd */,
+				D968996823846593005F3F24 /* ShepherdTests */,
 				D91505BF221E024900EB5215 /* Info.plist */,
 			);
 			path = Tests;
@@ -184,12 +184,12 @@
 			path = Shepherd;
 			sourceTree = "<group>";
 		};
-		D968996823846593005F3F24 /* Shepherd */ = {
+		D968996823846593005F3F24 /* ShepherdTests */ = {
 			isa = PBXGroup;
 			children = (
 				D91505BD221E024900EB5215 /* ShepherdTests.swift */,
 			);
-			path = Shepherd;
+			path = ShepherdTests;
 			sourceTree = "<group>";
 		};
 		D9CA4436222FF3B5000E424B /* Resources */ = {
