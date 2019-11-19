@@ -134,7 +134,7 @@
 		D91505A5221E024900EB5215 = {
 			isa = PBXGroup;
 			children = (
-				D91505B1221E024900EB5215 /* Source */,
+				D91505B1221E024900EB5215 /* Sources */,
 				D91505BC221E024900EB5215 /* Tests */,
 				D9CA4436222FF3B5000E424B /* Resources */,
 				D91505B0221E024900EB5215 /* Products */,
@@ -155,25 +155,41 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		D91505B1221E024900EB5215 /* Source */ = {
+		D91505B1221E024900EB5215 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				D91505C9221E04EB00EB5215 /* ActivityHandler.swift */,
-				D91505CB221E050500EB5215 /* ActivityHandlerNode.swift */,
-				D91505CD221E052600EB5215 /* ActivityHandlerAggregate.swift */,
+				D968996723846573005F3F24 /* Shepherd */,
 				D91505B2221E024900EB5215 /* Shepherd.h */,
 				D91505B3221E024900EB5215 /* Info.plist */,
 			);
-			path = Source;
+			path = Sources;
 			sourceTree = "<group>";
 		};
 		D91505BC221E024900EB5215 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				D91505BD221E024900EB5215 /* ShepherdTests.swift */,
+				D968996823846593005F3F24 /* Shepherd */,
 				D91505BF221E024900EB5215 /* Info.plist */,
 			);
 			path = Tests;
+			sourceTree = "<group>";
+		};
+		D968996723846573005F3F24 /* Shepherd */ = {
+			isa = PBXGroup;
+			children = (
+				D91505C9221E04EB00EB5215 /* ActivityHandler.swift */,
+				D91505CB221E050500EB5215 /* ActivityHandlerNode.swift */,
+				D91505CD221E052600EB5215 /* ActivityHandlerAggregate.swift */,
+			);
+			path = Shepherd;
+			sourceTree = "<group>";
+		};
+		D968996823846593005F3F24 /* Shepherd */ = {
+			isa = PBXGroup;
+			children = (
+				D91505BD221E024900EB5215 /* ShepherdTests.swift */,
+			);
+			path = Shepherd;
 			sourceTree = "<group>";
 		};
 		D9CA4436222FF3B5000E424B /* Resources */ = {
