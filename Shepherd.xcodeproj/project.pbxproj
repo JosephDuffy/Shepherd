@@ -8,26 +8,49 @@
 
 /* Begin PBXBuildFile section */
 		D91505B9221E024900EB5215 /* Shepherd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D91505AF221E024900EB5215 /* Shepherd.framework */; };
-		D91505BE221E024900EB5215 /* ShepherdTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D91505BD221E024900EB5215 /* ShepherdTests.swift */; };
 		D91505C0221E024900EB5215 /* Shepherd.h in Headers */ = {isa = PBXBuildFile; fileRef = D91505B2221E024900EB5215 /* Shepherd.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		D91505CA221E04EB00EB5215 /* ActivityHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = D91505C9221E04EB00EB5215 /* ActivityHandler.swift */; };
-		D91505CC221E050500EB5215 /* ActivityHandlerNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = D91505CB221E050500EB5215 /* ActivityHandlerNode.swift */; };
-		D91505CE221E052600EB5215 /* ActivityHandlerAggregate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D91505CD221E052600EB5215 /* ActivityHandlerAggregate.swift */; };
+		D968996E23847D09005F3F24 /* ClosureRouteHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = D968996923847D09005F3F24 /* ClosureRouteHandler.swift */; };
+		D968996F23847D09005F3F24 /* ClosureRouteHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = D968996923847D09005F3F24 /* ClosureRouteHandler.swift */; };
+		D968997023847D09005F3F24 /* ClosureRouteHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = D968996923847D09005F3F24 /* ClosureRouteHandler.swift */; };
+		D968997123847D09005F3F24 /* ClosureRouteHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = D968996923847D09005F3F24 /* ClosureRouteHandler.swift */; };
+		D968997223847D09005F3F24 /* RouteHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = D968996A23847D09005F3F24 /* RouteHandler.swift */; };
+		D968997323847D09005F3F24 /* RouteHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = D968996A23847D09005F3F24 /* RouteHandler.swift */; };
+		D968997423847D09005F3F24 /* RouteHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = D968996A23847D09005F3F24 /* RouteHandler.swift */; };
+		D968997523847D09005F3F24 /* RouteHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = D968996A23847D09005F3F24 /* RouteHandler.swift */; };
+		D968997623847D09005F3F24 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = D968996B23847D09005F3F24 /* Router.swift */; };
+		D968997723847D09005F3F24 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = D968996B23847D09005F3F24 /* Router.swift */; };
+		D968997823847D09005F3F24 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = D968996B23847D09005F3F24 /* Router.swift */; };
+		D968997923847D09005F3F24 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = D968996B23847D09005F3F24 /* Router.swift */; };
+		D968997A23847D09005F3F24 /* Priority.swift in Sources */ = {isa = PBXBuildFile; fileRef = D968996C23847D09005F3F24 /* Priority.swift */; };
+		D968997B23847D09005F3F24 /* Priority.swift in Sources */ = {isa = PBXBuildFile; fileRef = D968996C23847D09005F3F24 /* Priority.swift */; };
+		D968997C23847D09005F3F24 /* Priority.swift in Sources */ = {isa = PBXBuildFile; fileRef = D968996C23847D09005F3F24 /* Priority.swift */; };
+		D968997D23847D09005F3F24 /* Priority.swift in Sources */ = {isa = PBXBuildFile; fileRef = D968996C23847D09005F3F24 /* Priority.swift */; };
+		D968997E23847D09005F3F24 /* Sequence+stableSorted.swift in Sources */ = {isa = PBXBuildFile; fileRef = D968996D23847D09005F3F24 /* Sequence+stableSorted.swift */; };
+		D968997F23847D09005F3F24 /* Sequence+stableSorted.swift in Sources */ = {isa = PBXBuildFile; fileRef = D968996D23847D09005F3F24 /* Sequence+stableSorted.swift */; };
+		D968998023847D09005F3F24 /* Sequence+stableSorted.swift in Sources */ = {isa = PBXBuildFile; fileRef = D968996D23847D09005F3F24 /* Sequence+stableSorted.swift */; };
+		D968998123847D09005F3F24 /* Sequence+stableSorted.swift in Sources */ = {isa = PBXBuildFile; fileRef = D968996D23847D09005F3F24 /* Sequence+stableSorted.swift */; };
+		D968998623847D3B005F3F24 /* MockRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D968998323847D3B005F3F24 /* MockRouter.swift */; };
+		D968998723847D3B005F3F24 /* MockRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D968998323847D3B005F3F24 /* MockRouter.swift */; };
+		D968998823847D3B005F3F24 /* MockRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D968998323847D3B005F3F24 /* MockRouter.swift */; };
+		D968998923847D3B005F3F24 /* RouterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D968998423847D3B005F3F24 /* RouterTests.swift */; };
+		D968998A23847D3B005F3F24 /* RouterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D968998423847D3B005F3F24 /* RouterTests.swift */; };
+		D968998B23847D3B005F3F24 /* RouterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D968998423847D3B005F3F24 /* RouterTests.swift */; };
+		D968999323847EFA005F3F24 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D968999123847EFA005F3F24 /* Nimble.framework */; };
+		D968999423847EFA005F3F24 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D968999223847EFA005F3F24 /* Quick.framework */; };
+		D968999823847F0C005F3F24 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D968999623847F0C005F3F24 /* Quick.framework */; };
+		D968999923847F0C005F3F24 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D968999723847F0C005F3F24 /* Nimble.framework */; };
+		D968999D23847F1D005F3F24 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D968999B23847F1D005F3F24 /* Quick.framework */; };
+		D968999E23847F1D005F3F24 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D968999C23847F1D005F3F24 /* Nimble.framework */; };
+		D96899A023847FD0005F3F24 /* Nimble.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = D968999723847F0C005F3F24 /* Nimble.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D96899A123847FD0005F3F24 /* Quick.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = D968999623847F0C005F3F24 /* Quick.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D96899A323847FF0005F3F24 /* Nimble.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = D968999123847EFA005F3F24 /* Nimble.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D96899A423847FF0005F3F24 /* Quick.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = D968999223847EFA005F3F24 /* Quick.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D96899A62384801C005F3F24 /* Nimble.framework in Copy Files (2 items) */ = {isa = PBXBuildFile; fileRef = D968999C23847F1D005F3F24 /* Nimble.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D96899A72384801C005F3F24 /* Quick.framework in Copy Files (2 items) */ = {isa = PBXBuildFile; fileRef = D968999B23847F1D005F3F24 /* Quick.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D9CA443A222FF3F0000E424B /* DangerDeps.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9CA4439222FF3F0000E424B /* DangerDeps.swift */; };
 		D9E601CF2233E99D00B36B1E /* Shepherd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9E601C62233E99D00B36B1E /* Shepherd.framework */; };
-		D9E601DD2233EBE300B36B1E /* ShepherdTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D91505BD221E024900EB5215 /* ShepherdTests.swift */; };
-		D9E601DE2233EBED00B36B1E /* ActivityHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = D91505C9221E04EB00EB5215 /* ActivityHandler.swift */; };
-		D9E601DF2233EBED00B36B1E /* ActivityHandlerNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = D91505CB221E050500EB5215 /* ActivityHandlerNode.swift */; };
-		D9E601E02233EBED00B36B1E /* ActivityHandlerAggregate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D91505CD221E052600EB5215 /* ActivityHandlerAggregate.swift */; };
 		D9E601E12233EBFA00B36B1E /* Shepherd.h in Headers */ = {isa = PBXBuildFile; fileRef = D91505B2221E024900EB5215 /* Shepherd.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D9FFA6292235A223005D9A4D /* Shepherd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9FFA6202235A223005D9A4D /* Shepherd.framework */; };
-		D9FFA6372235A3FF005D9A4D /* ShepherdTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D91505BD221E024900EB5215 /* ShepherdTests.swift */; };
-		D9FFA6382235A407005D9A4D /* ActivityHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = D91505C9221E04EB00EB5215 /* ActivityHandler.swift */; };
-		D9FFA6392235A407005D9A4D /* ActivityHandlerNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = D91505CB221E050500EB5215 /* ActivityHandlerNode.swift */; };
-		D9FFA63A2235A407005D9A4D /* ActivityHandlerAggregate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D91505CD221E052600EB5215 /* ActivityHandlerAggregate.swift */; };
-		D9FFA63B2235A408005D9A4D /* ActivityHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = D91505C9221E04EB00EB5215 /* ActivityHandler.swift */; };
-		D9FFA63C2235A408005D9A4D /* ActivityHandlerNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = D91505CB221E050500EB5215 /* ActivityHandlerNode.swift */; };
-		D9FFA63D2235A408005D9A4D /* ActivityHandlerAggregate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D91505CD221E052600EB5215 /* ActivityHandlerAggregate.swift */; };
 		D9FFA63E2235A40B005D9A4D /* Shepherd.h in Headers */ = {isa = PBXBuildFile; fileRef = D91505B2221E024900EB5215 /* Shepherd.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D9FFA63F2235A40B005D9A4D /* Shepherd.h in Headers */ = {isa = PBXBuildFile; fileRef = D91505B2221E024900EB5215 /* Shepherd.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
@@ -56,16 +79,64 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		D968999F23847FC4005F3F24 /* Copy Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				D96899A023847FD0005F3F24 /* Nimble.framework in Copy Frameworks */,
+				D96899A123847FD0005F3F24 /* Quick.framework in Copy Frameworks */,
+			);
+			name = "Copy Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D96899A223847FE0005F3F24 /* Copy Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				D96899A323847FF0005F3F24 /* Nimble.framework in Copy Frameworks */,
+				D96899A423847FF0005F3F24 /* Quick.framework in Copy Frameworks */,
+			);
+			name = "Copy Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D96899A523848013005F3F24 /* Copy Files (2 items) */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				D96899A62384801C005F3F24 /* Nimble.framework in Copy Files (2 items) */,
+				D96899A72384801C005F3F24 /* Quick.framework in Copy Files (2 items) */,
+			);
+			name = "Copy Files (2 items)";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		D91505AF221E024900EB5215 /* Shepherd.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Shepherd.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D91505B2221E024900EB5215 /* Shepherd.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Shepherd.h; sourceTree = "<group>"; };
 		D91505B3221E024900EB5215 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D91505B8221E024900EB5215 /* ShepherdTests-iOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ShepherdTests-iOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		D91505BD221E024900EB5215 /* ShepherdTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShepherdTests.swift; sourceTree = "<group>"; };
 		D91505BF221E024900EB5215 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D91505C9221E04EB00EB5215 /* ActivityHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityHandler.swift; sourceTree = "<group>"; };
-		D91505CB221E050500EB5215 /* ActivityHandlerNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityHandlerNode.swift; sourceTree = "<group>"; };
-		D91505CD221E052600EB5215 /* ActivityHandlerAggregate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityHandlerAggregate.swift; sourceTree = "<group>"; };
+		D968996923847D09005F3F24 /* ClosureRouteHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClosureRouteHandler.swift; sourceTree = "<group>"; };
+		D968996A23847D09005F3F24 /* RouteHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouteHandler.swift; sourceTree = "<group>"; };
+		D968996B23847D09005F3F24 /* Router.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
+		D968996C23847D09005F3F24 /* Priority.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Priority.swift; sourceTree = "<group>"; };
+		D968996D23847D09005F3F24 /* Sequence+stableSorted.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Sequence+stableSorted.swift"; sourceTree = "<group>"; };
+		D968998323847D3B005F3F24 /* MockRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockRouter.swift; sourceTree = "<group>"; };
+		D968998423847D3B005F3F24 /* RouterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouterTests.swift; sourceTree = "<group>"; };
+		D968999123847EFA005F3F24 /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = Carthage/Build/iOS/Nimble.framework; sourceTree = SOURCE_ROOT; };
+		D968999223847EFA005F3F24 /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = Carthage/Build/iOS/Quick.framework; sourceTree = SOURCE_ROOT; };
+		D968999623847F0C005F3F24 /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = Carthage/Build/Mac/Quick.framework; sourceTree = SOURCE_ROOT; };
+		D968999723847F0C005F3F24 /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = Carthage/Build/Mac/Nimble.framework; sourceTree = SOURCE_ROOT; };
+		D968999B23847F1D005F3F24 /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = Carthage/Build/tvOS/Quick.framework; sourceTree = SOURCE_ROOT; };
+		D968999C23847F1D005F3F24 /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = Carthage/Build/tvOS/Nimble.framework; sourceTree = SOURCE_ROOT; };
 		D9CA4437222FF3CD000E424B /* Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = SOURCE_ROOT; };
 		D9CA4439222FF3F0000E424B /* DangerDeps.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DangerDeps.swift; sourceTree = "<group>"; };
 		D9D933B4223492FD00E94AAE /* Shepherd.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Shepherd.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -88,6 +159,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				D91505B9221E024900EB5215 /* Shepherd.framework in Frameworks */,
+				D968999323847EFA005F3F24 /* Nimble.framework in Frameworks */,
+				D968999423847EFA005F3F24 /* Quick.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -109,6 +182,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D968999923847F0C005F3F24 /* Nimble.framework in Frameworks */,
+				D968999823847F0C005F3F24 /* Quick.framework in Frameworks */,
 				D9E601CF2233E99D00B36B1E /* Shepherd.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -124,6 +199,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D968999E23847F1D005F3F24 /* Nimble.framework in Frameworks */,
+				D968999D23847F1D005F3F24 /* Quick.framework in Frameworks */,
 				D9FFA6292235A223005D9A4D /* Shepherd.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -169,6 +246,7 @@
 			isa = PBXGroup;
 			children = (
 				D968996823846593005F3F24 /* ShepherdTests */,
+				D968998F23847EBB005F3F24 /* Frameworks */,
 				D91505BF221E024900EB5215 /* Info.plist */,
 			);
 			path = Tests;
@@ -177,9 +255,11 @@
 		D968996723846573005F3F24 /* Shepherd */ = {
 			isa = PBXGroup;
 			children = (
-				D91505C9221E04EB00EB5215 /* ActivityHandler.swift */,
-				D91505CB221E050500EB5215 /* ActivityHandlerNode.swift */,
-				D91505CD221E052600EB5215 /* ActivityHandlerAggregate.swift */,
+				D968996923847D09005F3F24 /* ClosureRouteHandler.swift */,
+				D968996C23847D09005F3F24 /* Priority.swift */,
+				D968996A23847D09005F3F24 /* RouteHandler.swift */,
+				D968996B23847D09005F3F24 /* Router.swift */,
+				D968996D23847D09005F3F24 /* Sequence+stableSorted.swift */,
 			);
 			path = Shepherd;
 			sourceTree = "<group>";
@@ -187,9 +267,55 @@
 		D968996823846593005F3F24 /* ShepherdTests */ = {
 			isa = PBXGroup;
 			children = (
-				D91505BD221E024900EB5215 /* ShepherdTests.swift */,
+				D968998223847D3B005F3F24 /* Mocks */,
+				D968998423847D3B005F3F24 /* RouterTests.swift */,
 			);
 			path = ShepherdTests;
+			sourceTree = "<group>";
+		};
+		D968998223847D3B005F3F24 /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				D968998323847D3B005F3F24 /* MockRouter.swift */,
+			);
+			path = Mocks;
+			sourceTree = "<group>";
+		};
+		D968998F23847EBB005F3F24 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D968999023847EEA005F3F24 /* iOS */,
+				D968999523847F00005F3F24 /* macOS */,
+				D968999A23847F0F005F3F24 /* tvOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D968999023847EEA005F3F24 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				D968999123847EFA005F3F24 /* Nimble.framework */,
+				D968999223847EFA005F3F24 /* Quick.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		D968999523847F00005F3F24 /* macOS */ = {
+			isa = PBXGroup;
+			children = (
+				D968999723847F0C005F3F24 /* Nimble.framework */,
+				D968999623847F0C005F3F24 /* Quick.framework */,
+			);
+			name = macOS;
+			sourceTree = "<group>";
+		};
+		D968999A23847F0F005F3F24 /* tvOS */ = {
+			isa = PBXGroup;
+			children = (
+				D968999C23847F1D005F3F24 /* Nimble.framework */,
+				D968999B23847F1D005F3F24 /* Quick.framework */,
+			);
+			name = tvOS;
 			sourceTree = "<group>";
 		};
 		D9CA4436222FF3B5000E424B /* Resources */ = {
@@ -263,7 +389,7 @@
 			buildPhases = (
 				D91505B4221E024900EB5215 /* Sources */,
 				D91505B5221E024900EB5215 /* Frameworks */,
-				D91505B6221E024900EB5215 /* Resources */,
+				D96899A223847FE0005F3F24 /* Copy Frameworks */,
 			);
 			buildRules = (
 			);
@@ -317,7 +443,7 @@
 			buildPhases = (
 				D9E601CA2233E99D00B36B1E /* Sources */,
 				D9E601CB2233E99D00B36B1E /* Frameworks */,
-				D9E601CC2233E99D00B36B1E /* Resources */,
+				D968999F23847FC4005F3F24 /* Copy Frameworks */,
 			);
 			buildRules = (
 			);
@@ -353,7 +479,7 @@
 			buildPhases = (
 				D9FFA6242235A223005D9A4D /* Sources */,
 				D9FFA6252235A223005D9A4D /* Frameworks */,
-				D9FFA6262235A223005D9A4D /* Resources */,
+				D96899A523848013005F3F24 /* Copy Files (2 items) */,
 			);
 			buildRules = (
 			);
@@ -433,13 +559,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		D91505B6221E024900EB5215 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		D9D933B2223492FD00E94AAE /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -454,21 +573,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		D9E601CC2233E99D00B36B1E /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		D9FFA61E2235A223005D9A4D /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		D9FFA6262235A223005D9A4D /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -482,9 +587,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D91505CA221E04EB00EB5215 /* ActivityHandler.swift in Sources */,
-				D91505CE221E052600EB5215 /* ActivityHandlerAggregate.swift in Sources */,
-				D91505CC221E050500EB5215 /* ActivityHandlerNode.swift in Sources */,
+				D968997A23847D09005F3F24 /* Priority.swift in Sources */,
+				D968997623847D09005F3F24 /* Router.swift in Sources */,
+				D968997E23847D09005F3F24 /* Sequence+stableSorted.swift in Sources */,
+				D968996E23847D09005F3F24 /* ClosureRouteHandler.swift in Sources */,
+				D968997223847D09005F3F24 /* RouteHandler.swift in Sources */,
 				D9CA443A222FF3F0000E424B /* DangerDeps.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -493,7 +600,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D91505BE221E024900EB5215 /* ShepherdTests.swift in Sources */,
+				D968998623847D3B005F3F24 /* MockRouter.swift in Sources */,
+				D968998923847D3B005F3F24 /* RouterTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -501,9 +609,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D9FFA6382235A407005D9A4D /* ActivityHandler.swift in Sources */,
-				D9FFA63A2235A407005D9A4D /* ActivityHandlerAggregate.swift in Sources */,
-				D9FFA6392235A407005D9A4D /* ActivityHandlerNode.swift in Sources */,
+				D968997C23847D09005F3F24 /* Priority.swift in Sources */,
+				D968997023847D09005F3F24 /* ClosureRouteHandler.swift in Sources */,
+				D968997823847D09005F3F24 /* Router.swift in Sources */,
+				D968998023847D09005F3F24 /* Sequence+stableSorted.swift in Sources */,
+				D968997423847D09005F3F24 /* RouteHandler.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -511,9 +621,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D9E601DE2233EBED00B36B1E /* ActivityHandler.swift in Sources */,
-				D9E601E02233EBED00B36B1E /* ActivityHandlerAggregate.swift in Sources */,
-				D9E601DF2233EBED00B36B1E /* ActivityHandlerNode.swift in Sources */,
+				D968997B23847D09005F3F24 /* Priority.swift in Sources */,
+				D968996F23847D09005F3F24 /* ClosureRouteHandler.swift in Sources */,
+				D968997723847D09005F3F24 /* Router.swift in Sources */,
+				D968997F23847D09005F3F24 /* Sequence+stableSorted.swift in Sources */,
+				D968997323847D09005F3F24 /* RouteHandler.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -521,7 +633,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D9E601DD2233EBE300B36B1E /* ShepherdTests.swift in Sources */,
+				D968998723847D3B005F3F24 /* MockRouter.swift in Sources */,
+				D968998A23847D3B005F3F24 /* RouterTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -529,9 +642,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D9FFA63B2235A408005D9A4D /* ActivityHandler.swift in Sources */,
-				D9FFA63D2235A408005D9A4D /* ActivityHandlerAggregate.swift in Sources */,
-				D9FFA63C2235A408005D9A4D /* ActivityHandlerNode.swift in Sources */,
+				D968997D23847D09005F3F24 /* Priority.swift in Sources */,
+				D968997123847D09005F3F24 /* ClosureRouteHandler.swift in Sources */,
+				D968997923847D09005F3F24 /* Router.swift in Sources */,
+				D968998123847D09005F3F24 /* Sequence+stableSorted.swift in Sources */,
+				D968997523847D09005F3F24 /* RouteHandler.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -539,7 +654,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D9FFA6372235A3FF005D9A4D /* ShepherdTests.swift in Sources */,
+				D968998823847D3B005F3F24 /* MockRouter.swift in Sources */,
+				D968998B23847D3B005F3F24 /* RouterTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -747,6 +863,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/Carthage/Build/iOS";
 				INFOPLIST_FILE = Tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -763,6 +880,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/Carthage/Build/iOS";
 				INFOPLIST_FILE = Tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -862,6 +980,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/Carthage/Build/Mac";
 				INFOPLIST_FILE = Tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -879,6 +998,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/Carthage/Build/Mac";
 				INFOPLIST_FILE = Tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -935,6 +1055,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/Carthage/Build/tvOS";
 				INFOPLIST_FILE = Tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -952,6 +1073,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/Carthage/Build/tvOS";
 				INFOPLIST_FILE = Tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
