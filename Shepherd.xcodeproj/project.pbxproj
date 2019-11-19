@@ -13,7 +13,6 @@
 		D91505CA221E04EB00EB5215 /* ActivityHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = D91505C9221E04EB00EB5215 /* ActivityHandler.swift */; };
 		D91505CC221E050500EB5215 /* ActivityHandlerNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = D91505CB221E050500EB5215 /* ActivityHandlerNode.swift */; };
 		D91505CE221E052600EB5215 /* ActivityHandlerAggregate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D91505CD221E052600EB5215 /* ActivityHandlerAggregate.swift */; };
-		D9CA443A222FF3F0000E424B /* DangerDeps.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9CA4439222FF3F0000E424B /* DangerDeps.swift */; };
 		D9E601CF2233E99D00B36B1E /* Shepherd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9E601C62233E99D00B36B1E /* Shepherd.framework */; };
 		D9E601DD2233EBE300B36B1E /* ShepherdTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D91505BD221E024900EB5215 /* ShepherdTests.swift */; };
 		D9E601DE2233EBED00B36B1E /* ActivityHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = D91505C9221E04EB00EB5215 /* ActivityHandler.swift */; };
@@ -67,7 +66,6 @@
 		D91505CB221E050500EB5215 /* ActivityHandlerNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityHandlerNode.swift; sourceTree = "<group>"; };
 		D91505CD221E052600EB5215 /* ActivityHandlerAggregate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityHandlerAggregate.swift; sourceTree = "<group>"; };
 		D9CA4437222FF3CD000E424B /* Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = SOURCE_ROOT; };
-		D9CA4439222FF3F0000E424B /* DangerDeps.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DangerDeps.swift; sourceTree = "<group>"; };
 		D9D933B4223492FD00E94AAE /* Shepherd.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Shepherd.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9E601C62233E99D00B36B1E /* Shepherd.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Shepherd.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9E601CE2233E99D00B36B1E /* ShepherdTests-macOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ShepherdTests-macOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -196,7 +194,6 @@
 			isa = PBXGroup;
 			children = (
 				D9CA4437222FF3CD000E424B /* Package.swift */,
-				D9CA4439222FF3F0000E424B /* DangerDeps.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -485,7 +482,6 @@
 				D91505CA221E04EB00EB5215 /* ActivityHandler.swift in Sources */,
 				D91505CE221E052600EB5215 /* ActivityHandlerAggregate.swift in Sources */,
 				D91505CC221E050500EB5215 /* ActivityHandlerNode.swift in Sources */,
-				D9CA443A222FF3F0000E424B /* DangerDeps.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
