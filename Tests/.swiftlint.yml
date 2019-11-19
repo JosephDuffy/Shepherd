@@ -1,0 +1,7 @@
+disabled_rules:
+  - function_body_length
+  - nesting
+  - file_length
+  - type_body_length
+  - type_name
+  - identifier_name
