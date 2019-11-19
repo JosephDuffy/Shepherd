@@ -14,7 +14,7 @@ Pod::Spec.new do |spec|
     :git => "https://github.com/JosephDuffy/Shepherd.git",
     :tag => "v#{spec.version}"
   }
-  spec.source_files = "Source/**/*.{swift,h,m}"
+  spec.source_files = "Sources/**/*.swift"
   spec.osx.deployment_target = "10.10"
   spec.ios.deployment_target = "8.0"
   spec.tvos.deployment_target = "9.0"
