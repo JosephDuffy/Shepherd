@@ -1,0 +1,79 @@
+name: Release
+
+on:
+  push:
+    branches:
+     - master
+    tags:
+     - '*'
+
+jobs:
+  github_release:
+    name: GitHub
+    runs-on: macos-latest
+    strategy:
+      matrix:
+        xcode: ["11.2"]
+
+    steps:
+    - uses: actions/checkout@v1
+
+    - name: Select Xcode ${{ matrix.xcode }}
+      run: sudo xcode-select --switch /Applications/Xcode_${{ matrix.xcode }}.app
+
+    - name: Build carthage archive
+      run: carthage build --archive --platform iOS,macOS,tvOS,watchOS
+
+    - name: Deploy to GitHub
+      uses: softprops/action-gh-release@v1
+      with:
+        files: Shepherd.framework.zip
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  cocoa_pods_release:
+    name: CocoaPods
+    runs-on: macos-latest
+
+    steps:
+    - uses: actions/checkout@v1
+
+    - name: Cache Bundler
+      uses: actions/cache@preview
+      with:
+        path: vendor/bundle
+        key: ${{ runner.os }}-bundler-${{ hashFiles('**/Gemfile.lock') }}
+        restore-keys: |
+          ${{ runner.os }}-bundler-
+    - name: bundle install
+      run: bundle install --deployment
+
+    - name: Deploy pod
+      run: bundle exec pod trunk push
+
+  docs_upload:
+    name: Documentation
+    runs-on: macos-latest
+
+    steps:
+    - uses: actions/checkout@v1
+
+    - name: Cache Bundler
+      uses: actions/cache@preview
+      with:
+        path: vendor/bundle
+        key: ${{ runner.os }}-bundler-${{ hashFiles('**/Gemfile.lock') }}
+        restore-keys: |
+          ${{ runner.os }}-bundler-
+    - name: bundle install
+      run: bundle install --deployment
+
+    - name: Build docs
+      run: bundle exec jazzy
+
+    - name: Deploy docs
+      uses: JamesIves/github-pages-deploy-action@master
+      env:
+        ACCESS_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        BRANCH: gh-pages
+        FOLDER: docs
