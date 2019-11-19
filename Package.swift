@@ -15,8 +15,8 @@ let package = Package(
         .package(url: "https://github.com/f-meloni/Rocket", from: "0.1.0"), // dev
     ],
     targets: [
-        .target(name: "Shepherd", path: "Source"),
-        .testTarget(name: "ShepherdTests", dependencies: ["Shepherd"], path: "Tests"),
+        .target(name: "Shepherd"),
+        .testTarget(name: "ShepherdTests", dependencies: ["Shepherd"]),
         .target(name: "CIDependencies", dependencies: ["Danger", "swiftlint", "danger-swift"], path: "Resources"), // dev
     ],
     swiftLanguageVersions: [.v5]
