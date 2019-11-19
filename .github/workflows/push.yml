@@ -56,7 +56,7 @@ jobs:
       run: bundle exec fastlane scan --clean --scheme "Shepherd-${{ matrix.platform }}"
 
     - name: Coveralls
-      run: bash <(curl -s https://codecov.io/bash) -J "Shepherd-${{ matrix.platform }}"
+      run: bash <(curl -s https://codecov.io/bash)
       env:
          CODECOV_TOKEN: ${{ secrets. CODECOV_TOKEN }}
 
