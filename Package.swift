@@ -15,5 +15,6 @@ let package = Package(
         .target(name: "Shepherd", path: "Source"),
         .testTarget(name: "ShepherdTests", dependencies: ["Shepherd"], path: "Tests"),
         .target(name: "CIDependencies", dependencies: ["Danger", "swiftlint", "danger-swift"], path: "Resources"), // dev
-    ]
+    ],
+    swiftLanguageVersions: [.v5]
 )
