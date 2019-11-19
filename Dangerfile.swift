@@ -247,7 +247,7 @@ func checkSwiftVersions() {
             ),
             VersionFile(
                 path: "./\(projectName).podspec",
-                interpreter: .regex("\\.swift_version\\s*= \"(.*)\"")
+                interpreter: .regex("\\.swift_version\\s*=\\s*\"(.*)\"")
             ),
         ],
         versionKind: "Swift"
@@ -258,13 +258,13 @@ func checkProjectVersions() {
     check(
         fileProviders: [
             InfoPlistFileProvider(
-                discoveryMethod: .searchDirectory("./Source", fileNames: ["Info.plist"]),
+                discoveryMethod: .searchDirectory("./Sources", fileNames: ["Info.plist"]),
                 plistKey: .versionNumber,
                 projectFilePath: "./\(projectName).xcodeproj"
             ),
         ],
         files: [
-            VersionFile(path: "./\(projectName).podspec", interpreter: .regex("\\.version= \"(.*)\"")),
+            VersionFile(path: "./\(projectName).podspec", interpreter: .regex("\\.version\\s*=\\s*\"(.*)\"")),
         ],
         versionKind: "framework"
     )
