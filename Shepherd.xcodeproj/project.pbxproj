@@ -255,10 +255,10 @@
 		D968996723846573005F3F24 /* Shepherd */ = {
 			isa = PBXGroup;
 			children = (
-				D968996923847D09005F3F24 /* ClosureRouteHandler.swift */,
-				D968996C23847D09005F3F24 /* Priority.swift */,
 				D968996A23847D09005F3F24 /* RouteHandler.swift */,
 				D968996B23847D09005F3F24 /* Router.swift */,
+				D968996C23847D09005F3F24 /* Priority.swift */,
+				D968996923847D09005F3F24 /* ClosureRouteHandler.swift */,
 				D968996D23847D09005F3F24 /* Sequence+stableSorted.swift */,
 			);
 			path = Shepherd;
