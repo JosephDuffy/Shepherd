@@ -55,6 +55,26 @@ final class RouterTests: QuickSpec {
                             }
                         }
                     }
+
+                    context("passing the parent for `ignoring`") {
+                        it("should call the completion handler with `nil`") {
+                            waitUntil { done in
+                                router.handle(route: route, ignoring: [parentRouter]) { handledRouter in
+                                    expect(handledRouter).to(beNil())
+                                    done()
+                                }
+                            }
+                        }
+
+                        it("should not call the parent handler") {
+                            waitUntil { done in
+                                router.handle(route: route, ignoring: [parentRouter]) { handledRouter in
+                                    expect(parentRouter.latestHandleParameters).to(beNil())
+                                    done()
+                                }
+                            }
+                        }
+                    }
                 }
 
                 context("that can handle the activity") {
