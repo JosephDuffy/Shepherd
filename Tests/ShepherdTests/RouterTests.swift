@@ -47,7 +47,7 @@ final class RouterTests: QuickSpec {
                         }
                     }
 
-                    it("should call the parent handler with the activity") {
+                    it("should call the parent handler with the route") {
                         waitUntil { done in
                             router.handle(route: route) { handledRouter in
                                 expect(parentRouter.latestHandleParameters?.route as? String) == route
