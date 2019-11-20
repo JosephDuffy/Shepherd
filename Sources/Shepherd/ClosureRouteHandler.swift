@@ -1,14 +1,14 @@
-public final class ClosureRouteHandler<Route>: RouteHandler {
+internal final class ClosureRouteHandler<Route>: RouteHandler {
 
-    public typealias Handler = (_ route: Route, _ completionHandler: @escaping (_ didHandle: Bool) -> Void) -> Void
+    internal typealias Handler = (_ route: Route, _ completionHandler: @escaping (_ didHandle: Bool) -> Void) -> Void
 
     private let handler: Handler
 
-    public init(handler: @escaping Handler) {
+    internal init(handler: @escaping Handler) {
         self.handler = handler
     }
 
-    public func handle<AnyRoute>(route: AnyRoute, completionHandler: ((RouteHandler?) -> Void)?) {
+    internal func handle<AnyRoute>(route: AnyRoute, completionHandler: ((RouteHandler?) -> Void)?) {
         guard let route = route as? Route else {
             completionHandler?(nil)
             return
@@ -23,12 +23,16 @@ public final class ClosureRouteHandler<Route>: RouteHandler {
 
 extension Router {
 
+    public typealias ClosureRouteHandler<Route> = (_ route: Route, _ completionHandler: @escaping (_ didHandle: Bool) -> Void) -> Void
+
+    @discardableResult
     public func add<Route>(
-        routeHandler: @escaping ClosureRouteHandler<Route>.Handler,
+        routeHandler: @escaping ClosureRouteHandler<Route>,
         priority: Priority = .medium
-    ) {
-        let handler = ClosureRouteHandler(handler: routeHandler)
+    ) -> RouteHandler {
+        let handler = Shepherd.ClosureRouteHandler(handler: routeHandler)
         add(child: handler, priority: priority)
+        return handler
     }
 
 }
