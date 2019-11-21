@@ -1,3 +1,5 @@
+import Foundation
+
 open class Router: RouteHandler {
 
     /// A closure that will be notified when a route is handled.
