@@ -49,7 +49,7 @@ final class RouterTests: QuickSpec {
 
                     it("should call the parent handler with the route") {
                         waitUntil { done in
-                            router.handle(route: route) { handledRouter in
+                            router.handle(route: route) { _ in
                                 expect(parentRouter.latestHandleParameters?.route as? String) == route
                                 done()
                             }
@@ -68,7 +68,7 @@ final class RouterTests: QuickSpec {
 
                         it("should not call the parent handler") {
                             waitUntil { done in
-                                router.handle(route: route, ignoring: [parentRouter]) { handledRouter in
+                                router.handle(route: route, ignoring: [parentRouter]) { _ in
                                     expect(parentRouter.latestHandleParameters).to(beNil())
                                     done()
                                 }
