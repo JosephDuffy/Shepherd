@@ -1,6 +1,5 @@
-/// The priority of a route handler in a collection of router. Route handlers are
-/// handled in decending priority order.
 public enum Priority: Int, Hashable, Comparable, RawRepresentable {
+/// The priority of a path handler within a router. Path handlers are queried in decending priority order.
 
     public static func < (lhs: Priority, rhs: Priority) -> Bool {
         return lhs.rawValue < rhs.rawValue
