@@ -15,10 +15,10 @@ final class RouterTests: QuickSpec {
             context("with no children, or a parent") {
                 context("handle(activity:ignoring:completionHandler:)") {
                     it("should call the completion handler with `nil`") {
-                        let activity = "test"
+                        let path = "path/to/handle"
 
                         waitUntil { done in
-                            router.handle(route: activity, ignoring: []) { handledRouter in
+                            router.handle(path: path, ignoring: []) { handledRouter in
                                 expect(handledRouter).to(beNil())
                                 done()
                             }
@@ -29,18 +29,18 @@ final class RouterTests: QuickSpec {
 
             context("with a parent") {
                 var parentRouter: MockRouter<String>!
-                var route: String!
+                var path: String!
 
                 beforeEach {
                     parentRouter = MockRouter()
                     parentRouter.add(child: router)
-                    route = "route-to-handle"
+                    path = "path/to/handle"
                 }
 
                 context("handle(activity:ignoring:completionHandler:)") {
                     it("should call the completion handler with `nil`") {
                         waitUntil { done in
-                            router.handle(route: route) { handledRouter in
+                            router.handle(path: path) { handledRouter in
                                 expect(handledRouter).to(beNil())
                                 done()
                             }
@@ -49,8 +49,8 @@ final class RouterTests: QuickSpec {
 
                     it("should call the parent handler with the route") {
                         waitUntil { done in
-                            router.handle(route: route) { _ in
-                                expect(parentRouter.latestHandleParameters?.route as? String) == route
+                            router.handle(path: path) { _ in
+                                expect(parentRouter.latestHandleParameters?.path as? String) == path
                                 done()
                             }
                         }
@@ -59,7 +59,7 @@ final class RouterTests: QuickSpec {
                     context("passing the parent for `ignoring`") {
                         it("should call the completion handler with `nil`") {
                             waitUntil { done in
-                                router.handle(route: route, ignoring: [parentRouter]) { handledRouter in
+                                router.handle(path: path, ignoring: [parentRouter]) { handledRouter in
                                     expect(handledRouter).to(beNil())
                                     done()
                                 }
@@ -68,7 +68,7 @@ final class RouterTests: QuickSpec {
 
                         it("should not call the parent handler") {
                             waitUntil { done in
-                                router.handle(route: route, ignoring: [parentRouter]) { _ in
+                                router.handle(path: path, ignoring: [parentRouter]) { _ in
                                     expect(parentRouter.latestHandleParameters).to(beNil())
                                     done()
                                 }
@@ -79,13 +79,13 @@ final class RouterTests: QuickSpec {
 
                 context("that can handle the activity") {
                     beforeEach {
-                        parentRouter.routeToHandle = route
+                        parentRouter.routeToHandle = path
                     }
 
                     context("handle(activity:ignoring:completionHandler:)") {
                         it("should call the completion handler with the parent") {
                             waitUntil { done in
-                                router.handle(route: route, ignoring: []) { handledRouter in
+                                router.handle(path: path, ignoring: []) { handledRouter in
                                     expect(handledRouter) === parentRouter
                                     done()
                                 }

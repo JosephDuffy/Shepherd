@@ -13,10 +13,10 @@
 		D968996F23847D09005F3F24 /* ClosureRouteHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = D968996923847D09005F3F24 /* ClosureRouteHandler.swift */; };
 		D968997023847D09005F3F24 /* ClosureRouteHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = D968996923847D09005F3F24 /* ClosureRouteHandler.swift */; };
 		D968997123847D09005F3F24 /* ClosureRouteHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = D968996923847D09005F3F24 /* ClosureRouteHandler.swift */; };
-		D968997223847D09005F3F24 /* RouteHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = D968996A23847D09005F3F24 /* RouteHandler.swift */; };
-		D968997323847D09005F3F24 /* RouteHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = D968996A23847D09005F3F24 /* RouteHandler.swift */; };
-		D968997423847D09005F3F24 /* RouteHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = D968996A23847D09005F3F24 /* RouteHandler.swift */; };
-		D968997523847D09005F3F24 /* RouteHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = D968996A23847D09005F3F24 /* RouteHandler.swift */; };
+		D968997223847D09005F3F24 /* PathHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = D968996A23847D09005F3F24 /* PathHandler.swift */; };
+		D968997323847D09005F3F24 /* PathHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = D968996A23847D09005F3F24 /* PathHandler.swift */; };
+		D968997423847D09005F3F24 /* PathHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = D968996A23847D09005F3F24 /* PathHandler.swift */; };
+		D968997523847D09005F3F24 /* PathHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = D968996A23847D09005F3F24 /* PathHandler.swift */; };
 		D968997623847D09005F3F24 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = D968996B23847D09005F3F24 /* Router.swift */; };
 		D968997723847D09005F3F24 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = D968996B23847D09005F3F24 /* Router.swift */; };
 		D968997823847D09005F3F24 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = D968996B23847D09005F3F24 /* Router.swift */; };
@@ -125,7 +125,7 @@
 		D91505B8221E024900EB5215 /* ShepherdTests-iOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ShepherdTests-iOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D91505BF221E024900EB5215 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D968996923847D09005F3F24 /* ClosureRouteHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClosureRouteHandler.swift; sourceTree = "<group>"; };
-		D968996A23847D09005F3F24 /* RouteHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouteHandler.swift; sourceTree = "<group>"; };
+		D968996A23847D09005F3F24 /* PathHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PathHandler.swift; sourceTree = "<group>"; };
 		D968996B23847D09005F3F24 /* Router.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		D968996C23847D09005F3F24 /* Priority.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Priority.swift; sourceTree = "<group>"; };
 		D968996D23847D09005F3F24 /* Sequence+stableSorted.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Sequence+stableSorted.swift"; sourceTree = "<group>"; };
@@ -255,7 +255,7 @@
 		D968996723846573005F3F24 /* Shepherd */ = {
 			isa = PBXGroup;
 			children = (
-				D968996A23847D09005F3F24 /* RouteHandler.swift */,
+				D968996A23847D09005F3F24 /* PathHandler.swift */,
 				D968996B23847D09005F3F24 /* Router.swift */,
 				D968996C23847D09005F3F24 /* Priority.swift */,
 				D968996923847D09005F3F24 /* ClosureRouteHandler.swift */,
@@ -591,7 +591,7 @@
 				D968997623847D09005F3F24 /* Router.swift in Sources */,
 				D968997E23847D09005F3F24 /* Sequence+stableSorted.swift in Sources */,
 				D968996E23847D09005F3F24 /* ClosureRouteHandler.swift in Sources */,
-				D968997223847D09005F3F24 /* RouteHandler.swift in Sources */,
+				D968997223847D09005F3F24 /* PathHandler.swift in Sources */,
 				D9CA443A222FF3F0000E424B /* DangerDeps.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -613,7 +613,7 @@
 				D968997023847D09005F3F24 /* ClosureRouteHandler.swift in Sources */,
 				D968997823847D09005F3F24 /* Router.swift in Sources */,
 				D968998023847D09005F3F24 /* Sequence+stableSorted.swift in Sources */,
-				D968997423847D09005F3F24 /* RouteHandler.swift in Sources */,
+				D968997423847D09005F3F24 /* PathHandler.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -625,7 +625,7 @@
 				D968996F23847D09005F3F24 /* ClosureRouteHandler.swift in Sources */,
 				D968997723847D09005F3F24 /* Router.swift in Sources */,
 				D968997F23847D09005F3F24 /* Sequence+stableSorted.swift in Sources */,
-				D968997323847D09005F3F24 /* RouteHandler.swift in Sources */,
+				D968997323847D09005F3F24 /* PathHandler.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -646,7 +646,7 @@
 				D968997123847D09005F3F24 /* ClosureRouteHandler.swift in Sources */,
 				D968997923847D09005F3F24 /* Router.swift in Sources */,
 				D968998123847D09005F3F24 /* Sequence+stableSorted.swift in Sources */,
-				D968997523847D09005F3F24 /* RouteHandler.swift in Sources */,
+				D968997523847D09005F3F24 /* PathHandler.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

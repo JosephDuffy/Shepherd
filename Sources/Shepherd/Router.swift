@@ -1,6 +1,6 @@
 import Foundation
 
-open class Router: RouteHandler {
+open class Router: PathHandler {
 
     /// A closure that will be notified when a route is handled.
     /// - parameter routeHandler: The route handler that handled the route.
@@ -18,22 +18,22 @@ open class Router: RouteHandler {
     /// Create an empty route handler.
     public init() {}
 
-    public func handle<Route>(route: Route, completionHandler: ((RouteHandler?) -> Void)?) {
-        handle(route: route, ignoring: [], completionHandler: completionHandler)
+    public func handle<Path>(path: Path, completionHandler: ((PathHandler?) -> Void)?) {
+        handle(path: path, ignoring: [], completionHandler: completionHandler)
     }
 
     /**
-     Tries to handle a provided route. The child routers will be sorted by their priorities and then the order they were
+     Tries to handle a provided path. The child routers will be sorted by their priorities and then the order they were
      added in; routers with the same priorty are tried in the order they were added.
 
-     - Parameter route: The route to attempt to handle.
+     - Parameter path: The path to attempt to handle.
      - Parameter ignoring: An array of routers to ignore when traversing the children.
      - Parameter completionHandler: An optional closure that will be called when the route has
      */
-    open func handle<Route>(
-        route: Route,
+    open func handle<Path>(
+        path: Path,
         ignoring: [Router] = [],
-        completionHandler: ((RouteHandler?) -> Void)? = nil
+        completionHandler: ((PathHandler?) -> Void)? = nil
     ) {
         var iterator = routeHandlers.makeIterator()
 
@@ -51,7 +51,7 @@ open class Router: RouteHandler {
                     tryNext()
                     return
                 }
-                router.handle(route: route, ignoring: ignoringIncludingSelf) { router in
+                router.handle(path: path, ignoring: ignoringIncludingSelf) { router in
                     if let router = router {
                         completionHandler?(router)
                     } else {
@@ -59,7 +59,7 @@ open class Router: RouteHandler {
                     }
                 }
             case .handler(let routeHandler):
-                routeHandler.handle(route: route) { routeHandler in
+                routeHandler.handle(path: path) { routeHandler in
                     if let routeHandler = routeHandler {
                         completionHandler?(routeHandler)
                     } else {
@@ -74,13 +74,13 @@ open class Router: RouteHandler {
 
     private var children: [LinkedHandler] = []
 
-    open func add(child routeHandler: RouteHandler, priority: Priority = .medium) {
-        if let router = routeHandler as? Router {
+    open func add(child pathHandler: PathHandler, priority: Priority = .medium) {
+        if let router = pathHandler as? Router {
             let child = LinkedHandler(router: router, priority: priority)
             children.append(child)
             router.parent = self
         } else {
-            let child = LinkedHandler(routeHandler: routeHandler, priority: priority)
+            let child = LinkedHandler(routeHandler: pathHandler, priority: priority)
             children.append(child)
         }
     }
@@ -109,7 +109,7 @@ extension Router {
 
         enum Kind {
             case router(Router)
-            case handler(RouteHandler)
+            case handler(PathHandler)
         }
 
         static func == (lhs: LinkedHandler, rhs: LinkedHandler) -> Bool {
@@ -131,7 +131,7 @@ extension Router {
             self.priority = priority
         }
 
-        init(routeHandler: RouteHandler, priority: Priority) {
+        init(routeHandler: PathHandler, priority: Priority) {
             kind = .handler(routeHandler)
             self.priority = priority
         }

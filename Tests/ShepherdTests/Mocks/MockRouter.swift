@@ -1,20 +1,20 @@
 import Shepherd
 
-class MockRouter<RouteType: Equatable>: Router {
+class MockRouter<PathType: Equatable>: Router {
 
-    private(set) var latestHandleParameters: (route: Any, ignoring: [Router], completionHandler: ((Router?) -> Void)?)?
+    private(set) var latestHandleParameters: (path: Any, ignoring: [Router], completionHandler: ((Router?) -> Void)?)?
 
-    var routeToHandle: RouteType?
+    var routeToHandle: PathType?
 
-    override func handle<Route>(route: Route, ignoring: [Router] = [], completionHandler: ((RouteHandler?) -> Void)? = nil) {
-        latestHandleParameters = (route, ignoring, completionHandler)
+    override func handle<Path>(path: Path, ignoring: [Router] = [], completionHandler: ((PathHandler?) -> Void)? = nil) {
+        latestHandleParameters = (path, ignoring, completionHandler)
 
-        if let routeToHandle = routeToHandle, let route = route as? RouteType, routeToHandle == route {
+        if let routeToHandle = routeToHandle, let route = path as? PathType, routeToHandle == route {
             completionHandler?(self)
             return
         }
 
-        super.handle(route: route, ignoring: ignoring, completionHandler: completionHandler)
+        super.handle(path: path, ignoring: ignoring, completionHandler: completionHandler)
     }
 
 }
