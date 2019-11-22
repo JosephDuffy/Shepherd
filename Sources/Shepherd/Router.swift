@@ -1,5 +1,10 @@
 import Foundation
 
+/**
+ An object that routes paths to a set of connected path handlers. Path handlers are added via the `add(child:priority:)`
+ function. When the router is requested to handle a route it will query the path handles by priority order. If 2
+ handlers have identical priorities they will be queried in the order they were added.
+ */
 open class Router: PathHandler {
 
     /// A closure that will be notified when a route is handled.
@@ -7,28 +12,49 @@ open class Router: PathHandler {
     public typealias CompletionHandler = (_ routeHandler: Router?) -> Void
 
     /// The immediate parent. This will be set automatically by the parent.
+    /// The parent has a priority of `Priority.parent`, making it the last path handler to be queried.
     public internal(set) weak var parent: Router?
 
+    /// An array of the adjacent nodes in the tree of path handlers, ordered by the priority of the handlers. If the
+    /// priority of 2 handlers are the same they will be ordered by order they were added.
     private var routeHandlers: [LinkedHandler] {
         var tree = children
         parent.map { LinkedHandler(router: $0, priority: .low) }.map { tree.append($0) }
         return tree.stableSorted(by: >)
     }
 
-    /// Create an empty route handler.
+    /// An array of children that have been added to the router.
+    private var children: [LinkedHandler] = []
+
+    /// Create an empty router.
     public init() {}
 
+    /**
+     Attempt to handle the provided path. The child path handlers will be sorted by their priorities and then the order they
+     were added in; path handler with the same priorty are queried in the order they were added.
+
+     The completion closure will be called with the path handler that handled the path, or `nil` if the path was not
+     handled.
+
+     - Parameter path: The path to attempt to handle.
+     - Parameter completionHandler: A closure that will be called with the path handler that handled the path, or `nil`
+                                    if the path was not handled.
+     */
     public func handle<Path>(path: Path, completionHandler: ((PathHandler?) -> Void)?) {
         handle(path: path, ignoring: [], completionHandler: completionHandler)
     }
 
     /**
-     Tries to handle a provided path. The child routers will be sorted by their priorities and then the order they were
-     added in; routers with the same priorty are tried in the order they were added.
+     Attempt to handle the provided path. The child path handlers will be sorted by their priorities and then the order they
+     were added in; path handler with the same priorty are queried in the order they were added.
+
+     The completion closure will be called with the path handler that handled the path, or `nil` if the path was not
+     handled.
 
      - Parameter path: The path to attempt to handle.
-     - Parameter ignoring: An array of routers to ignore when traversing the children.
-     - Parameter completionHandler: An optional closure that will be called when the route has
+     - Parameter ignoring: An array of path handlers to ignore when traversing the tree of handlers.
+     - Parameter completionHandler: A closure that will be called with the path handler that handled the path, or `nil`
+     if the path was not handled.
      */
     open func handle<Path>(
         path: Path,
@@ -73,8 +99,13 @@ open class Router: PathHandler {
         tryNext()
     }
 
-    private var children: [LinkedHandler] = []
+    /**
+     Add the provided path handler as a child of the router. The added child will be queried when attempting to handle
+     a path via `handle(path:completionHandler:)`.
 
+     - Parameter pathHandler: The path handler to add a child.
+     - Parameter priority: The priority to assign to the child. Defaults to `.medium`.
+     */
     open func add(child pathHandler: PathHandler, priority: Priority = .medium) {
         if let router = pathHandler as? Router {
             let child = LinkedHandler(router: router, priority: priority)
@@ -86,6 +117,12 @@ open class Router: PathHandler {
         }
     }
 
+    /**
+     Remove the provided path handler from the array of path handlers that will be queried by this router. If the path
+     handler is not a child this function does nothing.
+
+     - Parameter pathHandler: The path handler to remove.
+     */
     open func remove(child pathHandler: PathHandler) {
         children.removeAll(where: { child in
             return child.pathHandler === pathHandler
