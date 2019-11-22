@@ -45,23 +45,24 @@ open class Router: PathHandler {
                 completionHandler?(nil)
                 return
             }
-            switch next.kind {
-            case .router(let router):
-                guard !ignoring.contains(where: { $0 === router }) else {
-                    tryNext()
-                    return
-                }
-                router.handle(path: path, ignoring: ignoringIncludingSelf) { router in
-                    if let router = router {
-                        completionHandler?(router)
+
+            guard !ignoring.contains(where: { $0 === next.pathHandler }) else {
+                tryNext()
+                return
+            }
+
+            if let router = next.router {
+                router.handle(path: path, ignoring: ignoringIncludingSelf) { pathHandler in
+                    if let pathHandler = pathHandler {
+                        completionHandler?(pathHandler)
                     } else {
                         tryNext()
                     }
                 }
-            case .handler(let routeHandler):
-                routeHandler.handle(path: path) { routeHandler in
-                    if let routeHandler = routeHandler {
-                        completionHandler?(routeHandler)
+            } else {
+                next.pathHandler.handle(path: path) { pathHandler in
+                    if let pathHandler = pathHandler {
+                        completionHandler?(pathHandler)
                     } else {
                         tryNext()
                     }
@@ -85,19 +86,9 @@ open class Router: PathHandler {
         }
     }
 
-    open func remove(router: Router) {
+    open func remove(child pathHandler: PathHandler) {
         children.removeAll(where: { child in
-            switch child.kind {
-            case .router(let childRouter):
-                if router === childRouter {
-                    router.parent = nil
-                    return true
-                } else {
-                    return false
-                }
-            case .handler:
-                return false
-            }
+            return child.pathHandler === pathHandler
         })
     }
 
@@ -107,7 +98,7 @@ extension Router {
 
     private struct LinkedHandler: Comparable {
 
-        enum Kind {
+        private enum Kind {
             case router(Router)
             case handler(PathHandler)
         }
@@ -122,9 +113,27 @@ extension Router {
             return lhs.priority < rhs.priority
         }
 
-        let kind: Kind
+        private let kind: Kind
         var priority: Priority
         private let uuid = UUID()
+
+        var pathHandler: PathHandler {
+            switch kind {
+            case .router(let router):
+                return router
+            case .handler(let pathHandler):
+                return pathHandler
+            }
+        }
+
+        var router: Router? {
+            switch kind {
+            case .router(let router):
+                return router
+            case .handler:
+                return nil
+            }
+        }
 
         init(router: Router, priority: Priority) {
             kind = .router(router)
