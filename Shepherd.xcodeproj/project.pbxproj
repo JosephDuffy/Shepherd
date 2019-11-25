@@ -124,6 +124,14 @@
 		D91505B3221E024900EB5215 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D91505B8221E024900EB5215 /* ShepherdTests-iOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ShepherdTests-iOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D91505BF221E024900EB5215 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D9416E39238C791500181A32 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
+		D9416E3A238C795D00181A32 /* .jazzy.yaml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .jazzy.yaml; sourceTree = SOURCE_ROOT; };
+		D9416E3B238C795D00181A32 /* .ruby-version */ = {isa = PBXFileReference; lastKnownFileType = text; path = ".ruby-version"; sourceTree = SOURCE_ROOT; };
+		D9416E3C238C795D00181A32 /* .node-version */ = {isa = PBXFileReference; lastKnownFileType = text; path = ".node-version"; sourceTree = SOURCE_ROOT; };
+		D9416E3D238C795D00181A32 /* Cartfile.private */ = {isa = PBXFileReference; lastKnownFileType = file; path = Cartfile.private; sourceTree = SOURCE_ROOT; };
+		D9416E3E238C795D00181A32 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = SOURCE_ROOT; };
+		D9416E3F238C795D00181A32 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = SOURCE_ROOT; };
+		D9416E40238C795D00181A32 /* .codecov.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .codecov.yml; sourceTree = SOURCE_ROOT; };
 		D968996923847D09005F3F24 /* ClosureRouteHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClosureRouteHandler.swift; sourceTree = "<group>"; };
 		D968996A23847D09005F3F24 /* PathHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PathHandler.swift; sourceTree = "<group>"; };
 		D968996B23847D09005F3F24 /* Router.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
@@ -247,6 +255,7 @@
 			children = (
 				D968996823846593005F3F24 /* ShepherdTests */,
 				D968998F23847EBB005F3F24 /* Frameworks */,
+				D9416E39238C791500181A32 /* .swiftlint.yml */,
 				D91505BF221E024900EB5215 /* Info.plist */,
 			);
 			path = Tests;
@@ -322,6 +331,13 @@
 			isa = PBXGroup;
 			children = (
 				D9CA4437222FF3CD000E424B /* Package.swift */,
+				D9416E40238C795D00181A32 /* .codecov.yml */,
+				D9416E3F238C795D00181A32 /* .gitignore */,
+				D9416E3A238C795D00181A32 /* .jazzy.yaml */,
+				D9416E3C238C795D00181A32 /* .node-version */,
+				D9416E3B238C795D00181A32 /* .ruby-version */,
+				D9416E3E238C795D00181A32 /* .swiftlint.yml */,
+				D9416E3D238C795D00181A32 /* Cartfile.private */,
 				D9CA4439222FF3F0000E424B /* DangerDeps.swift */,
 			);
 			path = Resources;
