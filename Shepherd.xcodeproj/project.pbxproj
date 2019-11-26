@@ -119,6 +119,7 @@
 		D968996B23847D09005F3F24 /* Router.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		D968996C23847D09005F3F24 /* Priority.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Priority.swift; sourceTree = "<group>"; };
 		D968998323847D3B005F3F24 /* MockRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockRouter.swift; sourceTree = "<group>"; };
+		D9B77D40238DCF8600E3071C /* Dangerfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dangerfile.swift; sourceTree = SOURCE_ROOT; };
 		D9CA4437222FF3CD000E424B /* Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = SOURCE_ROOT; };
 		D9CA4439222FF3F0000E424B /* DangerDeps.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DangerDeps.swift; sourceTree = "<group>"; };
 		D9D933B4223492FD00E94AAE /* Shepherd.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Shepherd.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -261,6 +262,7 @@
 			isa = PBXGroup;
 			children = (
 				D9CA4437222FF3CD000E424B /* Package.swift */,
+				D9B77D40238DCF8600E3071C /* Dangerfile.swift */,
 				D9416E40238C795D00181A32 /* .codecov.yml */,
 				D9416E3F238C795D00181A32 /* .gitignore */,
 				D9416E3A238C795D00181A32 /* .jazzy.yaml */,
