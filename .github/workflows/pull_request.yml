@@ -39,9 +39,9 @@ jobs:
         restore-keys: |
           ${{ runner.os }}-swiftpm-
     - name: Build CI Dependencies
-      run: swift build --skip-update --target CIDependencies
+      run: swift build --skip-update --configuration Release --target CIDependencies
     - name: Run Danger
-      run: swift run --skip-update danger-swift ci --danger-js-path $(yarn bin danger) --verbose
+      run: swift run --skip-update --configuration Release danger-swift ci --danger-js-path $(yarn bin danger) --verbose
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
