@@ -12,6 +12,9 @@
 		D9416E42238C79EC00181A32 /* RouterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9416E41238C79EC00181A32 /* RouterTests.swift */; };
 		D9416E43238C79EC00181A32 /* RouterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9416E41238C79EC00181A32 /* RouterTests.swift */; };
 		D9416E44238C79EC00181A32 /* RouterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9416E41238C79EC00181A32 /* RouterTests.swift */; };
+		D9416E46238D8F5000181A32 /* ClosurePathHandlerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9416E45238D8F5000181A32 /* ClosurePathHandlerTests.swift */; };
+		D9416E47238D8F5000181A32 /* ClosurePathHandlerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9416E45238D8F5000181A32 /* ClosurePathHandlerTests.swift */; };
+		D9416E48238D8F5000181A32 /* ClosurePathHandlerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9416E45238D8F5000181A32 /* ClosurePathHandlerTests.swift */; };
 		D968996E23847D09005F3F24 /* ClosureRouteHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = D968996923847D09005F3F24 /* ClosureRouteHandler.swift */; };
 		D968996F23847D09005F3F24 /* ClosureRouteHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = D968996923847D09005F3F24 /* ClosureRouteHandler.swift */; };
 		D968997023847D09005F3F24 /* ClosureRouteHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = D968996923847D09005F3F24 /* ClosureRouteHandler.swift */; };
@@ -114,6 +117,7 @@
 		D9416E3F238C795D00181A32 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = SOURCE_ROOT; };
 		D9416E40238C795D00181A32 /* .codecov.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .codecov.yml; sourceTree = SOURCE_ROOT; };
 		D9416E41238C79EC00181A32 /* RouterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouterTests.swift; sourceTree = "<group>"; };
+		D9416E45238D8F5000181A32 /* ClosurePathHandlerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClosurePathHandlerTests.swift; sourceTree = "<group>"; };
 		D968996923847D09005F3F24 /* ClosureRouteHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClosureRouteHandler.swift; sourceTree = "<group>"; };
 		D968996A23847D09005F3F24 /* PathHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PathHandler.swift; sourceTree = "<group>"; };
 		D968996B23847D09005F3F24 /* Router.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
@@ -246,6 +250,7 @@
 			children = (
 				D968998223847D3B005F3F24 /* Mocks */,
 				D9416E41238C79EC00181A32 /* RouterTests.swift */,
+				D9416E45238D8F5000181A32 /* ClosurePathHandlerTests.swift */,
 			);
 			path = ShepherdTests;
 			sourceTree = "<group>";
@@ -546,6 +551,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D9416E47238D8F5000181A32 /* ClosurePathHandlerTests.swift in Sources */,
 				D9416E44238C79EC00181A32 /* RouterTests.swift in Sources */,
 				D968998623847D3B005F3F24 /* MockRouter.swift in Sources */,
 			);
@@ -579,6 +585,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D9416E48238D8F5000181A32 /* ClosurePathHandlerTests.swift in Sources */,
 				D9416E43238C79EC00181A32 /* RouterTests.swift in Sources */,
 				D968998723847D3B005F3F24 /* MockRouter.swift in Sources */,
 			);
@@ -600,6 +607,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D9416E46238D8F5000181A32 /* ClosurePathHandlerTests.swift in Sources */,
 				D9416E42238C79EC00181A32 /* RouterTests.swift in Sources */,
 				D968998823847D3B005F3F24 /* MockRouter.swift in Sources */,
 			);

@@ -6,8 +6,11 @@ class MockRouter<PathType: Equatable>: Router {
 
     var routeToHandle: PathType?
 
+    var handleDelegate: (() -> Void)?
+
     override func handle<Path>(path: Path, ignoring: [Router] = [], completionHandler: ((PathHandler?) -> Void)? = nil) {
         latestHandleParameters = (path, ignoring, completionHandler)
+        handleDelegate?()
 
         if let routeToHandle = routeToHandle, let route = path as? PathType, routeToHandle == route {
             completionHandler?(self)
