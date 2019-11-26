@@ -18,10 +18,10 @@ jobs:
       run: sudo xcode-select --switch /Applications/Xcode_${{ matrix.xcode }}.app
 
     - name: Cache SwiftPM
-      uses: actions/cache@preview
+      uses: actions/cache@v1
       with:
         path: .build
-        key: ${{ runner.os }}-xcode_${{ matrix.xcode }}-swiftpm-${{ hashFiles(format('{0}{1}', github.workspace, '/Package.resolved')) }}
+        key: ${{ runner.os }}-xcode_${{ matrix.xcode }}-swiftpm-${{ hashFiles('**/Package.resolved') }}
         restore-keys: |
           ${{ runner.os }}-xcode_${{ matrix.xcode }}-swiftpm-
     - name: SwiftPM tests
@@ -43,7 +43,7 @@ jobs:
       run: sudo xcode-select --switch /Applications/Xcode_${{ matrix.xcode }}.app
 
     - name: Cache Bundler
-      uses: actions/cache@preview
+      uses: actions/cache@v1
       with:
         path: vendor/bundle
         key: ${{ runner.os }}-bundler-${{ hashFiles('**/Gemfile.lock') }}
@@ -75,3 +75,31 @@ jobs:
 
     - name: Build Carthage Archive
       run: carthage build --archive --platform iOS,macOS,tvOS,watchOS
+
+  linux_tests:
+    name: SwiftPM on ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-16.04, ubuntu-latest]
+        swift: ["5.0.3"]
+
+    steps:
+    - uses: actions/checkout@v1
+
+    - name: Cache SwiftPM
+      uses: actions/cache@preview
+      with:
+        path: .build
+        key: ${{ runner.os }}-swift_${{ matrix.swift }}-swiftpm-${{ hashFiles(format('{0}{1}', github.workspace, '/Package.resolved')) }}
+        restore-keys: |
+          ${{ runner.os }}-swift_${{ matrix.swift }}-swiftpm-
+
+    - name: Install Swift ${{ matrix.swift }} and test
+      if: steps.swiftenv-cache.outputs.cache-hit != 'true'
+      env:
+        SWIFT_VERSION: ${{ matrix.swift }}
+      run: |
+        eval "$(curl -sL https://swiftenv.fuller.li/install.sh)"
+        swift test --skip-update
