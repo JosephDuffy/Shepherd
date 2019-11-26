@@ -51,4 +51,23 @@ extension Router {
         return handler
     }
 
+    /**
+     Add the provided closure to be a path handler.
+
+     When the closure is called it should attempt to handle the path. If the path is handled the closure should be
+     called with `true`, otherwise the closure should be called with `false`.
+
+     - Parameter pathType: The path type to handle. Pass this to aid with type checking.
+     - Parameter priority: The priority of the handler. Defaults to medium.
+     - Parameter pathHandler: A closure that will be queried when handling a path of type `Path`
+     */
+    @discardableResult
+    public func addHandlerForPaths<Path>(
+        ofType pathType: Path.Type,
+        priority: Priority = .medium,
+        pathHandler: @escaping ClosurePathHandler<Path>
+    ) -> PathHandler {
+        return addPathHandler(priority: priority, pathHandler: pathHandler)
+    }
+
 }
