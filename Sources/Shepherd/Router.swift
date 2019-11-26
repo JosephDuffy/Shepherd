@@ -20,7 +20,7 @@ open class Router: PathHandler {
     private var routeHandlers: [LinkedHandler] {
         var tree = children
         parent.map { LinkedHandler(router: $0, priority: .low) }.map { tree.append($0) }
-        return tree.stableSorted(by: >)
+        return tree.stableSorted(by: { $0.priority > $1.priority })
     }
 
     /// An array of children that have been added to the router.
@@ -133,26 +133,15 @@ open class Router: PathHandler {
 
 extension Router {
 
-    private struct LinkedHandler: Comparable {
+    private struct LinkedHandler {
 
         private enum Kind {
             case router(Router)
             case handler(PathHandler)
         }
 
-        static func == (lhs: LinkedHandler, rhs: LinkedHandler) -> Bool {
-            guard lhs.priority == rhs.priority else { return false }
-            guard lhs.uuid == rhs.uuid else { return false }
-            return true
-        }
-
-        public static func < (lhs: LinkedHandler, rhs: LinkedHandler) -> Bool {
-            return lhs.priority < rhs.priority
-        }
-
         private let kind: Kind
         var priority: Priority
-        private let uuid = UUID()
 
         var pathHandler: PathHandler {
             switch kind {
