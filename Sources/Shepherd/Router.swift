@@ -121,13 +121,18 @@ open class Router: PathHandler {
 
     /**
      Remove the provided path handler from the array of path handlers that will be queried by this router. If the path
-     handler is not a child this function does nothing.
+     handler is a child of this router the parent will be set to `nil`. If it is not a child this function does nothing.
 
      - Parameter pathHandler: The path handler to remove.
      */
     open func remove(child pathHandler: PathHandler) {
         children.removeAll(where: { child in
-            return child.pathHandler === pathHandler
+            if child.pathHandler === pathHandler {
+                child.router?.parent = nil
+                return true
+            } else {
+                return false
+            }
         })
     }
 

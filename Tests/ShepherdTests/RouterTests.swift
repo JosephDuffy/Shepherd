@@ -162,6 +162,27 @@ final class RouterTests: XCTestCase {
         )
     }
 
+    func testRouterWithChildRouter() {
+        let parentRouter = Router()
+        let childRouter = Router()
+        parentRouter.add(child: childRouter)
+        XCTAssert(childRouter.parent === parentRouter, "Adding child should set the parent")
+        parentRouter.remove(child: childRouter)
+        XCTAssertNil(childRouter.parent, "Parent should be set to nil after removal")
+    }
+
+    func testRouterRemovingNonChildRouter() {
+        let parentRouter1 = Router()
+        let parentRouter2 = Router()
+        let childRouter1 = Router()
+        let childRouter2 = Router()
+        parentRouter1.add(child: childRouter1)
+        parentRouter2.add(child: childRouter2)
+        parentRouter2.remove(child: childRouter1)
+        XCTAssert(childRouter1.parent === parentRouter1, "Child's parent should not be unset by a different parent")
+        XCTAssert(childRouter2.parent === parentRouter2, "Child's parent should not be unset when removing a different child")
+    }
+
     func testRouterWithMultiplePriorityHandlers() {
         let router = Router()
         let path = "test-path"
