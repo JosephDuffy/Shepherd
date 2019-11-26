@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		D91505B9221E024900EB5215 /* Shepherd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D91505AF221E024900EB5215 /* Shepherd.framework */; };
 		D91505C0221E024900EB5215 /* Shepherd.h in Headers */ = {isa = PBXBuildFile; fileRef = D91505B2221E024900EB5215 /* Shepherd.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D9416E42238C79EC00181A32 /* RouterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9416E41238C79EC00181A32 /* RouterTests.swift */; };
+		D9416E43238C79EC00181A32 /* RouterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9416E41238C79EC00181A32 /* RouterTests.swift */; };
+		D9416E44238C79EC00181A32 /* RouterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9416E41238C79EC00181A32 /* RouterTests.swift */; };
 		D968996E23847D09005F3F24 /* ClosureRouteHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = D968996923847D09005F3F24 /* ClosureRouteHandler.swift */; };
 		D968996F23847D09005F3F24 /* ClosureRouteHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = D968996923847D09005F3F24 /* ClosureRouteHandler.swift */; };
 		D968997023847D09005F3F24 /* ClosureRouteHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = D968996923847D09005F3F24 /* ClosureRouteHandler.swift */; };
@@ -32,21 +35,6 @@
 		D968998623847D3B005F3F24 /* MockRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D968998323847D3B005F3F24 /* MockRouter.swift */; };
 		D968998723847D3B005F3F24 /* MockRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D968998323847D3B005F3F24 /* MockRouter.swift */; };
 		D968998823847D3B005F3F24 /* MockRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D968998323847D3B005F3F24 /* MockRouter.swift */; };
-		D968998923847D3B005F3F24 /* RouterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D968998423847D3B005F3F24 /* RouterTests.swift */; };
-		D968998A23847D3B005F3F24 /* RouterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D968998423847D3B005F3F24 /* RouterTests.swift */; };
-		D968998B23847D3B005F3F24 /* RouterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D968998423847D3B005F3F24 /* RouterTests.swift */; };
-		D968999323847EFA005F3F24 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D968999123847EFA005F3F24 /* Nimble.framework */; };
-		D968999423847EFA005F3F24 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D968999223847EFA005F3F24 /* Quick.framework */; };
-		D968999823847F0C005F3F24 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D968999623847F0C005F3F24 /* Quick.framework */; };
-		D968999923847F0C005F3F24 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D968999723847F0C005F3F24 /* Nimble.framework */; };
-		D968999D23847F1D005F3F24 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D968999B23847F1D005F3F24 /* Quick.framework */; };
-		D968999E23847F1D005F3F24 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D968999C23847F1D005F3F24 /* Nimble.framework */; };
-		D96899A023847FD0005F3F24 /* Nimble.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = D968999723847F0C005F3F24 /* Nimble.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		D96899A123847FD0005F3F24 /* Quick.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = D968999623847F0C005F3F24 /* Quick.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		D96899A323847FF0005F3F24 /* Nimble.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = D968999123847EFA005F3F24 /* Nimble.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		D96899A423847FF0005F3F24 /* Quick.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = D968999223847EFA005F3F24 /* Quick.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		D96899A62384801C005F3F24 /* Nimble.framework in Copy Files (2 items) */ = {isa = PBXBuildFile; fileRef = D968999C23847F1D005F3F24 /* Nimble.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		D96899A72384801C005F3F24 /* Quick.framework in Copy Files (2 items) */ = {isa = PBXBuildFile; fileRef = D968999B23847F1D005F3F24 /* Quick.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D9CA443A222FF3F0000E424B /* DangerDeps.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9CA4439222FF3F0000E424B /* DangerDeps.swift */; };
 		D9E601CF2233E99D00B36B1E /* Shepherd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9E601C62233E99D00B36B1E /* Shepherd.framework */; };
 		D9E601E12233EBFA00B36B1E /* Shepherd.h in Headers */ = {isa = PBXBuildFile; fileRef = D91505B2221E024900EB5215 /* Shepherd.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -86,8 +74,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				D96899A023847FD0005F3F24 /* Nimble.framework in Copy Frameworks */,
-				D96899A123847FD0005F3F24 /* Quick.framework in Copy Frameworks */,
 			);
 			name = "Copy Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -98,8 +84,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				D96899A323847FF0005F3F24 /* Nimble.framework in Copy Frameworks */,
-				D96899A423847FF0005F3F24 /* Quick.framework in Copy Frameworks */,
 			);
 			name = "Copy Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -110,8 +94,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				D96899A62384801C005F3F24 /* Nimble.framework in Copy Files (2 items) */,
-				D96899A72384801C005F3F24 /* Quick.framework in Copy Files (2 items) */,
 			);
 			name = "Copy Files (2 items)";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -128,23 +110,16 @@
 		D9416E3A238C795D00181A32 /* .jazzy.yaml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .jazzy.yaml; sourceTree = SOURCE_ROOT; };
 		D9416E3B238C795D00181A32 /* .ruby-version */ = {isa = PBXFileReference; lastKnownFileType = text; path = ".ruby-version"; sourceTree = SOURCE_ROOT; };
 		D9416E3C238C795D00181A32 /* .node-version */ = {isa = PBXFileReference; lastKnownFileType = text; path = ".node-version"; sourceTree = SOURCE_ROOT; };
-		D9416E3D238C795D00181A32 /* Cartfile.private */ = {isa = PBXFileReference; lastKnownFileType = file; path = Cartfile.private; sourceTree = SOURCE_ROOT; };
 		D9416E3E238C795D00181A32 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = SOURCE_ROOT; };
 		D9416E3F238C795D00181A32 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = SOURCE_ROOT; };
 		D9416E40238C795D00181A32 /* .codecov.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .codecov.yml; sourceTree = SOURCE_ROOT; };
+		D9416E41238C79EC00181A32 /* RouterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouterTests.swift; sourceTree = "<group>"; };
 		D968996923847D09005F3F24 /* ClosureRouteHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClosureRouteHandler.swift; sourceTree = "<group>"; };
 		D968996A23847D09005F3F24 /* PathHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PathHandler.swift; sourceTree = "<group>"; };
 		D968996B23847D09005F3F24 /* Router.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		D968996C23847D09005F3F24 /* Priority.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Priority.swift; sourceTree = "<group>"; };
 		D968996D23847D09005F3F24 /* Sequence+stableSorted.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Sequence+stableSorted.swift"; sourceTree = "<group>"; };
 		D968998323847D3B005F3F24 /* MockRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockRouter.swift; sourceTree = "<group>"; };
-		D968998423847D3B005F3F24 /* RouterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouterTests.swift; sourceTree = "<group>"; };
-		D968999123847EFA005F3F24 /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = Carthage/Build/iOS/Nimble.framework; sourceTree = SOURCE_ROOT; };
-		D968999223847EFA005F3F24 /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = Carthage/Build/iOS/Quick.framework; sourceTree = SOURCE_ROOT; };
-		D968999623847F0C005F3F24 /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = Carthage/Build/Mac/Quick.framework; sourceTree = SOURCE_ROOT; };
-		D968999723847F0C005F3F24 /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = Carthage/Build/Mac/Nimble.framework; sourceTree = SOURCE_ROOT; };
-		D968999B23847F1D005F3F24 /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = Carthage/Build/tvOS/Quick.framework; sourceTree = SOURCE_ROOT; };
-		D968999C23847F1D005F3F24 /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = Carthage/Build/tvOS/Nimble.framework; sourceTree = SOURCE_ROOT; };
 		D9CA4437222FF3CD000E424B /* Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = SOURCE_ROOT; };
 		D9CA4439222FF3F0000E424B /* DangerDeps.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DangerDeps.swift; sourceTree = "<group>"; };
 		D9D933B4223492FD00E94AAE /* Shepherd.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Shepherd.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -167,8 +142,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				D91505B9221E024900EB5215 /* Shepherd.framework in Frameworks */,
-				D968999323847EFA005F3F24 /* Nimble.framework in Frameworks */,
-				D968999423847EFA005F3F24 /* Quick.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -190,8 +163,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D968999923847F0C005F3F24 /* Nimble.framework in Frameworks */,
-				D968999823847F0C005F3F24 /* Quick.framework in Frameworks */,
 				D9E601CF2233E99D00B36B1E /* Shepherd.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -207,8 +178,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D968999E23847F1D005F3F24 /* Nimble.framework in Frameworks */,
-				D968999D23847F1D005F3F24 /* Quick.framework in Frameworks */,
 				D9FFA6292235A223005D9A4D /* Shepherd.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -254,7 +223,6 @@
 			isa = PBXGroup;
 			children = (
 				D968996823846593005F3F24 /* ShepherdTests */,
-				D968998F23847EBB005F3F24 /* Frameworks */,
 				D9416E39238C791500181A32 /* .swiftlint.yml */,
 				D91505BF221E024900EB5215 /* Info.plist */,
 			);
@@ -277,7 +245,7 @@
 			isa = PBXGroup;
 			children = (
 				D968998223847D3B005F3F24 /* Mocks */,
-				D968998423847D3B005F3F24 /* RouterTests.swift */,
+				D9416E41238C79EC00181A32 /* RouterTests.swift */,
 			);
 			path = ShepherdTests;
 			sourceTree = "<group>";
@@ -290,43 +258,6 @@
 			path = Mocks;
 			sourceTree = "<group>";
 		};
-		D968998F23847EBB005F3F24 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				D968999023847EEA005F3F24 /* iOS */,
-				D968999523847F00005F3F24 /* macOS */,
-				D968999A23847F0F005F3F24 /* tvOS */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		D968999023847EEA005F3F24 /* iOS */ = {
-			isa = PBXGroup;
-			children = (
-				D968999123847EFA005F3F24 /* Nimble.framework */,
-				D968999223847EFA005F3F24 /* Quick.framework */,
-			);
-			name = iOS;
-			sourceTree = "<group>";
-		};
-		D968999523847F00005F3F24 /* macOS */ = {
-			isa = PBXGroup;
-			children = (
-				D968999723847F0C005F3F24 /* Nimble.framework */,
-				D968999623847F0C005F3F24 /* Quick.framework */,
-			);
-			name = macOS;
-			sourceTree = "<group>";
-		};
-		D968999A23847F0F005F3F24 /* tvOS */ = {
-			isa = PBXGroup;
-			children = (
-				D968999C23847F1D005F3F24 /* Nimble.framework */,
-				D968999B23847F1D005F3F24 /* Quick.framework */,
-			);
-			name = tvOS;
-			sourceTree = "<group>";
-		};
 		D9CA4436222FF3B5000E424B /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -337,7 +268,6 @@
 				D9416E3C238C795D00181A32 /* .node-version */,
 				D9416E3B238C795D00181A32 /* .ruby-version */,
 				D9416E3E238C795D00181A32 /* .swiftlint.yml */,
-				D9416E3D238C795D00181A32 /* Cartfile.private */,
 				D9CA4439222FF3F0000E424B /* DangerDeps.swift */,
 			);
 			path = Resources;
@@ -616,8 +546,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D9416E44238C79EC00181A32 /* RouterTests.swift in Sources */,
 				D968998623847D3B005F3F24 /* MockRouter.swift in Sources */,
-				D968998923847D3B005F3F24 /* RouterTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -649,8 +579,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D9416E43238C79EC00181A32 /* RouterTests.swift in Sources */,
 				D968998723847D3B005F3F24 /* MockRouter.swift in Sources */,
-				D968998A23847D3B005F3F24 /* RouterTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -670,8 +600,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D9416E42238C79EC00181A32 /* RouterTests.swift in Sources */,
 				D968998823847D3B005F3F24 /* MockRouter.swift in Sources */,
-				D968998B23847D3B005F3F24 /* RouterTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -879,7 +809,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/Carthage/Build/iOS";
 				INFOPLIST_FILE = Tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -896,7 +825,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/Carthage/Build/iOS";
 				INFOPLIST_FILE = Tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -996,7 +924,6 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				COMBINE_HIDPI_IMAGES = YES;
-				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/Carthage/Build/Mac";
 				INFOPLIST_FILE = Tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1014,7 +941,6 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				COMBINE_HIDPI_IMAGES = YES;
-				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/Carthage/Build/Mac";
 				INFOPLIST_FILE = Tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1071,7 +997,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/Carthage/Build/tvOS";
 				INFOPLIST_FILE = Tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1089,7 +1014,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/Carthage/Build/tvOS";
 				INFOPLIST_FILE = Tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
