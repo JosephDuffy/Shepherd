@@ -38,13 +38,13 @@ extension Router {
      When the closure is called it should attempt to handle the path. If the path is handled the closure should be
      called with `true`, otherwise the closure should be called with `false`.
 
-     - Parameter pathHandler: A closure that will be queried when handling a path of type `Path`
-     - Parameter priority: The priority of the handler.
+     - Parameter priority: The priority of the handler. Defaults to medium.
+     - Parameter pathHandler: A closure that will be queried when handling a path of type `Path`.
      */
     @discardableResult
-    public func add<Path>(
-        pathHandler: @escaping ClosurePathHandler<Path>,
-        priority: Priority = .medium
+    public func addPathHandler<Path>(
+        priority: Priority = .medium,
+        pathHandler: @escaping ClosurePathHandler<Path>
     ) -> PathHandler {
         let handler = Shepherd.ClosurePathHandler(handler: pathHandler)
         add(child: handler, priority: priority)
