@@ -130,14 +130,9 @@ open class Router: PathHandler {
      - Parameter pathHandler: The path handler to remove.
      */
     open func remove(child pathHandler: PathHandler) {
-        children.removeAll(where: { child in
-            if child.pathHandler === pathHandler {
-                child.router?.parent = nil
-                return true
-            } else {
-                return false
-            }
-        })
+        guard let childIndex = children.firstIndex(where: { $0.pathHandler === pathHandler }) else { return }
+        let child = children.remove(at: childIndex)
+        child.router?.parent = nil
     }
 
 }
