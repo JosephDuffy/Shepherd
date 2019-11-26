@@ -19,7 +19,7 @@ let package = Package(
     targets: [
         .target(name: "Shepherd"),
         .testTarget(name: "ShepherdTests", dependencies: ["Shepherd"]),
-        .target(name: "DangerDependencies", dependencies: ["Danger", "swiftlint", "danger-swift", "SwiftChecksDangerPlugin"], path: "Resources"), // dev
+        .target(name: "DangerDependencies", dependencies: ["Danger", "swiftlint", "danger-swift", "SwiftChecksDangerPlugin"], path: "DangerDependencies"), // dev
     ],
     swiftLanguageVersions: [.v5]
 )
