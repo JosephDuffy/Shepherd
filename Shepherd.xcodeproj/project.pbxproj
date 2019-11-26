@@ -31,10 +31,6 @@
 		D968997B23847D09005F3F24 /* Priority.swift in Sources */ = {isa = PBXBuildFile; fileRef = D968996C23847D09005F3F24 /* Priority.swift */; };
 		D968997C23847D09005F3F24 /* Priority.swift in Sources */ = {isa = PBXBuildFile; fileRef = D968996C23847D09005F3F24 /* Priority.swift */; };
 		D968997D23847D09005F3F24 /* Priority.swift in Sources */ = {isa = PBXBuildFile; fileRef = D968996C23847D09005F3F24 /* Priority.swift */; };
-		D968997E23847D09005F3F24 /* Sequence+stableSorted.swift in Sources */ = {isa = PBXBuildFile; fileRef = D968996D23847D09005F3F24 /* Sequence+stableSorted.swift */; };
-		D968997F23847D09005F3F24 /* Sequence+stableSorted.swift in Sources */ = {isa = PBXBuildFile; fileRef = D968996D23847D09005F3F24 /* Sequence+stableSorted.swift */; };
-		D968998023847D09005F3F24 /* Sequence+stableSorted.swift in Sources */ = {isa = PBXBuildFile; fileRef = D968996D23847D09005F3F24 /* Sequence+stableSorted.swift */; };
-		D968998123847D09005F3F24 /* Sequence+stableSorted.swift in Sources */ = {isa = PBXBuildFile; fileRef = D968996D23847D09005F3F24 /* Sequence+stableSorted.swift */; };
 		D968998623847D3B005F3F24 /* MockRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D968998323847D3B005F3F24 /* MockRouter.swift */; };
 		D968998723847D3B005F3F24 /* MockRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D968998323847D3B005F3F24 /* MockRouter.swift */; };
 		D968998823847D3B005F3F24 /* MockRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D968998323847D3B005F3F24 /* MockRouter.swift */; };
@@ -122,7 +118,6 @@
 		D968996A23847D09005F3F24 /* PathHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PathHandler.swift; sourceTree = "<group>"; };
 		D968996B23847D09005F3F24 /* Router.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		D968996C23847D09005F3F24 /* Priority.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Priority.swift; sourceTree = "<group>"; };
-		D968996D23847D09005F3F24 /* Sequence+stableSorted.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Sequence+stableSorted.swift"; sourceTree = "<group>"; };
 		D968998323847D3B005F3F24 /* MockRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockRouter.swift; sourceTree = "<group>"; };
 		D9CA4437222FF3CD000E424B /* Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = SOURCE_ROOT; };
 		D9CA4439222FF3F0000E424B /* DangerDeps.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DangerDeps.swift; sourceTree = "<group>"; };
@@ -240,7 +235,6 @@
 				D968996B23847D09005F3F24 /* Router.swift */,
 				D968996C23847D09005F3F24 /* Priority.swift */,
 				D968996923847D09005F3F24 /* ClosureRouteHandler.swift */,
-				D968996D23847D09005F3F24 /* Sequence+stableSorted.swift */,
 			);
 			path = Shepherd;
 			sourceTree = "<group>";
@@ -540,7 +534,6 @@
 			files = (
 				D968997A23847D09005F3F24 /* Priority.swift in Sources */,
 				D968997623847D09005F3F24 /* Router.swift in Sources */,
-				D968997E23847D09005F3F24 /* Sequence+stableSorted.swift in Sources */,
 				D968996E23847D09005F3F24 /* ClosureRouteHandler.swift in Sources */,
 				D968997223847D09005F3F24 /* PathHandler.swift in Sources */,
 				D9CA443A222FF3F0000E424B /* DangerDeps.swift in Sources */,
@@ -564,7 +557,6 @@
 				D968997C23847D09005F3F24 /* Priority.swift in Sources */,
 				D968997023847D09005F3F24 /* ClosureRouteHandler.swift in Sources */,
 				D968997823847D09005F3F24 /* Router.swift in Sources */,
-				D968998023847D09005F3F24 /* Sequence+stableSorted.swift in Sources */,
 				D968997423847D09005F3F24 /* PathHandler.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -576,7 +568,6 @@
 				D968997B23847D09005F3F24 /* Priority.swift in Sources */,
 				D968996F23847D09005F3F24 /* ClosureRouteHandler.swift in Sources */,
 				D968997723847D09005F3F24 /* Router.swift in Sources */,
-				D968997F23847D09005F3F24 /* Sequence+stableSorted.swift in Sources */,
 				D968997323847D09005F3F24 /* PathHandler.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -598,7 +589,6 @@
 				D968997D23847D09005F3F24 /* Priority.swift in Sources */,
 				D968997123847D09005F3F24 /* ClosureRouteHandler.swift in Sources */,
 				D968997923847D09005F3F24 /* Router.swift in Sources */,
-				D968998123847D09005F3F24 /* Sequence+stableSorted.swift in Sources */,
 				D968997523847D09005F3F24 /* PathHandler.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

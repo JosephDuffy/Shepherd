@@ -20,7 +20,7 @@ open class Router: PathHandler {
     private var routeHandlers: [LinkedHandler] {
         var tree = children
         parent.map { LinkedHandler(router: $0, priority: .low) }.map { tree.append($0) }
-        return tree.stableSorted(by: { $0.priority > $1.priority })
+        return tree.sorted(by: { $0.priority > $1.priority })
     }
 
     /// An array of children that have been added to the router.
@@ -30,8 +30,9 @@ open class Router: PathHandler {
     public init() {}
 
     /**
-     Attempt to handle the provided path. The child path handlers will be sorted by their priorities and then the order they
-     were added in; path handler with the same priorty are queried in the order they were added.
+     Attempt to handle the provided path. The child path handlers will be sorted by their priorities using the standard
+     library `sorted` function; the sorting algorithm is not guaranteed to be stable, although this is unlikely to
+     change in the future. See https://forums.swift.org/t/is-sort-stable-in-swift-5/21297/11.
 
      The completion closure will be called with the path handler that handled the path, or `nil` if the path was not
      handled.
@@ -45,8 +46,9 @@ open class Router: PathHandler {
     }
 
     /**
-     Attempt to handle the provided path. The child path handlers will be sorted by their priorities and then the order they
-     were added in; path handler with the same priorty are queried in the order they were added.
+     Attempt to handle the provided path. The child path handlers will be sorted by their priorities using the standard
+     library `sorted` function; the sorting algorithm is not guaranteed to be stable, although this is unlikely to
+     change in the future. See https://forums.swift.org/t/is-sort-stable-in-swift-5/21297/11.
 
      The completion closure will be called with the path handler that handled the path, or `nil` if the path was not
      handled.
@@ -54,7 +56,7 @@ open class Router: PathHandler {
      - Parameter path: The path to attempt to handle.
      - Parameter ignoring: An array of path handlers to ignore when traversing the tree of handlers.
      - Parameter completionHandler: A closure that will be called with the path handler that handled the path, or `nil`
-     if the path was not handled.
+                                    if the path was not handled.
      */
     open func handle<Path>(
         path: Path,
