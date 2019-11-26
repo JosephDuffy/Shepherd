@@ -1,5 +1,5 @@
 /**
- A class that can be queiried to handle paths.
+ A class that can be queried to handle paths.
  */
 public protocol PathHandler: class {
 
