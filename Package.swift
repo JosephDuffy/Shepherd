@@ -8,6 +8,7 @@ let package = Package(
     ],
     products: [
         .library(name: "Shepherd", type: .dynamic, targets: ["Shepherd"]),
+        .library(name: "DangerDeps", type: .dynamic, targets: ["DangerDependencies"]), // dev
     ],
     dependencies: [
         .package(url: "https://github.com/danger/swift.git", from: "2.0.0"), // dev
@@ -18,7 +19,7 @@ let package = Package(
     targets: [
         .target(name: "Shepherd"),
         .testTarget(name: "ShepherdTests", dependencies: ["Shepherd"]),
-        .target(name: "CIDependencies", dependencies: ["Danger", "swiftlint", "danger-swift", "SwiftChecksDangerPlugin"], path: "Resources"), // dev
+        .target(name: "DangerDependencies", dependencies: ["Danger", "swiftlint", "danger-swift", "SwiftChecksDangerPlugin"], path: "Resources"), // dev
     ],
     swiftLanguageVersions: [.v5]
 )
