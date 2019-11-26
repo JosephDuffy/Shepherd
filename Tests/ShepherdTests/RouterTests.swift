@@ -208,7 +208,6 @@ final class RouterTests: XCTestCase {
         let lowPriorityHandler2Expectation = XCTestExpectation(description: "Ask low priority 2 to handle path")
         router.addHandlerForPaths(ofType: String.self, priority: .low) { _, completionHandler in            lowPriorityHandler2Expectation.fulfill()
             completionHandler(false)
-
         }
 
         let mediumPriorityHandler2Expectation = XCTestExpectation(description: "Ask medium priority 2 to handle path")
@@ -222,6 +221,13 @@ final class RouterTests: XCTestCase {
             highPriorityHandler2Expectation.fulfill()
             completionHandler(false)
         }
+
+        let updatedLowToHighPriorityExpectation = XCTestExpectation(description: "Ask updated low to high priority to handle path")
+        let updatedLowToHighPriorityHandler = router.addHandlerForPaths(ofType: String.self, priority: .low) { _, completionHandler in
+            updatedLowToHighPriorityExpectation.fulfill()
+            completionHandler(false)
+        }
+        router.add(child: updatedLowToHighPriorityHandler, priority: .high)
 
         let oneBelowHighPriorityHandlerExpectation = XCTestExpectation(description: "Ask 999 priority to handle path")
         router.addHandlerForPaths(ofType: String.self, priority: 999) { _, completionHandler in
@@ -263,6 +269,7 @@ final class RouterTests: XCTestCase {
             for: [
                 highPriorityHandler1Expectation,
                 highPriorityHandler2Expectation,
+                updatedLowToHighPriorityExpectation,
                 oneBelowHighPriorityHandlerExpectation,
                 mediumPriorityHandler1Expectation,
                 mediumPriorityHandler2Expectation,

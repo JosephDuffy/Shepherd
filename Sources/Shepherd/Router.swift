@@ -105,11 +105,15 @@ open class Router: PathHandler {
      Add the provided path handler as a child of the router. The added child will be queried when attempting to handle
      a path via `handle(path:completionHandler:)`.
 
+     If the provided path handler is an existing child of this router the priority will be updated.
+
      - Parameter pathHandler: The path handler to add a child.
      - Parameter priority: The priority to assign to the child. Defaults to `.medium`.
      */
     open func add(child pathHandler: PathHandler, priority: Priority = .medium) {
-        if let router = pathHandler as? Router {
+        if let existingChild = children.first(where: { $0.pathHandler === pathHandler }) {
+            existingChild.priority = priority
+        } else if let router = pathHandler as? Router {
             let child = LinkedHandler(router: router, priority: priority)
             children.append(child)
             router.parent = self
@@ -140,7 +144,7 @@ open class Router: PathHandler {
 
 extension Router {
 
-    private struct LinkedHandler {
+    private final class LinkedHandler {
 
         private enum Kind {
             case router(Router)
