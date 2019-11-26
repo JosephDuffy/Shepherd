@@ -1,7 +1,7 @@
 import XCTest
 @testable import Shepherd
 
-final class XCRouterTests: XCTestCase {
+final class RouterTests: XCTestCase {
 
     func testEmptyRouter() {
         let router = Router()
