@@ -2,10 +2,10 @@ name: Release
 
 on:
   push:
-    branches:
-     - master
     tags:
-     - 'v*'
+      - 'v*'
+    branches:
+      - master
 
 jobs:
   github_release:
