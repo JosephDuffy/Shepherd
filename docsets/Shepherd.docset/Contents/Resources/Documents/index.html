@@ -58,20 +58,162 @@
           <section class="section">
             
             <h1 id='shepherd' class='heading'>Shepherd</h1>
-<h3 id='a-collection-of-protocol-and-extensions-to-aid-with-code-nsuseractivity-code-s' class='heading'>A collection of protocol and extensions to aid with <code>NSUserActivity</code>s</h3>
 
-<p>A collection of protocol and extensions to aid with the handling and creation of <code>NSUserActivity</code>s</p>
-<h3 id='installation' class='heading'>Installation</h3>
+<p><a href="https://launch-editor.github.com/actions?workflowID=Tests&event=push&nwo=JosephDuffy%2FShepherd"><img src="https://github.com/JosephDuffy/Shepherd/workflows/Tests/badge.svg" alt="Build Status"></a>
+<a href="https://josephduffy.github.io/Shepherd/"><img src="https://josephduffy.github.io/Shepherd/badge.svg" alt="Documentation"></a>
+<img src="https://img.shields.io/badge/platforms-macOS%20%7C%20iOS%20%7C%20watchOS%20%7C%20tvOS%20%7C%20Linux-4BC51D.svg" alt="Compatible with macOS, iOS, watchOS, tvOS, and Linux">
+<a href="https://github.com/apple/swift-package-manager"><img src="https://img.shields.io/badge/SwiftPM-compatible-4BC51D.svg?style=flat" alt="SwiftPM Compatible"></a>
+<a href="https://github.com/Carthage/Carthage"><img src="https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat" alt="Carthage Compatible"></a>
+<a href="https://cocoapods.org/pods/Shepherd"><img src="https://img.shields.io/badge/CocoaPods-compatible-4BC51D.svg?style=flat" alt="CocoaPods Compatible"></a>
+<a href="./LICENSE"><img src="https://img.shields.io/badge/License-MIT-4BC51D.svg?style=flat" alt="MIT License"></a></p>
+
+<p>Shepherd is a router implementation to help guide routes in your app.</p>
+<pre class="highlight swift"><code><span class="k">let</span> <span class="nv">tabsRouter</span> <span class="o">=</span> <span class="kt">Router</span><span class="p">()</span>
+<span class="k">let</span> <span class="nv">firstTabRouter</span> <span class="o">=</span> <span class="kt">Router</span><span class="p">()</span>
+<span class="k">let</span> <span class="nv">secondTabRouter</span> <span class="o">=</span> <span class="kt">Router</span><span class="p">()</span>
+<span class="n">tabsRouter</span><span class="o">.</span><span class="nf">add</span><span class="p">(</span><span class="nv">child</span><span class="p">:</span> <span class="n">firstTabRouter</span><span class="p">)</span>
+<span class="n">tabsRouter</span><span class="o">.</span><span class="nf">add</span><span class="p">(</span><span class="nv">child</span><span class="p">:</span> <span class="n">secondTabRouter</span><span class="p">)</span>
+<span class="n">tabsRouter</span><span class="o">.</span><span class="nf">addHandlerForPaths</span><span class="p">(</span><span class="nv">ofType</span><span class="p">:</span> <span class="kt">String</span><span class="o">.</span><span class="k">self</span><span class="p">)</span> <span class="p">{</span> <span class="n">path</span><span class="p">,</span> <span class="n">completionHandler</span> <span class="k">in</span>
+    <span class="k">if</span> <span class="n">path</span> <span class="o">==</span> <span class="s">"show-about-screen"</span> <span class="p">{</span>
+        <span class="c1">// Select tab</span>
+    <span class="p">}</span>
+    <span class="nf">completionHandler</span><span class="p">(</span><span class="kc">false</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="n">secondTabRouter</span><span class="o">.</span><span class="nf">addHandlerForPaths</span><span class="p">(</span><span class="nv">ofType</span><span class="p">:</span> <span class="kt">String</span><span class="o">.</span><span class="k">self</span><span class="p">)</span> <span class="p">{</span> <span class="n">path</span><span class="p">,</span> <span class="n">completionHandler</span> <span class="k">in</span>
+    <span class="k">if</span> <span class="n">path</span> <span class="o">==</span> <span class="s">"show-about-screen"</span> <span class="p">{</span>
+        <span class="c1">// Push about screen</span>
+        <span class="nf">completionHandler</span><span class="p">(</span><span class="kc">true</span><span class="p">)</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="nf">completionHandler</span><span class="p">(</span><span class="kc">false</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="n">firstTabRouter</span><span class="o">.</span><span class="nf">handle</span><span class="p">(</span><span class="nv">path</span><span class="p">:</span> <span class="s">"show-about-screen"</span><span class="p">)</span>
+</code></pre>
+<h1 id='documentation' class='heading'>Documentation</h1>
+
+<p>Shepherd is fully documented, with <a href="https://josephduffy.github.io/Shepherd/">code-level documentation available online</a>. The online documentation is generated from the source code with every release, so it is up-to-date with the latest release, but may be different to the code in <code>master</code>.</p>
+<h2 id='usage-overview' class='heading'>Usage overview</h2>
+
+<p>Shepherd has 2 primary types to aid with routing: <code><a href="Classes/Router.html">Router</a></code> and <code><a href="Protocols/PathHandler.html">PathHandler</a></code>. <code><a href="Protocols/PathHandler.html">PathHandler</a></code> is a protocol with a single requirement:</p>
+<pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">PathHandler</span><span class="p">:</span> <span class="kd">class</span> <span class="p">{</span>
+    <span class="kd">func</span> <span class="n">handle</span><span class="o">&lt;</span><span class="kt">Path</span><span class="o">&gt;</span><span class="p">(</span><span class="nv">path</span><span class="p">:</span> <span class="kt">Path</span><span class="p">,</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="p">((</span><span class="kt">PathHandler</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?)</span>
+<span class="p">}</span>
+</code></pre>
+
+<p><code><a href="Classes/Router.html">Router</a></code> is an <code>open class</code> that enables the creation of a tree of path handlers, and implements the <code><a href="Protocols/PathHandler.html">PathHandler</a></code> protocol itself.</p>
+<pre class="highlight swift"><code><span class="kd">open</span> <span class="kd">class</span> <span class="kt">Router</span><span class="p">:</span> <span class="kt">PathHandler</span> <span class="p">{</span>
+
+    <span class="kd">public</span> <span class="kd">typealias</span> <span class="kt">CompletionHandler</span> <span class="o">=</span> <span class="p">(</span><span class="n">_</span> <span class="nv">routeHandler</span><span class="p">:</span> <span class="kt">Router</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span>
+
+    <span class="kd">public</span> <span class="kd">internal(set)</span> <span class="k">weak</span> <span class="k">var</span> <span class="nv">parent</span><span class="p">:</span> <span class="kt">Router</span><span class="p">?</span>
+
+    <span class="kd">public</span> <span class="nf">init</span><span class="p">()</span>
+
+    <span class="kd">public</span> <span class="kd">func</span> <span class="n">handle</span><span class="o">&lt;</span><span class="kt">Path</span><span class="o">&gt;</span><span class="p">(</span><span class="nv">path</span><span class="p">:</span> <span class="kt">Path</span><span class="p">,</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="p">((</span><span class="kt">PathHandler</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?)</span>
+
+    <span class="kd">open</span> <span class="kd">func</span> <span class="n">handle</span><span class="o">&lt;</span><span class="kt">Path</span><span class="o">&gt;</span><span class="p">(</span><span class="nv">path</span><span class="p">:</span> <span class="kt">Path</span><span class="p">,</span> <span class="nv">ignoring</span><span class="p">:</span> <span class="p">[</span><span class="kt">Router</span><span class="p">]</span> <span class="o">=</span> <span class="p">[],</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="p">((</span><span class="kt">PathHandler</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span>
+
+    <span class="kd">open</span> <span class="kd">func</span> <span class="nf">add</span><span class="p">(</span><span class="n">child</span> <span class="nv">pathHandler</span><span class="p">:</span> <span class="kt">PathHandler</span><span class="p">,</span> <span class="nv">priority</span><span class="p">:</span> <span class="kt">Priority</span> <span class="o">=</span> <span class="o">.</span><span class="n">medium</span><span class="p">)</span>
+
+    <span class="kd">open</span> <span class="kd">func</span> <span class="nf">remove</span><span class="p">(</span><span class="n">child</span> <span class="nv">pathHandler</span><span class="p">:</span> <span class="kt">PathHandler</span><span class="p">)</span>
+</code></pre>
+
+<p><code><a href="Classes/Router.html">Router</a></code>s will query children when the <code>handle</code> function is called in priority order. If no children handle the path it will be passed to the parent (if present).</p>
+
+<p>Children can query their own children, allowing for a tree of handlers to be created. For example, with the following tree:</p>
+<pre class="highlight plaintext"><code>     (A)
+    /   \
+   (B)  (C)
+  / | \    \
+(D)(E)(F)  (G)
+</code></pre>
+
+<p>If handler (B) is queried and &copy; can handle the path the handlers would be called in the following order:</p>
+
+<ul>
+<li>D</li>
+<li>E</li>
+<li>F</li>
+<li>A</li>
+<li>C</li>
+</ul>
+
+<p>This would result in &copy; being returned.</p>
+<h2 id='the-code-path-code-parameter' class='heading'>The <code>path</code> Parameter</h2>
+
+<p>The type of the <code>path</code> parameter is not restricted in any way. When using the convenience <code>addHandlerForPaths(ofType:priority:pathHandler:)</code> or <code>addPathHandler(priority:pathHandler:)</code> functions the provided closure will only be called when the path is the same type as the provided closure accepts, but the parent router will still attempt to handle all router.</p>
+
+<p>This flexibility can make it hard to decide which types to use. While this is ultimately the developer&rsquo;s decision to make, some examples of useful types are:</p>
+
+<ul>
+<li><code>URL</code>
+
+<ul>
+<li>This can be make it easier to support universal links if a web version of the app exists.</li>
+</ul></li>
+<li><code>NSUserActivity</code>
+
+<ul>
+<li>This can help when supporting certain system features, e.g., handoff, Siri, and Spotlight.</li>
+</ul></li>
+<li>Custom enums
+
+<ul>
+<li>Enums can make the handling of a route easier. For example, a <code>SettingsRoute</code> enum can aid with autocomplete and code safety.</li>
+</ul></li>
+</ul>
+<h1 id='tests-and-ci' class='heading'>Tests and CI</h1>
+
+<p>Shepherd has a full test suite, which is run as part of pull requests. All tests must pass for a pull request to be merged.</p>
+
+<p>Code coverage is collected and reported to to <a href="https://codecov.io/gh/JosephDuffy/Shepherd">Codecov</a>. The codebase has 100% coverage. PRs will not be accepted that lower the coverage, unless the uncovered lines should never be hit but are required for type-safety, or are not tracked by Swift, e.g. <code>deinit</code> functions.</p>
+<h1 id='installation' class='heading'>Installation</h1>
+<h2 id='swiftpm' class='heading'>SwiftPM</h2>
+
+<p>To install via <a href="https://github.com/apple/swift-package-manager">SwiftPM</a> add the package to the dependencies section and as the dependency of a target:</p>
+<pre class="highlight swift"><code><span class="k">let</span> <span class="nv">package</span> <span class="o">=</span> <span class="kt">Package</span><span class="p">(</span>
+    <span class="o">...</span>
+    <span class="nv">dependencies</span><span class="p">:</span> <span class="p">[</span>
+        <span class="o">.</span><span class="nf">package</span><span class="p">(</span><span class="nv">url</span><span class="p">:</span> <span class="s">"https://github.com/JosephDuffy/Shepherd.git"</span><span class="p">,</span> <span class="nv">from</span><span class="p">:</span> <span class="s">"0.1.0"</span><span class="p">),</span>
+    <span class="p">],</span>
+    <span class="nv">targets</span><span class="p">:</span> <span class="p">[</span>
+        <span class="o">.</span><span class="nf">target</span><span class="p">(</span><span class="nv">name</span><span class="p">:</span> <span class="s">"MyApp"</span><span class="p">,</span> <span class="nv">dependencies</span><span class="p">:</span> <span class="p">[</span><span class="s">"Shepherd"</span><span class="p">]),</span>
+    <span class="p">],</span>
+    <span class="o">...</span>
+<span class="p">)</span>
+</code></pre>
+<h2 id='carthage' class='heading'>Carthage</h2>
+
+<p>To install via <a href="https://github.com/Carthage/Carthage">Carthage</a> add to following to your <code>Cartfile</code>:</p>
+<pre class="highlight plaintext"><code>github "JosephDuffy/Shepherd"
+</code></pre>
+
+<p>Run <code>carthage update Shepherd</code> to build the framework and then drag the built framework file in to your Xcode project. Shepherd provides pre-compiled binaries, <a href="https://github.com/Carthage/Carthage#dwarfs-symbol-problem">which can cause some issues with symbols</a>. Use the <code>--no-use-binaries</code> flag if this is an issue.</p>
+
+<p>Remember to <a href="https://github.com/Carthage/Carthage#if-youre-building-for-ios-tvos-or-watchos">add Shepherd to your Carthage build phase</a>:</p>
+<pre class="highlight plaintext"><code>$(SRCROOT)/Carthage/Build/iOS/Shepherd.framework
+</code></pre>
+
+<p>and</p>
+<pre class="highlight plaintext"><code>$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/Shepherd.framework
+</code></pre>
+<h2 id='cocoapods' class='heading'>CocoaPods</h2>
+
+<p>To install via <a href="https://cocoapods.org">CocoaPods</a> add the following to your Podfile:</p>
 <pre class="highlight ruby"><code><span class="n">pod</span> <span class="s1">'Shepherd'</span>
 </code></pre>
-<h3 id='authors' class='heading'>Authors</h3>
 
-<p>Joseph Duffy</p>
+<p>and then run <code>pod install</code>.</p>
+<h1 id='license' class='heading'>License</h1>
+
+<p>The project is released under the MIT license. View the <a href="./LICENSE">LICENSE</a> file for the full license.</p>
 
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2019 <a class="link" href="https://github.com/JosephDuffy/Shepherd" target="_blank" rel="external">Joseph Duffy</a>. All rights reserved. (Last updated: 2019-11-26)</p>
+          <p>&copy; 2019 <a class="link" href="https://github.com/JosephDuffy/Shepherd" target="_blank" rel="external">Joseph Duffy</a>. All rights reserved. (Last updated: 2019-11-27)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.12.0</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
