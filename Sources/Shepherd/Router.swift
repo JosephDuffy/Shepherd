@@ -14,17 +14,23 @@ open class Router: PathHandler {
     /// The immediate parent. This will be set automatically by the parent.
     /// The parent has a priority of `Priority.parent`, making it the last path handler to be queried.
     public internal(set) weak var parent: Router?
+    
+    /// An array of children that have been added to the router, sorted in decending priority.
+    public var children: [PathHandler] {
+        return _children.sorted(by: { $0.priority > $1.priority }).map { $0.pathHandler }
+    }
 
     /// An array of the adjacent nodes in the tree of path handlers, ordered by the priority of the handlers. If the
     /// priority of 2 handlers are the same they will be ordered by order they were added.
     private var routeHandlers: [LinkedHandler] {
-        var tree = children
+        var tree = _children
         parent.map { LinkedHandler(router: $0, priority: .low) }.map { tree.append($0) }
         return tree.sorted(by: { $0.priority > $1.priority })
     }
 
+
     /// An array of children that have been added to the router.
-    private var children: [LinkedHandler] = []
+    private var _children: [LinkedHandler] = []
 
     /// Create an empty router.
     public init() {}
@@ -111,15 +117,15 @@ open class Router: PathHandler {
      - Parameter priority: The priority to assign to the child. Defaults to `.medium`.
      */
     open func add(child pathHandler: PathHandler, priority: Priority = .medium) {
-        if let existingChild = children.first(where: { $0.pathHandler === pathHandler }) {
+        if let existingChild = _children.first(where: { $0.pathHandler === pathHandler }) {
             existingChild.priority = priority
         } else if let router = pathHandler as? Router {
             let child = LinkedHandler(router: router, priority: priority)
-            children.append(child)
+            _children.append(child)
             router.parent = self
         } else {
             let child = LinkedHandler(routeHandler: pathHandler, priority: priority)
-            children.append(child)
+            _children.append(child)
         }
     }
 
@@ -130,8 +136,8 @@ open class Router: PathHandler {
      - Parameter pathHandler: The path handler to remove.
      */
     open func remove(child pathHandler: PathHandler) {
-        guard let childIndex = children.firstIndex(where: { $0.pathHandler === pathHandler }) else { return }
-        let child = children.remove(at: childIndex)
+        guard let childIndex = _children.firstIndex(where: { $0.pathHandler === pathHandler }) else { return }
+        let child = _children.remove(at: childIndex)
         child.router?.parent = nil
     }
 
