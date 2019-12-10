@@ -37,17 +37,6 @@
             </ul>
           </li>
           <li class="nav-group-name">
-            <a href="Protocols.html">Protocols</a>
-            <ul class="nav-group-tasks">
-              <li class="nav-group-task">
-                <a href="Protocols/PathHandler.html">PathHandler</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="Protocols/SynchronousPathHandler.html">SynchronousPathHandler</a>
-              </li>
-            </ul>
-          </li>
-          <li class="nav-group-name">
             <a href="Structs.html">Structures</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
@@ -80,9 +69,9 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>An object that routes paths to a set of connected path handlers. Path handlers are added via the <code>add(child:priority:)</code>
-function. When the router is requested to handle a route it will query the path handles by priority order. If 2
-handlers have identical priorities they will be queried in the order they were added.</p>
+                        <p>An object that routes paths to a set of connected routers. Child router are added via the <code>add(child:priority:)</code>
+function. When the router is requested to handle a route it will query the children by priority order. If 2
+children have identical priorities they will be queried in the order they were added.</p>
 
                         <a href="Classes/Router.html" class="slightly-smaller">See more</a>
                       </div>
@@ -90,7 +79,7 @@ handlers have identical priorities they will be queried in the order they were a
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">open</span> <span class="kd">class</span> <span class="kt">Router</span> <span class="p">:</span> <span class="kt"><a href="Protocols/PathHandler.html">PathHandler</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">open</span> <span class="kd">class</span> <span class="kt">Router</span></code></pre>
 
                         </div>
                       </div>

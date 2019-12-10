@@ -36,17 +36,6 @@
             </ul>
           </li>
           <li class="nav-group-name">
-            <a href="Protocols.html">Protocols</a>
-            <ul class="nav-group-tasks">
-              <li class="nav-group-task">
-                <a href="Protocols/PathHandler.html">PathHandler</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="Protocols/SynchronousPathHandler.html">SynchronousPathHandler</a>
-              </li>
-            </ul>
-          </li>
-          <li class="nav-group-name">
             <a href="Structs.html">Structures</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
@@ -99,13 +88,13 @@
 <p>Shepherd is fully documented, with <a href="https://josephduffy.github.io/Shepherd/">code-level documentation available online</a>. The online documentation is generated from the source code with every release, so it is up-to-date with the latest release, but may be different to the code in <code>master</code>.</p>
 <h2 id='usage-overview' class='heading'>Usage overview</h2>
 
-<p>Shepherd has 2 primary types to aid with routing: <code><a href="Classes/Router.html">Router</a></code> and <code><a href="Protocols/PathHandler.html">PathHandler</a></code>. <code><a href="Protocols/PathHandler.html">PathHandler</a></code> is a protocol with a single requirement:</p>
+<p>Shepherd has 2 primary types to aid with routing: <code><a href="Classes/Router.html">Router</a></code> and <code>PathHandler</code>. <code>PathHandler</code> is a protocol with a single requirement:</p>
 <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">PathHandler</span><span class="p">:</span> <span class="kd">class</span> <span class="p">{</span>
     <span class="kd">func</span> <span class="n">handle</span><span class="o">&lt;</span><span class="kt">Path</span><span class="o">&gt;</span><span class="p">(</span><span class="nv">path</span><span class="p">:</span> <span class="kt">Path</span><span class="p">,</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="p">((</span><span class="kt">PathHandler</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?)</span>
 <span class="p">}</span>
 </code></pre>
 
-<p><code><a href="Classes/Router.html">Router</a></code> is an <code>open class</code> that enables the creation of a tree of path handlers, and implements the <code><a href="Protocols/PathHandler.html">PathHandler</a></code> protocol itself.</p>
+<p><code><a href="Classes/Router.html">Router</a></code> is an <code>open class</code> that enables the creation of a tree of path handlers, and implements the <code>PathHandler</code> protocol itself.</p>
 <pre class="highlight swift"><code><span class="kd">open</span> <span class="kd">class</span> <span class="kt">Router</span><span class="p">:</span> <span class="kt">PathHandler</span> <span class="p">{</span>
 
     <span class="kd">public</span> <span class="kd">typealias</span> <span class="kt">CompletionHandler</span> <span class="o">=</span> <span class="p">(</span><span class="n">_</span> <span class="nv">routeHandler</span><span class="p">:</span> <span class="kt">Router</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span>

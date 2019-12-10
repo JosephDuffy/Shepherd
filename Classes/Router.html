@@ -37,17 +37,6 @@
             </ul>
           </li>
           <li class="nav-group-name">
-            <a href="../Protocols.html">Protocols</a>
-            <ul class="nav-group-tasks">
-              <li class="nav-group-task">
-                <a href="../Protocols/PathHandler.html">PathHandler</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Protocols/SynchronousPathHandler.html">SynchronousPathHandler</a>
-              </li>
-            </ul>
-          </li>
-          <li class="nav-group-name">
             <a href="../Structs.html">Structures</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
@@ -63,13 +52,13 @@
             <h1>Router</h1>
               <div class="declaration">
                 <div class="language">
-                  <pre class="highlight swift"><code><span class="kd">open</span> <span class="kd">class</span> <span class="kt">Router</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/PathHandler.html">PathHandler</a></span></code></pre>
+                  <pre class="highlight swift"><code><span class="kd">open</span> <span class="kd">class</span> <span class="kt">Router</span></code></pre>
 
                 </div>
               </div>
-            <p>An object that routes paths to a set of connected path handlers. Path handlers are added via the <code>add(child:priority:)</code>
-function. When the router is requested to handle a route it will query the path handles by priority order. If 2
-handlers have identical priorities they will be queried in the order they were added.</p>
+            <p>An object that routes paths to a set of connected routers. Child router are added via the <code>add(child:priority:)</code>
+function. When the router is requested to handle a route it will query the children by priority order. If 2
+children have identical priorities they will be queried in the order they were added.</p>
 
           </section>
           <section class="section task-group-section">
@@ -124,9 +113,9 @@ handlers have identical priorities they will be queried in the order they were a
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:8Shepherd6RouterC6parentAA11PathHandler_pSgvp"></a>
+                    <a name="/s:8Shepherd6RouterC6parentACSgvp"></a>
                     <a name="//apple_ref/swift/Property/parent" class="dashAnchor"></a>
-                    <a class="token" href="#/s:8Shepherd6RouterC6parentAA11PathHandler_pSgvp">parent</a>
+                    <a class="token" href="#/s:8Shepherd6RouterC6parentACSgvp">parent</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -135,14 +124,14 @@ handlers have identical priorities they will be queried in the order they were a
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>The immediate parent. This will be set automatically by the parent.
-The parent has a priority of <code><a href="../Structs/Priority.html#/s:8Shepherd8PriorityV6parentACvpZ">Priority.parent</a></code>, making it the last path handler to be queried.</p>
+The parent has a priority of <code><a href="../Structs/Priority.html#/s:8Shepherd8PriorityV6parentACvpZ">Priority.parent</a></code>, making it the last router to be queried.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">weak</span> <span class="k">var</span> <span class="nv">parent</span><span class="p">:</span> <span class="kt"><a href="../Protocols/PathHandler.html">PathHandler</a></span><span class="p">?</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">weak</span> <span class="k">var</span> <span class="nv">parent</span><span class="p">:</span> <span class="kt">Router</span><span class="p">?</span></code></pre>
 
                         </div>
                       </div>
@@ -152,9 +141,9 @@ The parent has a priority of <code><a href="../Structs/Priority.html#/s:8Shepher
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:8Shepherd6RouterC8childrenSayAA11PathHandler_pGvp"></a>
+                    <a name="/s:8Shepherd6RouterC8childrenSayACGvp"></a>
                     <a name="//apple_ref/swift/Property/children" class="dashAnchor"></a>
-                    <a class="token" href="#/s:8Shepherd6RouterC8childrenSayAA11PathHandler_pGvp">children</a>
+                    <a class="token" href="#/s:8Shepherd6RouterC8childrenSayACGvp">children</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -169,7 +158,7 @@ The parent has a priority of <code><a href="../Structs/Priority.html#/s:8Shepher
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">children</span><span class="p">:</span> <span class="p">[</span><span class="kt"><a href="../Protocols/PathHandler.html">PathHandler</a></span><span class="p">]</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">children</span><span class="p">:</span> <span class="p">[</span><span class="kt">Router</span><span class="p">]</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
 
                         </div>
                       </div>
@@ -206,73 +195,9 @@ The parent has a priority of <code><a href="../Structs/Priority.html#/s:8Shepher
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:8Shepherd6RouterC6handle4path17completionHandleryx_yAA04PathF0_pSgcSgtlF"></a>
-                    <a name="//apple_ref/swift/Method/handle(path:completionHandler:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:8Shepherd6RouterC6handle4path17completionHandleryx_yAA04PathF0_pSgcSgtlF">handle(path:completionHandler:)</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Attempt to handle the provided path. The child path handlers will be sorted by their priorities using the standard
-library <code>sorted</code> function; the sorting algorithm is not guaranteed to be stable, although this is unlikely to
-change in the future. See <a href="https://forums.swift.org/t/is-sort-stable-in-swift-5/21297/11">https://forums.swift.org/t/is-sort-stable-in-swift-5/21297/11</a>.</p>
-
-<p>The completion closure will be called with the path handler that handled the path, or <code>nil</code> if the path was not
-handled.</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="n">handle</span><span class="o">&lt;</span><span class="kt">Path</span><span class="o">&gt;</span><span class="p">(</span><span class="nv">path</span><span class="p">:</span> <span class="kt">Path</span><span class="p">,</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="p">((</span><span class="kt"><a href="../Protocols/PathHandler.html">PathHandler</a></span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?)</span></code></pre>
-
-                        </div>
-                      </div>
-                      <div>
-                        <h4>Parameters</h4>
-                        <table class="graybox">
-                          <tbody>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>path</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>The path to attempt to handle.</p>
-                                </div>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>completionHandler</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>A closure that will be called with the path handler that handled the path, or <code>nil</code>
-                           if the path was not handled.</p>
-                                </div>
-                              </td>
-                            </tr>
-                          </tbody>
-                        </table>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:8Shepherd6RouterC6handle4path8ignoring17completionHandleryx_SayACGyAA04PathG0_pSgcSgtlF"></a>
+                    <a name="/s:8Shepherd6RouterC6handle4path8ignoring17completionHandleryx_SayACGyACSgcSgtlF"></a>
                     <a name="//apple_ref/swift/Method/handle(path:ignoring:completionHandler:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:8Shepherd6RouterC6handle4path8ignoring17completionHandleryx_SayACGyAA04PathG0_pSgcSgtlF">handle(path:ignoring:completionHandler:)</a>
+                    <a class="token" href="#/s:8Shepherd6RouterC6handle4path8ignoring17completionHandleryx_SayACGyACSgcSgtlF">handle(path:ignoring:completionHandler:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -280,12 +205,11 @@ handled.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Attempt to handle the provided path. The child path handlers will be sorted by their priorities using the standard
+                        <p>Attempt to handle the provided path. The child routers will be sorted by their priorities using the standard
 library <code>sorted</code> function; the sorting algorithm is not guaranteed to be stable, although this is unlikely to
 change in the future. See <a href="https://forums.swift.org/t/is-sort-stable-in-swift-5/21297/11">https://forums.swift.org/t/is-sort-stable-in-swift-5/21297/11</a>.</p>
 
-<p>The completion closure will be called with the path handler that handled the path, or <code>nil</code> if the path was not
-handled.</p>
+<p>The completion closure will be called with the router that handled the path, or <code>nil</code> if the path was not handled.</p>
 
                       </div>
                       <div class="declaration">
@@ -295,7 +219,7 @@ handled.</p>
                           <pre class="highlight swift"><code><span class="kd">open</span> <span class="kd">func</span> <span class="n">handle</span><span class="o">&lt;</span><span class="kt">Path</span><span class="o">&gt;</span><span class="p">(</span>
     <span class="nv">path</span><span class="p">:</span> <span class="kt">Path</span><span class="p">,</span>
     <span class="nv">ignoring</span><span class="p">:</span> <span class="p">[</span><span class="kt">Router</span><span class="p">]</span> <span class="o">=</span> <span class="p">[],</span>
-    <span class="nv">completionHandler</span><span class="p">:</span> <span class="p">((</span><span class="kt"><a href="../Protocols/PathHandler.html">PathHandler</a></span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span> <span class="o">=</span> <span class="kc">nil</span>
+    <span class="nv">completionHandler</span><span class="p">:</span> <span class="p">((</span><span class="kt">Router</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span> <span class="o">=</span> <span class="kc">nil</span>
 <span class="p">)</span></code></pre>
 
                         </div>
@@ -324,7 +248,7 @@ handled.</p>
                               </td>
                               <td>
                                 <div>
-                                  <p>An array of path handlers to ignore when traversing the tree of handlers.</p>
+                                  <p>An array of routers to ignore when traversing the tree of routers.</p>
                                 </div>
                               </td>
                             </tr>
@@ -336,7 +260,7 @@ handled.</p>
                               </td>
                               <td>
                                 <div>
-                                  <p>A closure that will be called with the path handler that handled the path, or <code>nil</code>
+                                  <p>A closure that will be called with the router that handled the path, or <code>nil</code>
                            if the path was not handled.</p>
                                 </div>
                               </td>
@@ -350,9 +274,9 @@ handled.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:8Shepherd6RouterC3add5child8priorityyAA11PathHandler_p_AA8PriorityVtF"></a>
+                    <a name="/s:8Shepherd6RouterC3add5child8priorityyAC_AA8PriorityVtF"></a>
                     <a name="//apple_ref/swift/Method/add(child:priority:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:8Shepherd6RouterC3add5child8priorityyAA11PathHandler_p_AA8PriorityVtF">add(child:priority:)</a>
+                    <a class="token" href="#/s:8Shepherd6RouterC3add5child8priorityyAC_AA8PriorityVtF">add(child:priority:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -360,17 +284,17 @@ handled.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Add the provided path handler as a child of the router. The added child will be queried when attempting to handle
-a path via <code><a href="../Classes/Router.html#/s:8Shepherd6RouterC6handle4path17completionHandleryx_yAA04PathF0_pSgcSgtlF">handle(path:completionHandler:)</a></code>.</p>
+                        <p>Add the provided router as a child of this router. The added child will be queried when attempting to handle
+a path via <code><a href="../Classes/Router.html#/s:8Shepherd6RouterC6handle4path8ignoring17completionHandleryx_SayACGyACSgcSgtlF">handle(path:ignoring:completionHandler:)</a></code>.</p>
 
-<p>If the provided path handler is an existing child of this router the priority will be updated.</p>
+<p>If the provided router is an existing child of this router the priority will be updated.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">open</span> <span class="kd">func</span> <span class="nf">add</span><span class="p">(</span><span class="n">child</span> <span class="nv">pathHandler</span><span class="p">:</span> <span class="kt"><a href="../Protocols/PathHandler.html">PathHandler</a></span><span class="p">,</span> <span class="nv">priority</span><span class="p">:</span> <span class="kt"><a href="../Structs/Priority.html">Priority</a></span> <span class="o">=</span> <span class="o">.</span><span class="n">medium</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">open</span> <span class="kd">func</span> <span class="nf">add</span><span class="p">(</span><span class="n">child</span> <span class="nv">router</span><span class="p">:</span> <span class="kt">Router</span><span class="p">,</span> <span class="nv">priority</span><span class="p">:</span> <span class="kt"><a href="../Structs/Priority.html">Priority</a></span> <span class="o">=</span> <span class="o">.</span><span class="n">medium</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -381,12 +305,12 @@ a path via <code><a href="../Classes/Router.html#/s:8Shepherd6RouterC6handle4pat
                             <tr>
                               <td>
                                 <code>
-                                <em>pathHandler</em>
+                                <em>router</em>
                                 </code>
                               </td>
                               <td>
                                 <div>
-                                  <p>The path handler to add a child.</p>
+                                  <p>The router to add as a child.</p>
                                 </div>
                               </td>
                             </tr>
@@ -411,9 +335,9 @@ a path via <code><a href="../Classes/Router.html#/s:8Shepherd6RouterC6handle4pat
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:8Shepherd6RouterC6remove5childyAA11PathHandler_p_tF"></a>
+                    <a name="/s:8Shepherd6RouterC6remove5childyAC_tF"></a>
                     <a name="//apple_ref/swift/Method/remove(child:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:8Shepherd6RouterC6remove5childyAA11PathHandler_p_tF">remove(child:)</a>
+                    <a class="token" href="#/s:8Shepherd6RouterC6remove5childyAC_tF">remove(child:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -421,15 +345,15 @@ a path via <code><a href="../Classes/Router.html#/s:8Shepherd6RouterC6handle4pat
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Remove the provided path handler from the array of path handlers that will be queried by this router. If the path
-handler is a child of this router the parent will be set to <code>nil</code>. If it is not a child this function does nothing.</p>
+                        <p>Remove the provided router from the set of router that will be queried by this router. If the router
+is a child of this router the parent will be set to <code>nil</code>. If it is not a child this function does nothing.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">open</span> <span class="kd">func</span> <span class="nf">remove</span><span class="p">(</span><span class="n">child</span> <span class="nv">pathHandler</span><span class="p">:</span> <span class="kt"><a href="../Protocols/PathHandler.html">PathHandler</a></span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">open</span> <span class="kd">func</span> <span class="nf">remove</span><span class="p">(</span><span class="n">child</span> <span class="nv">router</span><span class="p">:</span> <span class="kt">Router</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -440,12 +364,12 @@ handler is a child of this router the parent will be set to <code>nil</code>. If
                             <tr>
                               <td>
                                 <code>
-                                <em>pathHandler</em>
+                                <em>router</em>
                                 </code>
                               </td>
                               <td>
                                 <div>
-                                  <p>The path handler to remove.</p>
+                                  <p>The router to remove.</p>
                                 </div>
                               </td>
                             </tr>
@@ -521,9 +445,9 @@ handler is a child of this router the parent will be set to <code>nil</code>. If
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:8Shepherd6RouterC14addPathHandler8priority04pathE0AA0dE0_pAA8PriorityV_yx_ySbctctlF"></a>
+                    <a name="/s:8Shepherd6RouterC14addPathHandler8priority04pathE0AcA8PriorityV_yx_ySbctctlF"></a>
                     <a name="//apple_ref/swift/Method/addPathHandler(priority:pathHandler:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:8Shepherd6RouterC14addPathHandler8priority04pathE0AA0dE0_pAA8PriorityV_yx_ySbctctlF">addPathHandler(priority:pathHandler:)</a>
+                    <a class="token" href="#/s:8Shepherd6RouterC14addPathHandler8priority04pathE0AcA8PriorityV_yx_ySbctctlF">addPathHandler(priority:pathHandler:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -531,7 +455,7 @@ handler is a child of this router the parent will be set to <code>nil</code>. If
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Add the provided closure to be a path handler.</p>
+                        <p>Add the provided closure to be a child of the router, handling routes of type <code>Path</code>.</p>
 
 <p>When the closure is called it should attempt to handle the path. If the path is handled the closure should be
 called with <code>true</code>, otherwise the closure should be called with <code>false</code>.</p>
@@ -545,7 +469,7 @@ called with <code>true</code>, otherwise the closure should be called with <code
 <span class="kd">public</span> <span class="kd">func</span> <span class="n">addPathHandler</span><span class="o">&lt;</span><span class="kt">Path</span><span class="o">&gt;</span><span class="p">(</span>
     <span class="nv">priority</span><span class="p">:</span> <span class="kt"><a href="../Structs/Priority.html">Priority</a></span> <span class="o">=</span> <span class="o">.</span><span class="n">medium</span><span class="p">,</span>
     <span class="nv">pathHandler</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt"><a href="../Classes/Router.html#/s:8Shepherd6RouterC18ClosurePathHandlera">ClosurePathHandler</a></span><span class="o">&lt;</span><span class="kt">Path</span><span class="o">&gt;</span>
-<span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Protocols/PathHandler.html">PathHandler</a></span></code></pre>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Router</span></code></pre>
 
                         </div>
                       </div>
@@ -586,9 +510,9 @@ called with <code>true</code>, otherwise the closure should be called with <code
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:8Shepherd6RouterC18addHandlerForPaths6ofType8priority04pathD0AA04PathD0_pxm_AA8PriorityVyx_ySbctctlF"></a>
+                    <a name="/s:8Shepherd6RouterC18addHandlerForPaths6ofType8priority04pathD0ACxm_AA8PriorityVyx_ySbctctlF"></a>
                     <a name="//apple_ref/swift/Method/addHandlerForPaths(ofType:priority:pathHandler:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:8Shepherd6RouterC18addHandlerForPaths6ofType8priority04pathD0AA04PathD0_pxm_AA8PriorityVyx_ySbctctlF">addHandlerForPaths(ofType:priority:pathHandler:)</a>
+                    <a class="token" href="#/s:8Shepherd6RouterC18addHandlerForPaths6ofType8priority04pathD0ACxm_AA8PriorityVyx_ySbctctlF">addHandlerForPaths(ofType:priority:pathHandler:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -596,7 +520,7 @@ called with <code>true</code>, otherwise the closure should be called with <code
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Add the provided closure to be a path handler.</p>
+                        <p>Add the provided closure to be a child of the router, handling routes of type <code>Path</code>.</p>
 
 <p>When the closure is called it should attempt to handle the path. If the path is handled the closure should be
 called with <code>true</code>, otherwise the closure should be called with <code>false</code>.</p>
@@ -611,7 +535,7 @@ called with <code>true</code>, otherwise the closure should be called with <code
     <span class="n">ofType</span> <span class="nv">pathType</span><span class="p">:</span> <span class="kt">Path</span><span class="o">.</span><span class="k">Type</span><span class="p">,</span>
     <span class="nv">priority</span><span class="p">:</span> <span class="kt"><a href="../Structs/Priority.html">Priority</a></span> <span class="o">=</span> <span class="o">.</span><span class="n">medium</span><span class="p">,</span>
     <span class="nv">pathHandler</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt"><a href="../Classes/Router.html#/s:8Shepherd6RouterC18ClosurePathHandlera">ClosurePathHandler</a></span><span class="o">&lt;</span><span class="kt">Path</span><span class="o">&gt;</span>
-<span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Protocols/PathHandler.html">PathHandler</a></span></code></pre>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Router</span></code></pre>
 
                         </div>
                       </div>
@@ -657,6 +581,37 @@ called with <code>true</code>, otherwise the closure should be called with <code
                             </tr>
                           </tbody>
                         </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8Shepherd6RouterC7parentsSayACGvp"></a>
+                    <a name="//apple_ref/swift/Property/parents" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8Shepherd6RouterC7parentsSayACGvp">parents</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The parents of the router, ordered from the closest to furthest.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">parents</span><span class="p">:</span> <span class="p">[</span><span class="kt">Router</span><span class="p">]</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+
+                        </div>
                       </div>
                     </section>
                   </div>
