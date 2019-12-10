@@ -2,7 +2,7 @@
  A class that can be queried to handle paths.
  */
 public protocol PathHandler: class {
-    
+
     /// The immediate parent of the path handler. The parent should be held on to weakly.
     var parent: PathHandler? { get set }
 
