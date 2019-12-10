@@ -1,8 +1,6 @@
-internal final class ClosurePathHandler<Path>: PathHandler {
+internal final class ClosurePathHandler<Path>: Router {
 
     internal typealias Handler = (_ route: Path, _ completionHandler: @escaping (_ didHandle: Bool) -> Void) -> Void
-
-    internal weak var parent: PathHandler?
 
     private let handler: Handler
 
@@ -10,7 +8,7 @@ internal final class ClosurePathHandler<Path>: PathHandler {
         self.handler = handler
     }
 
-    internal func handle<AnyPath>(path: AnyPath, completionHandler: ((PathHandler?) -> Void)?) {
+    internal override func handle<AnyPath>(path: AnyPath, ignoring: [Router] = [], completionHandler: ((Router?) -> Void)? = nil) {
         guard let route = path as? Path else {
             completionHandler?(nil)
             return
@@ -35,7 +33,7 @@ extension Router {
     public typealias ClosurePathHandler<Path> = (_ path: Path, _ completionHandler: @escaping (_ didHandle: Bool) -> Void) -> Void
 
     /**
-     Add the provided closure to be a path handler.
+     Add the provided closure to be a child of the router, handling routes of type `Path`.
 
      When the closure is called it should attempt to handle the path. If the path is handled the closure should be
      called with `true`, otherwise the closure should be called with `false`.
@@ -47,14 +45,14 @@ extension Router {
     public func addPathHandler<Path>(
         priority: Priority = .medium,
         pathHandler: @escaping ClosurePathHandler<Path>
-    ) -> PathHandler {
+    ) -> Router {
         let handler = Shepherd.ClosurePathHandler(handler: pathHandler)
         add(child: handler, priority: priority)
         return handler
     }
 
     /**
-     Add the provided closure to be a path handler.
+     Add the provided closure to be a child of the router, handling routes of type `Path`.
 
      When the closure is called it should attempt to handle the path. If the path is handled the closure should be
      called with `true`, otherwise the closure should be called with `false`.
@@ -68,7 +66,7 @@ extension Router {
         ofType pathType: Path.Type,
         priority: Priority = .medium,
         pathHandler: @escaping ClosurePathHandler<Path>
-    ) -> PathHandler {
+    ) -> Router {
         return addPathHandler(priority: priority, pathHandler: pathHandler)
     }
 

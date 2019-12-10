@@ -13,26 +13,12 @@
 		D921FC88239F647900FB1F9C /* ClosurePathHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = D921FC86239F647900FB1F9C /* ClosurePathHandler.swift */; };
 		D921FC89239F647900FB1F9C /* ClosurePathHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = D921FC86239F647900FB1F9C /* ClosurePathHandler.swift */; };
 		D921FC8A239F647900FB1F9C /* ClosurePathHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = D921FC86239F647900FB1F9C /* ClosurePathHandler.swift */; };
-		D921FC8C239F64B500FB1F9C /* SynchronousPathHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = D921FC8B239F64B500FB1F9C /* SynchronousPathHandler.swift */; };
-		D921FC8D239F64B500FB1F9C /* SynchronousPathHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = D921FC8B239F64B500FB1F9C /* SynchronousPathHandler.swift */; };
-		D921FC8E239F64B500FB1F9C /* SynchronousPathHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = D921FC8B239F64B500FB1F9C /* SynchronousPathHandler.swift */; };
-		D921FC8F239F64B500FB1F9C /* SynchronousPathHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = D921FC8B239F64B500FB1F9C /* SynchronousPathHandler.swift */; };
-		D921FC91239F64DA00FB1F9C /* SynchronousPathHandlerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D921FC90239F64DA00FB1F9C /* SynchronousPathHandlerTests.swift */; };
-		D921FC92239F64DA00FB1F9C /* SynchronousPathHandlerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D921FC90239F64DA00FB1F9C /* SynchronousPathHandlerTests.swift */; };
-		D921FC93239F64DA00FB1F9C /* SynchronousPathHandlerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D921FC90239F64DA00FB1F9C /* SynchronousPathHandlerTests.swift */; };
-		D921FC95239F64E100FB1F9C /* MockSynchronousPathHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = D921FC94239F64E100FB1F9C /* MockSynchronousPathHandler.swift */; };
-		D921FC96239F64E100FB1F9C /* MockSynchronousPathHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = D921FC94239F64E100FB1F9C /* MockSynchronousPathHandler.swift */; };
-		D921FC97239F64E100FB1F9C /* MockSynchronousPathHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = D921FC94239F64E100FB1F9C /* MockSynchronousPathHandler.swift */; };
 		D9416E42238C79EC00181A32 /* RouterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9416E41238C79EC00181A32 /* RouterTests.swift */; };
 		D9416E43238C79EC00181A32 /* RouterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9416E41238C79EC00181A32 /* RouterTests.swift */; };
 		D9416E44238C79EC00181A32 /* RouterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9416E41238C79EC00181A32 /* RouterTests.swift */; };
 		D9416E46238D8F5000181A32 /* ClosurePathHandlerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9416E45238D8F5000181A32 /* ClosurePathHandlerTests.swift */; };
 		D9416E47238D8F5000181A32 /* ClosurePathHandlerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9416E45238D8F5000181A32 /* ClosurePathHandlerTests.swift */; };
 		D9416E48238D8F5000181A32 /* ClosurePathHandlerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9416E45238D8F5000181A32 /* ClosurePathHandlerTests.swift */; };
-		D968997223847D09005F3F24 /* PathHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = D968996A23847D09005F3F24 /* PathHandler.swift */; };
-		D968997323847D09005F3F24 /* PathHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = D968996A23847D09005F3F24 /* PathHandler.swift */; };
-		D968997423847D09005F3F24 /* PathHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = D968996A23847D09005F3F24 /* PathHandler.swift */; };
-		D968997523847D09005F3F24 /* PathHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = D968996A23847D09005F3F24 /* PathHandler.swift */; };
 		D968997623847D09005F3F24 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = D968996B23847D09005F3F24 /* Router.swift */; };
 		D968997723847D09005F3F24 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = D968996B23847D09005F3F24 /* Router.swift */; };
 		D968997823847D09005F3F24 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = D968996B23847D09005F3F24 /* Router.swift */; };
@@ -44,10 +30,10 @@
 		D968998623847D3B005F3F24 /* MockRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D968998323847D3B005F3F24 /* MockRouter.swift */; };
 		D968998723847D3B005F3F24 /* MockRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D968998323847D3B005F3F24 /* MockRouter.swift */; };
 		D968998823847D3B005F3F24 /* MockRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D968998323847D3B005F3F24 /* MockRouter.swift */; };
-		D974B8B0239F060A009DCA6E /* PathHandler+parents.swift in Sources */ = {isa = PBXBuildFile; fileRef = D974B8AF239F060A009DCA6E /* PathHandler+parents.swift */; };
-		D974B8B1239F060A009DCA6E /* PathHandler+parents.swift in Sources */ = {isa = PBXBuildFile; fileRef = D974B8AF239F060A009DCA6E /* PathHandler+parents.swift */; };
-		D974B8B2239F060A009DCA6E /* PathHandler+parents.swift in Sources */ = {isa = PBXBuildFile; fileRef = D974B8AF239F060A009DCA6E /* PathHandler+parents.swift */; };
-		D974B8B3239F060A009DCA6E /* PathHandler+parents.swift in Sources */ = {isa = PBXBuildFile; fileRef = D974B8AF239F060A009DCA6E /* PathHandler+parents.swift */; };
+		D974B8B0239F060A009DCA6E /* Router+parents.swift in Sources */ = {isa = PBXBuildFile; fileRef = D974B8AF239F060A009DCA6E /* Router+parents.swift */; };
+		D974B8B1239F060A009DCA6E /* Router+parents.swift in Sources */ = {isa = PBXBuildFile; fileRef = D974B8AF239F060A009DCA6E /* Router+parents.swift */; };
+		D974B8B2239F060A009DCA6E /* Router+parents.swift in Sources */ = {isa = PBXBuildFile; fileRef = D974B8AF239F060A009DCA6E /* Router+parents.swift */; };
+		D974B8B3239F060A009DCA6E /* Router+parents.swift in Sources */ = {isa = PBXBuildFile; fileRef = D974B8AF239F060A009DCA6E /* Router+parents.swift */; };
 		D9E601CF2233E99D00B36B1E /* Shepherd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9E601C62233E99D00B36B1E /* Shepherd.framework */; };
 		D9E601E12233EBFA00B36B1E /* Shepherd.h in Headers */ = {isa = PBXBuildFile; fileRef = D91505B2221E024900EB5215 /* Shepherd.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D9FFA6292235A223005D9A4D /* Shepherd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9FFA6202235A223005D9A4D /* Shepherd.framework */; };
@@ -119,9 +105,6 @@
 		D91505B8221E024900EB5215 /* ShepherdTests-iOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ShepherdTests-iOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D91505BF221E024900EB5215 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D921FC86239F647900FB1F9C /* ClosurePathHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClosurePathHandler.swift; sourceTree = "<group>"; };
-		D921FC8B239F64B500FB1F9C /* SynchronousPathHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SynchronousPathHandler.swift; sourceTree = "<group>"; };
-		D921FC90239F64DA00FB1F9C /* SynchronousPathHandlerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SynchronousPathHandlerTests.swift; sourceTree = "<group>"; };
-		D921FC94239F64E100FB1F9C /* MockSynchronousPathHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockSynchronousPathHandler.swift; sourceTree = "<group>"; };
 		D9416E39238C791500181A32 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		D9416E3A238C795D00181A32 /* .jazzy.yaml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .jazzy.yaml; sourceTree = SOURCE_ROOT; };
 		D9416E3B238C795D00181A32 /* .ruby-version */ = {isa = PBXFileReference; lastKnownFileType = text; path = ".ruby-version"; sourceTree = SOURCE_ROOT; };
@@ -131,12 +114,11 @@
 		D9416E40238C795D00181A32 /* .codecov.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .codecov.yml; sourceTree = SOURCE_ROOT; };
 		D9416E41238C79EC00181A32 /* RouterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouterTests.swift; sourceTree = "<group>"; };
 		D9416E45238D8F5000181A32 /* ClosurePathHandlerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClosurePathHandlerTests.swift; sourceTree = "<group>"; };
-		D968996A23847D09005F3F24 /* PathHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PathHandler.swift; sourceTree = "<group>"; };
 		D968996B23847D09005F3F24 /* Router.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		D968996C23847D09005F3F24 /* Priority.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Priority.swift; sourceTree = "<group>"; };
 		D968998323847D3B005F3F24 /* MockRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockRouter.swift; sourceTree = "<group>"; };
 		D974B8A0239EFFC7009DCA6E /* ClosurePathHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClosurePathHandler.swift; sourceTree = "<group>"; };
-		D974B8AF239F060A009DCA6E /* PathHandler+parents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PathHandler+parents.swift"; sourceTree = "<group>"; };
+		D974B8AF239F060A009DCA6E /* Router+parents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Router+parents.swift"; sourceTree = "<group>"; };
 		D9B77D40238DCF8600E3071C /* Dangerfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dangerfile.swift; sourceTree = SOURCE_ROOT; };
 		D9CA4437222FF3CD000E424B /* Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = SOURCE_ROOT; };
 		D9D933B4223492FD00E94AAE /* Shepherd.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Shepherd.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -250,12 +232,10 @@
 		D968996723846573005F3F24 /* Shepherd */ = {
 			isa = PBXGroup;
 			children = (
-				D968996A23847D09005F3F24 /* PathHandler.swift */,
 				D968996B23847D09005F3F24 /* Router.swift */,
 				D968996C23847D09005F3F24 /* Priority.swift */,
 				D921FC86239F647900FB1F9C /* ClosurePathHandler.swift */,
-				D974B8AF239F060A009DCA6E /* PathHandler+parents.swift */,
-				D921FC8B239F64B500FB1F9C /* SynchronousPathHandler.swift */,
+				D974B8AF239F060A009DCA6E /* Router+parents.swift */,
 			);
 			path = Shepherd;
 			sourceTree = "<group>";
@@ -265,7 +245,6 @@
 			children = (
 				D968998223847D3B005F3F24 /* Mocks */,
 				D9416E41238C79EC00181A32 /* RouterTests.swift */,
-				D921FC90239F64DA00FB1F9C /* SynchronousPathHandlerTests.swift */,
 				D9416E45238D8F5000181A32 /* ClosurePathHandlerTests.swift */,
 			);
 			path = ShepherdTests;
@@ -275,7 +254,6 @@
 			isa = PBXGroup;
 			children = (
 				D968998323847D3B005F3F24 /* MockRouter.swift */,
-				D921FC94239F64E100FB1F9C /* MockSynchronousPathHandler.swift */,
 			);
 			path = Mocks;
 			sourceTree = "<group>";
@@ -563,12 +541,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D974B8B0239F060A009DCA6E /* PathHandler+parents.swift in Sources */,
+				D974B8B0239F060A009DCA6E /* Router+parents.swift in Sources */,
 				D968997A23847D09005F3F24 /* Priority.swift in Sources */,
 				D921FC87239F647900FB1F9C /* ClosurePathHandler.swift in Sources */,
-				D921FC8C239F64B500FB1F9C /* SynchronousPathHandler.swift in Sources */,
 				D968997623847D09005F3F24 /* Router.swift in Sources */,
-				D968997223847D09005F3F24 /* PathHandler.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -579,8 +555,6 @@
 				D9416E47238D8F5000181A32 /* ClosurePathHandlerTests.swift in Sources */,
 				D9416E44238C79EC00181A32 /* RouterTests.swift in Sources */,
 				D968998623847D3B005F3F24 /* MockRouter.swift in Sources */,
-				D921FC91239F64DA00FB1F9C /* SynchronousPathHandlerTests.swift in Sources */,
-				D921FC95239F64E100FB1F9C /* MockSynchronousPathHandler.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -588,12 +562,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D974B8B2239F060A009DCA6E /* PathHandler+parents.swift in Sources */,
+				D974B8B2239F060A009DCA6E /* Router+parents.swift in Sources */,
 				D968997C23847D09005F3F24 /* Priority.swift in Sources */,
 				D921FC89239F647900FB1F9C /* ClosurePathHandler.swift in Sources */,
-				D921FC8E239F64B500FB1F9C /* SynchronousPathHandler.swift in Sources */,
 				D968997823847D09005F3F24 /* Router.swift in Sources */,
-				D968997423847D09005F3F24 /* PathHandler.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -601,12 +573,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D974B8B1239F060A009DCA6E /* PathHandler+parents.swift in Sources */,
+				D974B8B1239F060A009DCA6E /* Router+parents.swift in Sources */,
 				D968997B23847D09005F3F24 /* Priority.swift in Sources */,
 				D921FC88239F647900FB1F9C /* ClosurePathHandler.swift in Sources */,
-				D921FC8D239F64B500FB1F9C /* SynchronousPathHandler.swift in Sources */,
 				D968997723847D09005F3F24 /* Router.swift in Sources */,
-				D968997323847D09005F3F24 /* PathHandler.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -617,8 +587,6 @@
 				D9416E48238D8F5000181A32 /* ClosurePathHandlerTests.swift in Sources */,
 				D9416E43238C79EC00181A32 /* RouterTests.swift in Sources */,
 				D968998723847D3B005F3F24 /* MockRouter.swift in Sources */,
-				D921FC92239F64DA00FB1F9C /* SynchronousPathHandlerTests.swift in Sources */,
-				D921FC96239F64E100FB1F9C /* MockSynchronousPathHandler.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -626,12 +594,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D974B8B3239F060A009DCA6E /* PathHandler+parents.swift in Sources */,
+				D974B8B3239F060A009DCA6E /* Router+parents.swift in Sources */,
 				D968997D23847D09005F3F24 /* Priority.swift in Sources */,
 				D921FC8A239F647900FB1F9C /* ClosurePathHandler.swift in Sources */,
-				D921FC8F239F64B500FB1F9C /* SynchronousPathHandler.swift in Sources */,
 				D968997923847D09005F3F24 /* Router.swift in Sources */,
-				D968997523847D09005F3F24 /* PathHandler.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -642,8 +608,6 @@
 				D9416E46238D8F5000181A32 /* ClosurePathHandlerTests.swift in Sources */,
 				D9416E42238C79EC00181A32 /* RouterTests.swift in Sources */,
 				D968998823847D3B005F3F24 /* MockRouter.swift in Sources */,
-				D921FC93239F64DA00FB1F9C /* SynchronousPathHandlerTests.swift in Sources */,
-				D921FC97239F64E100FB1F9C /* MockSynchronousPathHandler.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
