@@ -3,6 +3,9 @@
  */
 public protocol PathHandler: class {
 
+    /// The immediate parent of the path handler. The parent should be held on to weakly.
+    var parent: PathHandler? { get set }
+
     /**
      Attempt to handle the provided path. The path can be any type, but the handler does not have to attempt to handle
      all path types.
