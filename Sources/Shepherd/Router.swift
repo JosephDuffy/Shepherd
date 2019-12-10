@@ -13,7 +13,7 @@ open class Router: PathHandler {
 
     /// The immediate parent. This will be set automatically by the parent.
     /// The parent has a priority of `Priority.parent`, making it the last path handler to be queried.
-    public internal(set) weak var parent: Router?
+    public weak var parent: PathHandler?
 
     /// An array of children that have been added to the router, sorted in decending priority.
     public var children: [PathHandler] {
@@ -24,7 +24,7 @@ open class Router: PathHandler {
     /// priority of 2 handlers are the same they will be ordered by order they were added.
     private var routeHandlers: [LinkedHandler] {
         var tree = _children
-        parent.map { LinkedHandler(router: $0, priority: .low) }.map { tree.append($0) }
+        parent.map { LinkedHandler(pathHandler: $0, priority: .low) }.map { tree.append($0) }
         return tree.sorted(by: { $0.priority > $1.priority })
     }
 
@@ -119,11 +119,11 @@ open class Router: PathHandler {
         if let existingChild = _children.first(where: { $0.pathHandler === pathHandler }) {
             existingChild.priority = priority
         } else if let router = pathHandler as? Router {
-            let child = LinkedHandler(router: router, priority: priority)
+            let child = LinkedHandler(pathHandler: router, priority: priority)
             _children.append(child)
             router.parent = self
         } else {
-            let child = LinkedHandler(routeHandler: pathHandler, priority: priority)
+            let child = LinkedHandler(pathHandler: pathHandler, priority: priority)
             _children.append(child)
         }
     }
@@ -146,39 +146,16 @@ extension Router {
 
     private final class LinkedHandler {
 
-        private enum Kind {
-            case router(Router)
-            case handler(PathHandler)
-        }
-
-        private let kind: Kind
         var priority: Priority
 
-        var pathHandler: PathHandler {
-            switch kind {
-            case .router(let router):
-                return router
-            case .handler(let pathHandler):
-                return pathHandler
-            }
-        }
+        var pathHandler: PathHandler
 
         var router: Router? {
-            switch kind {
-            case .router(let router):
-                return router
-            case .handler:
-                return nil
-            }
+            return pathHandler as? Router
         }
 
-        init(router: Router, priority: Priority) {
-            kind = .router(router)
-            self.priority = priority
-        }
-
-        init(routeHandler: PathHandler, priority: Priority) {
-            kind = .handler(routeHandler)
+        init(pathHandler: PathHandler, priority: Priority) {
+            self.pathHandler = pathHandler
             self.priority = priority
         }
 
