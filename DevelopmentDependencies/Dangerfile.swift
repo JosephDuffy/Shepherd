@@ -13,11 +13,11 @@ func checkSwiftVersions() {
     SwiftChecks.check(
         files: [
             VersionFile(
-                path: "./\(projectName).xcodeproj/project.pbxproj",
+                path: "../\(projectName).xcodeproj/project.pbxproj",
                 interpreter: .regex("SWIFT_VERSION = (.*);")
             ),
             VersionFile(
-                path: "./\(projectName).podspec",
+                path: "../\(projectName).podspec",
                 interpreter: .regex("\\.swift_version\\s*=\\s*\"(.*)\"")
             ),
         ],
@@ -29,13 +29,13 @@ func checkProjectVersions() {
     SwiftChecks.check(
         fileProviders: [
             InfoPlistFileProvider(
-                discoveryMethod: .searchDirectory("./Sources", fileNames: ["Info.plist"]),
+                discoveryMethod: .searchDirectory("../Sources", fileNames: ["Info.plist"]),
                 plistKey: .versionNumber,
-                projectFilePath: "./\(projectName).xcodeproj"
+                projectFilePath: "../\(projectName).xcodeproj"
             ),
         ],
         files: [
-            VersionFile(path: "./\(projectName).podspec", interpreter: .regex("\\.version\\s*=\\s*\"(.*)\"")),
+            VersionFile(path: "../\(projectName).podspec", interpreter: .regex("\\.version\\s*=\\s*\"(.*)\"")),
         ],
         versionKind: "framework"
     )
@@ -43,4 +43,4 @@ func checkProjectVersions() {
 
 checkSwiftVersions()
 checkProjectVersions()
-SwiftLint.lint(inline: isPR)
+SwiftLint.lint(inline: isPR, directory: "../")
