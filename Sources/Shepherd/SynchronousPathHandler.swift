@@ -1,6 +1,6 @@
 /// A `PathHandler` that can handle paths synchronously
 public protocol SynchronousPathHandler: PathHandler {
-    
+
     /**
      Attempt to handle the provided path. The path can be any type, but the handler does not have to attempt to handle
      all path types.
@@ -12,14 +12,14 @@ public protocol SynchronousPathHandler: PathHandler {
      - Returns: The handler that handled the path, or `nil` if the path was not handled.
      */
     func handle<Path>(path: Path) -> PathHandler?
-    
+
 }
 
 extension SynchronousPathHandler {
-    
+
     public func handle<Path>(path: Path, completionHandler: ((PathHandler?) -> Void)?) {
         let handler = handle(path: path)
         completionHandler?(handler)
     }
-    
+
 }
