@@ -386,9 +386,9 @@ is a child of this router the parent will be set to <code>nil</code>. If it is n
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:8Shepherd6RouterC18ClosurePathHandlera"></a>
-                    <a name="//apple_ref/swift/Alias/ClosurePathHandler" class="dashAnchor"></a>
-                    <a class="token" href="#/s:8Shepherd6RouterC18ClosurePathHandlera">ClosurePathHandler</a>
+                    <a name="/s:8Shepherd6RouterC30AsynchronousClosurePathHandlera"></a>
+                    <a name="//apple_ref/swift/Alias/AsynchronousClosurePathHandler" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8Shepherd6RouterC30AsynchronousClosurePathHandlera">AsynchronousClosurePathHandler</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -403,7 +403,7 @@ is a child of this router the parent will be set to <code>nil</code>. If it is n
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">typealias</span> <span class="kt">ClosurePathHandler</span><span class="o">&lt;</span><span class="kt">Path</span><span class="o">&gt;</span> <span class="o">=</span> <span class="p">(</span><span class="n">_</span> <span class="nv">path</span><span class="p">:</span> <span class="kt">Path</span><span class="p">,</span> <span class="n">_</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="n">_</span> <span class="nv">didHandle</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">typealias</span> <span class="kt">AsynchronousClosurePathHandler</span><span class="o">&lt;</span><span class="kt">Path</span><span class="o">&gt;</span> <span class="o">=</span> <span class="p">(</span><span class="n">_</span> <span class="nv">path</span><span class="p">:</span> <span class="kt">Path</span><span class="p">,</span> <span class="n">_</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="n">_</span> <span class="nv">didHandle</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span></code></pre>
 
                         </div>
                       </div>
@@ -468,7 +468,7 @@ called with <code>true</code>, otherwise the closure should be called with <code
                           <pre class="highlight swift"><code><span class="kd">@discardableResult</span>
 <span class="kd">public</span> <span class="kd">func</span> <span class="n">addPathHandler</span><span class="o">&lt;</span><span class="kt">Path</span><span class="o">&gt;</span><span class="p">(</span>
     <span class="nv">priority</span><span class="p">:</span> <span class="kt"><a href="../Structs/Priority.html">Priority</a></span> <span class="o">=</span> <span class="o">.</span><span class="n">medium</span><span class="p">,</span>
-    <span class="nv">pathHandler</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt"><a href="../Classes/Router.html#/s:8Shepherd6RouterC18ClosurePathHandlera">ClosurePathHandler</a></span><span class="o">&lt;</span><span class="kt">Path</span><span class="o">&gt;</span>
+    <span class="nv">pathHandler</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt"><a href="../Classes/Router.html#/s:8Shepherd6RouterC30AsynchronousClosurePathHandlera">AsynchronousClosurePathHandler</a></span><span class="o">&lt;</span><span class="kt">Path</span><span class="o">&gt;</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Router</span></code></pre>
 
                         </div>
@@ -534,7 +534,7 @@ called with <code>true</code>, otherwise the closure should be called with <code
 <span class="kd">public</span> <span class="kd">func</span> <span class="n">addHandlerForPaths</span><span class="o">&lt;</span><span class="kt">Path</span><span class="o">&gt;</span><span class="p">(</span>
     <span class="n">ofType</span> <span class="nv">pathType</span><span class="p">:</span> <span class="kt">Path</span><span class="o">.</span><span class="k">Type</span><span class="p">,</span>
     <span class="nv">priority</span><span class="p">:</span> <span class="kt"><a href="../Structs/Priority.html">Priority</a></span> <span class="o">=</span> <span class="o">.</span><span class="n">medium</span><span class="p">,</span>
-    <span class="nv">pathHandler</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt"><a href="../Classes/Router.html#/s:8Shepherd6RouterC18ClosurePathHandlera">ClosurePathHandler</a></span><span class="o">&lt;</span><span class="kt">Path</span><span class="o">&gt;</span>
+    <span class="nv">pathHandler</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt"><a href="../Classes/Router.html#/s:8Shepherd6RouterC30AsynchronousClosurePathHandlera">AsynchronousClosurePathHandler</a></span><span class="o">&lt;</span><span class="kt">Path</span><span class="o">&gt;</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Router</span></code></pre>
 
                         </div>
@@ -612,6 +612,212 @@ called with <code>true</code>, otherwise the closure should be called with <code
                           <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">parents</span><span class="p">:</span> <span class="p">[</span><span class="kt">Router</span><span class="p">]</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
 
                         </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8Shepherd6RouterC29SynchronousClosurePathHandlera"></a>
+                    <a name="//apple_ref/swift/Alias/SynchronousClosurePathHandler" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8Shepherd6RouterC29SynchronousClosurePathHandlera">SynchronousClosurePathHandler</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A closure that can be queried when attempting to handle a path.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">typealias</span> <span class="kt">SynchronousClosurePathHandler</span><span class="o">&lt;</span><span class="kt">Path</span><span class="o">&gt;</span> <span class="o">=</span> <span class="p">(</span><span class="n">_</span> <span class="nv">path</span><span class="p">:</span> <span class="kt">Path</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Bool</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>path</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The path to attempt to handle.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completionHandler</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A closure to be called when the path has been handled, or it is determined the path
+                           cannot be handled.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8Shepherd6RouterC14addPathHandler8priority04pathE0AcA8PriorityV_SbxctlF"></a>
+                    <a name="//apple_ref/swift/Method/addPathHandler(priority:pathHandler:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8Shepherd6RouterC14addPathHandler8priority04pathE0AcA8PriorityV_SbxctlF">addPathHandler(priority:pathHandler:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Add the provided closure to be a child of the router, handling routes of type <code>Path</code>.</p>
+
+<p>When the closure is called it should attempt to handle the path. If the path is handled the closure should be
+called with <code>true</code>, otherwise the closure should be called with <code>false</code>.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@discardableResult</span>
+<span class="kd">public</span> <span class="kd">func</span> <span class="n">addPathHandler</span><span class="o">&lt;</span><span class="kt">Path</span><span class="o">&gt;</span><span class="p">(</span>
+    <span class="nv">priority</span><span class="p">:</span> <span class="kt"><a href="../Structs/Priority.html">Priority</a></span> <span class="o">=</span> <span class="o">.</span><span class="n">medium</span><span class="p">,</span>
+    <span class="nv">pathHandler</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt"><a href="../Classes/Router.html#/s:8Shepherd6RouterC29SynchronousClosurePathHandlera">SynchronousClosurePathHandler</a></span><span class="o">&lt;</span><span class="kt">Path</span><span class="o">&gt;</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Router</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>priority</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The priority of the handler. Defaults to medium.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>pathHandler</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A closure that will be queried when handling a path of type <code>Path</code>.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8Shepherd6RouterC18addHandlerForPaths6ofType8priority04pathD0ACxm_AA8PriorityVSbxctlF"></a>
+                    <a name="//apple_ref/swift/Method/addHandlerForPaths(ofType:priority:pathHandler:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8Shepherd6RouterC18addHandlerForPaths6ofType8priority04pathD0ACxm_AA8PriorityVSbxctlF">addHandlerForPaths(ofType:priority:pathHandler:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Add the provided closure to be a child of the router, handling routes of type <code>Path</code>.</p>
+
+<p>When the closure is called it should attempt to handle the path. If the path is handled the closure should be
+called with <code>true</code>, otherwise the closure should be called with <code>false</code>.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@discardableResult</span>
+<span class="kd">public</span> <span class="kd">func</span> <span class="n">addHandlerForPaths</span><span class="o">&lt;</span><span class="kt">Path</span><span class="o">&gt;</span><span class="p">(</span>
+    <span class="n">ofType</span> <span class="nv">pathType</span><span class="p">:</span> <span class="kt">Path</span><span class="o">.</span><span class="k">Type</span><span class="p">,</span>
+    <span class="nv">priority</span><span class="p">:</span> <span class="kt"><a href="../Structs/Priority.html">Priority</a></span> <span class="o">=</span> <span class="o">.</span><span class="n">medium</span><span class="p">,</span>
+    <span class="nv">pathHandler</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt"><a href="../Classes/Router.html#/s:8Shepherd6RouterC29SynchronousClosurePathHandlera">SynchronousClosurePathHandler</a></span><span class="o">&lt;</span><span class="kt">Path</span><span class="o">&gt;</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Router</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>pathType</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The path type to handle. Pass this to aid with type checking.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>priority</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The priority of the handler. Defaults to medium.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>pathHandler</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A closure that will be queried when handling a path of type <code>Path</code></p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
                       </div>
                     </section>
                   </div>
