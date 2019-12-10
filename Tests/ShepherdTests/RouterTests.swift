@@ -15,6 +15,7 @@ final class RouterTests: XCTestCase {
             XCTAssertNil(handledRouter, "Path should not be handled")
         }
 
+        XCTAssertTrue(router.children.isEmpty)
         wait(for: [expectation], timeout: 1)
     }
 
@@ -46,6 +47,7 @@ final class RouterTests: XCTestCase {
             }
         }
 
+        XCTAssertTrue(router.children.isEmpty)
         wait(for: [parentExpectation, expectation], timeout: 1, enforceOrder: true)
     }
 
@@ -71,6 +73,7 @@ final class RouterTests: XCTestCase {
             XCTAssertNil(parentRouter.latestHandleParameters, "Parent should not be called")
         }
 
+        XCTAssertTrue(router.children.isEmpty)
         wait(for: [expectation, parentExpectation], timeout: 1, enforceOrder: true)
     }
 
@@ -103,6 +106,7 @@ final class RouterTests: XCTestCase {
             }
         }
 
+        XCTAssertTrue(router.children.isEmpty)
         wait(for: [parentExpectation, expectation], timeout: 1, enforceOrder: true)
     }
 
@@ -166,7 +170,10 @@ final class RouterTests: XCTestCase {
         let parentRouter = Router()
         let childRouter = Router()
         parentRouter.add(child: childRouter)
+
+        AssertChildrenArrayEqual(parentRouter.children, [childRouter])
         XCTAssert(childRouter.parent === parentRouter, "Adding child should set the parent")
+
         parentRouter.remove(child: childRouter)
         XCTAssertNil(childRouter.parent, "Parent should be set to nil after removal")
     }
@@ -179,6 +186,8 @@ final class RouterTests: XCTestCase {
         parentRouter1.add(child: childRouter1)
         parentRouter2.add(child: childRouter2)
         parentRouter2.remove(child: childRouter1)
+        AssertChildrenArrayEqual(parentRouter1.children, [childRouter1])
+        AssertChildrenArrayEqual(parentRouter2.children, [childRouter2])
         XCTAssert(childRouter1.parent === parentRouter1, "Child's parent should not be unset by a different parent")
         XCTAssert(childRouter2.parent === parentRouter2, "Child's parent should not be unset when removing a different child")
     }
@@ -188,36 +197,36 @@ final class RouterTests: XCTestCase {
         let path = "test-path"
 
         let lowPriorityHandler1Expectation = XCTestExpectation(description: "Ask low priority 1 to handle path")
-        router.addHandlerForPaths(ofType: String.self, priority: .low) { _, completionHandler in
+        let lowPriorityHandler1 = router.addHandlerForPaths(ofType: String.self, priority: .low) { _, completionHandler in
             lowPriorityHandler1Expectation.fulfill()
             completionHandler(false)
         }
 
         let mediumPriorityHandler1Expectation = XCTestExpectation(description: "Ask medium priority 1 to handle path")
-        router.addHandlerForPaths(ofType: String.self) { _, completionHandler in
+        let mediumPriorityHandler1 = router.addHandlerForPaths(ofType: String.self) { _, completionHandler in
             mediumPriorityHandler1Expectation.fulfill()
             completionHandler(false)
         }
 
         let highPriorityHandler1Expectation = XCTestExpectation(description: "Ask high priority 1 to handle path")
-        router.addHandlerForPaths(ofType: String.self, priority: .high) { _, completionHandler in
+        let highPriorityHandler1 = router.addHandlerForPaths(ofType: String.self, priority: .high) { _, completionHandler in
             highPriorityHandler1Expectation.fulfill()
             completionHandler(false)
         }
 
         let lowPriorityHandler2Expectation = XCTestExpectation(description: "Ask low priority 2 to handle path")
-        router.addHandlerForPaths(ofType: String.self, priority: .low) { _, completionHandler in            lowPriorityHandler2Expectation.fulfill()
+        let lowPriorityHandler2 = router.addHandlerForPaths(ofType: String.self, priority: .low) { _, completionHandler in            lowPriorityHandler2Expectation.fulfill()
             completionHandler(false)
         }
 
         let mediumPriorityHandler2Expectation = XCTestExpectation(description: "Ask medium priority 2 to handle path")
-        router.addHandlerForPaths(ofType: String.self) { _, completionHandler in
+        let mediumPriorityHandler2 = router.addHandlerForPaths(ofType: String.self) { _, completionHandler in
             mediumPriorityHandler2Expectation.fulfill()
             completionHandler(false)
         }
 
         let highPriorityHandler2Expectation = XCTestExpectation(description: "Ask high priority 2 to handle path")
-        router.addHandlerForPaths(ofType: String.self, priority: .high) { _, completionHandler in
+        let highPriorityHandler2 = router.addHandlerForPaths(ofType: String.self, priority: .high) { _, completionHandler in
             highPriorityHandler2Expectation.fulfill()
             completionHandler(false)
         }
@@ -230,13 +239,13 @@ final class RouterTests: XCTestCase {
         router.add(child: updatedLowToHighPriorityHandler, priority: .high)
 
         let oneBelowHighPriorityHandlerExpectation = XCTestExpectation(description: "Ask 999 priority to handle path")
-        router.addHandlerForPaths(ofType: String.self, priority: 999) { _, completionHandler in
+        let oneBelowHighPriorityHandler = router.addHandlerForPaths(ofType: String.self, priority: 999) { _, completionHandler in
             oneBelowHighPriorityHandlerExpectation.fulfill()
             completionHandler(false)
         }
 
         let oneBelowParentPriorityHandlerExpectation = XCTestExpectation(description: "Ask -1 priority to handle path")
-        router.addHandlerForPaths(ofType: String.self, priority: Priority(rawValue: -1)) { _, completionHandler in
+        let oneBelowParentPriorityHandler = router.addHandlerForPaths(ofType: String.self, priority: Priority(rawValue: -1)) { _, completionHandler in
             oneBelowParentPriorityHandlerExpectation.fulfill()
             completionHandler(false)
         }
@@ -265,6 +274,22 @@ final class RouterTests: XCTestCase {
             }
         }
 
+        AssertChildrenArrayEqual(
+            router.children,
+            [
+                highPriorityHandler1,
+                highPriorityHandler2,
+                updatedLowToHighPriorityHandler,
+                oneBelowHighPriorityHandler,
+                mediumPriorityHandler1,
+                mediumPriorityHandler2,
+                lowPriorityHandler1,
+                lowPriorityHandler2,
+                oneBelowParentPriorityHandler,
+            ],
+            "Children should be ordered by priority"
+        )
+        AssertChildrenArrayEqual(parentRouter.children, [router], "Children should only contain the immediate child")
         wait(
             for: [
                 highPriorityHandler1Expectation,
@@ -284,4 +309,21 @@ final class RouterTests: XCTestCase {
         )
     }
 
+}
+
+func AssertChildrenArrayEqual(_ expression1: @autoclosure () throws -> [PathHandler], _ expression2: @autoclosure () throws -> [PathHandler], _ message: @autoclosure () -> String = "", file: StaticString = #file, line: UInt = #line) rethrows {
+    let array1 = try expression1()
+    let array2 = try expression2()
+    guard array1.count == array2.count else {
+        XCTFail(message() + ". Array \(array1) did not equal \(array2)", file: file, line: line)
+        return
+    }
+
+    for (index, element1) in array1.enumerated() {
+        let element2 = array2[index]
+        if element1 !== element2 {
+            XCTFail(message() + ". Array \(array1) did not equal \(array2)", file: file, line: line)
+            return
+        }
+    }
 }
