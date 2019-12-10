@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>PathHandler Protocol Reference</title>
+    <title>SynchronousPathHandler Protocol Reference</title>
     <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
     <meta charset='utf-8'>
@@ -10,8 +10,8 @@
     
   </head>
   <body>
-    <a name="//apple_ref/swift/Protocol/PathHandler" class="dashAnchor"></a>
-    <a title="PathHandler Protocol Reference"></a>
+    <a name="//apple_ref/swift/Protocol/SynchronousPathHandler" class="dashAnchor"></a>
+    <a title="SynchronousPathHandler Protocol Reference"></a>
     <header>
       <div class="content-wrapper">
         <p><a href="../index.html">Shepherd Docs</a> (100% documented)</p>
@@ -22,7 +22,7 @@
       <p id="breadcrumbs">
         <a href="../index.html">Shepherd Reference</a>
         <img id="carat" src="../img/carat.png" />
-        PathHandler Protocol Reference
+        SynchronousPathHandler Protocol Reference
       </p>
     </div>
     <div class="content-wrapper">
@@ -60,14 +60,14 @@
       <article class="main-content">
         <section>
           <section class="section">
-            <h1>PathHandler</h1>
+            <h1>SynchronousPathHandler</h1>
               <div class="declaration">
                 <div class="language">
-                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">PathHandler</span> <span class="p">:</span> <span class="kt">AnyObject</span></code></pre>
+                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">SynchronousPathHandler</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/PathHandler.html">PathHandler</a></span></code></pre>
 
                 </div>
               </div>
-            <p>A class that can be queried to handle paths.</p>
+            <p>A <code><a href="../Protocols/PathHandler.html">PathHandler</a></code> that can handle paths synchronously</p>
 
           </section>
           <section class="section task-group-section">
@@ -76,36 +76,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:8Shepherd11PathHandlerP6parentAaB_pSgvp"></a>
-                    <a name="//apple_ref/swift/Property/parent" class="dashAnchor"></a>
-                    <a class="token" href="#/s:8Shepherd11PathHandlerP6parentAaB_pSgvp">parent</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>The immediate parent of the path handler. The parent should be held on to weakly.</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">parent</span><span class="p">:</span> <span class="kt">PathHandler</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:8Shepherd11PathHandlerP6handle4path010completionC0yqd___yAaB_pSgcSgtlF"></a>
-                    <a name="//apple_ref/swift/Method/handle(path:completionHandler:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:8Shepherd11PathHandlerP6handle4path010completionC0yqd___yAaB_pSgcSgtlF">handle(path:completionHandler:)</a>
+                    <a name="/s:8Shepherd22SynchronousPathHandlerP6handle4pathAA0cD0_pSgqd___tlF"></a>
+                    <a name="//apple_ref/swift/Method/handle(path:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8Shepherd22SynchronousPathHandlerP6handle4pathAA0cD0_pSgqd___tlF">handle(path:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -116,16 +89,15 @@
                         <p>Attempt to handle the provided path. The path can be any type, but the handler does not have to attempt to handle
 all path types.</p>
 
-<p>If the provided path cannot be handled the implementation must call the <code>completionHandler</code> with <code>nil</code>. If the
-provided path has been handled the implementation must call the <code>completionHandler</code> with the path handler that
-handled the path.</p>
+<p>If the provided path cannot be handled the implementation must return <code>nil</code>. If the provided path has been handled the
+implementation return the path handler that handled the path.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="n">handle</span><span class="o">&lt;</span><span class="kt">Path</span><span class="o">&gt;</span><span class="p">(</span><span class="nv">path</span><span class="p">:</span> <span class="kt">Path</span><span class="p">,</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="p">((</span><span class="kt">PathHandler</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="n">handle</span><span class="o">&lt;</span><span class="kt">Path</span><span class="o">&gt;</span><span class="p">(</span><span class="nv">path</span><span class="p">:</span> <span class="kt">Path</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Protocols/PathHandler.html">PathHandler</a></span><span class="p">?</span></code></pre>
 
                         </div>
                       </div>
@@ -145,21 +117,12 @@ handled the path.</p>
                                 </div>
                               </td>
                             </tr>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>completionHandler</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>A closure that must be called when the path handler has handled or has determined it
-                           is unable to handle the provided path.</p>
-                                </div>
-                              </td>
-                            </tr>
                           </tbody>
                         </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>The handler that handled the path, or <code>nil</code> if the path was not handled.</p>
                       </div>
                     </section>
                   </div>
@@ -171,9 +134,9 @@ handled the path.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:8Shepherd11PathHandlerPAAE7parentsSayAaB_pGvp"></a>
-                    <a name="//apple_ref/swift/Property/parents" class="dashAnchor"></a>
-                    <a class="token" href="#/s:8Shepherd11PathHandlerPAAE7parentsSayAaB_pGvp">parents</a>
+                    <a name="/s:8Shepherd11PathHandlerP6handle4path010completionC0yqd___yAaB_pSgcSgtlF"></a>
+                    <a name="//apple_ref/swift/Method/handle(path:completionHandler:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8Shepherd11PathHandlerP6handle4path010completionC0yqd___yAaB_pSgcSgtlF">handle(path:completionHandler:)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -184,14 +147,13 @@ handled the path.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The parents of the path handler, ordered from the closest to furthest.</p>
-
+                        
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">parents</span><span class="p">:</span> <span class="p">[</span><span class="kt">PathHandler</span><span class="p">]</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="n">handle</span><span class="o">&lt;</span><span class="kt">Path</span><span class="o">&gt;</span><span class="p">(</span><span class="nv">path</span><span class="p">:</span> <span class="kt">Path</span><span class="p">,</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="p">((</span><span class="kt"><a href="../Protocols/PathHandler.html">PathHandler</a></span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?)</span></code></pre>
 
                         </div>
                       </div>
