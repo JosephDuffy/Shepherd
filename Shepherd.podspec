@@ -1,6 +1,6 @@
 Pod::Spec.new do |spec|
   spec.name         = "Shepherd"
-  spec.version      = "0.1.4"
+  spec.version      = "0.2.0"
   spec.summary      = <<-SUMM
                    A collection of protocol and extensions to aid with `NSUserActivity`s
                    SUMM
