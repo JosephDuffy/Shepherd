@@ -14,7 +14,7 @@ open class Router: PathHandler {
     /// The immediate parent. This will be set automatically by the parent.
     /// The parent has a priority of `Priority.parent`, making it the last path handler to be queried.
     public internal(set) weak var parent: Router?
-    
+
     /// An array of children that have been added to the router, sorted in decending priority.
     public var children: [PathHandler] {
         return _children.sorted(by: { $0.priority > $1.priority }).map { $0.pathHandler }
@@ -27,7 +27,6 @@ open class Router: PathHandler {
         parent.map { LinkedHandler(router: $0, priority: .low) }.map { tree.append($0) }
         return tree.sorted(by: { $0.priority > $1.priority })
     }
-
 
     /// An array of children that have been added to the router.
     private var _children: [LinkedHandler] = []
