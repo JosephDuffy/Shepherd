@@ -90,7 +90,6 @@ jobs:
           ${{ runner.os }}-swift_${{ matrix.swift }}-swiftpm-
 
     - name: Install Swift ${{ matrix.swift }} and test
-      if: steps.swiftenv-cache.outputs.cache-hit != 'true'
       env:
         SWIFT_VERSION: ${{ matrix.swift }}
       run: |

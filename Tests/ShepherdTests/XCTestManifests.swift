@@ -19,7 +19,9 @@ extension RouterTests {
         ("testEmptyRouterWithParent", testEmptyRouterWithParent),
         ("testEmptyRouterWithParentHandlingPath", testEmptyRouterWithParentHandlingPath),
         ("testEmptyRouterWithParentIgnoringParent", testEmptyRouterWithParentIgnoringParent),
+        ("testRouterRemovingNonChildRouter", testRouterRemovingNonChildRouter),
         ("testRouterWithChildHandlerHandlingPath", testRouterWithChildHandlerHandlingPath),
+        ("testRouterWithChildRouter", testRouterWithChildRouter),
         ("testRouterWithMultiplePriorityHandlers", testRouterWithMultiplePriorityHandlers),
         ("testRouterWithRemovedHandler", testRouterWithRemovedHandler),
     ]
