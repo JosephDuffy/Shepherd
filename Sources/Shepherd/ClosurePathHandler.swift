@@ -1,7 +1,9 @@
 internal final class ClosurePathHandler<Path>: PathHandler {
-
+    
     internal typealias Handler = (_ route: Path, _ completionHandler: @escaping (_ didHandle: Bool) -> Void) -> Void
 
+    internal weak var parent: PathHandler?
+    
     private let handler: Handler
 
     internal init(handler: @escaping Handler) {
