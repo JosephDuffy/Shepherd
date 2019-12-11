@@ -1,6 +1,16 @@
 import XCTest
 import Shepherd
 
+// Shouldn't trigger a warning
+typealias ALargeTuple = (Int, Int, Int, Int, Int)
+
+// Should trigger a warning
+
+
+
+
+
+
 final class RouterTests: XCTestCase {
 
     func testEmptyRouter() {
