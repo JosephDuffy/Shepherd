@@ -76,7 +76,7 @@ jobs:
       fail-fast: false
       matrix:
         os: [ubuntu-16.04, ubuntu-latest]
-        swift: ["5.0.3", "5.1.2"]
+        swift: ["5.1.2"]
 
     steps:
     - uses: actions/checkout@v1
@@ -94,4 +94,4 @@ jobs:
         SWIFT_VERSION: ${{ matrix.swift }}
       run: |
         eval "$(curl -sL https://swiftenv.fuller.li/install.sh)"
-        swift test --skip-update
+        swift test --skip-update --enable-test-discovery
