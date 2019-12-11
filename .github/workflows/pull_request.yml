@@ -21,8 +21,6 @@ jobs:
     - name: yarn install
       run: cd DevelopmentDependencies && yarn install
 
-    - name: Build Danger and Danger Dependencies
-      run: cd DevelopmentDependencies && swift build --skip-update --target DangerDependencies
     - name: Run Danger
       run: cd DevelopmentDependencies && swift run --skip-update danger-swift ci --danger-js-path $(yarn bin danger) --verbose
       env:
