@@ -17,19 +17,19 @@ open class Router {
 
     /// An array of children that have been added to the router, sorted in decending priority.
     public var children: [Router] {
-        return _children.keys.sorted(by: >).flatMap { _children[$0]! }
+        return _children.sorted(by: { $0.priority > $1.priority }).map { $0.router }
     }
 
     /// An array of the adjacent router in the tree of router, ordered by priority. If the
     /// priority of 2 routers are the same they will be ordered by the order they were added.
     private var routeHandlers: [Router] {
         var tree = _children
-        parent.map { tree[.parent, default: []].append($0) }
-        return tree.keys.sorted(by: >).flatMap { tree[$0]! }
+        parent.map { tree.append(($0, .parent)) }
+        return tree.sorted(by: { $0.priority > $1.priority }).map { $0.router }
     }
 
     /// An array of children that have been added to the router.
-    private var _children: [Priority: [Router]] = [:]
+    private var _children: [(router: Router, priority: Priority)] = []
 
     /// Create an empty router.
     public init() {}
@@ -89,8 +89,12 @@ open class Router {
      - Parameter priority: The priority to assign to the child. Defaults to `.medium`.
      */
     open func add(child router: Router, priority: Priority = .medium) {
-        remove(child: router)
-        _children[priority, default: []].append(router)
+        for child in _children.enumerated() where child.element.router === router {
+            _children[child.offset].priority = priority
+            return
+        }
+
+        _children.append((router, priority))
         router.parent = self
     }
 
@@ -101,12 +105,9 @@ open class Router {
      - Parameter router: The router to remove.
      */
     open func remove(child router: Router) {
-        for priority in _children.keys {
-            var children = _children[priority]!
-            guard let childIndex = children.firstIndex(where: { $0 === router }) else { continue }
-            children.remove(at: childIndex)
-            _children[priority] = children
-            router.parent = nil
+        for child in _children.enumerated() where child.element.router === router {
+            child.element.router.parent = nil
+            _children.remove(at: child.offset)
             return
         }
     }
