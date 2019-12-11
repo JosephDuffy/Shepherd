@@ -1,14 +1,5 @@
 import Foundation
 
-// Should trigger a watning
-
-
-
-
-
-
-
-
 /**
  An object that routes paths to a set of connected routers. Child router are added via the `add(child:priority:)`
  function. When the router is requested to handle a route it will query the children by priority order. If 2

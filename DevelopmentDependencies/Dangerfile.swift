@@ -9,17 +9,6 @@ let danger = Danger()
 // `swift run danger-swift ci` vs `swift run danger-swift local`
 let isPR = danger.github != nil
 
-// These lines shouldn't trigger a warning
-
-
-
-
-
-
-
-
-
-
 func checkSwiftVersions() {
     SwiftChecks.check(
         files: [
