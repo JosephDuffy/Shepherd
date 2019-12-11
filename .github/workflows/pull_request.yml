@@ -19,7 +19,7 @@ jobs:
         node-version: ${{ steps.node-version.outputs.version }}
 
     - name: yarn install
-      run: yarn install
+      run: cd DevelopmentDependencies && yarn install
 
     - name: Build Danger and Danger Dependencies
       run: cd DevelopmentDependencies && swift build --skip-update --target DangerDependencies
