@@ -19,19 +19,17 @@ jobs:
         node-version: ${{ steps.node-version.outputs.version }}
 
     - name: yarn install
-      run: yarn install
+      run: cd DevelopmentDependencies && yarn install
 
     - name: Cache SwiftPM
       uses: actions/cache@v1
       with:
         path: .build
-        key: ${{ runner.os }}-swiftpm-${{ hashFiles('**/Package.resolved') }}
+        key: ${{ runner.os }}-swiftpm-dev-deps-${{ hashFiles(format('{0}{1}', github.workspace, '/DevelopmentDependencies/Package.resolved')) }}
         restore-keys: |
-          ${{ runner.os }}-swiftpm-
-    - name: Build Danger and Danger Dependencies
-      run: swift build --skip-update --target DangerDependencies
+          ${{ runner.os }}-swiftpm-devdeps-
     - name: Run Danger
-      run: swift run --skip-update danger-swift ci --danger-js-path $(yarn bin danger) --verbose
+      run: cd DevelopmentDependencies && swift run --skip-update danger-swift ci --danger-js-path $(yarn bin danger) --verbose
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
