@@ -7,7 +7,7 @@ let package = Package(
         .macOS(.v10_10), .iOS(.v8), .tvOS(.v9), .watchOS(.v2),
     ],
     products: [
-        .library(name: "Shepherd", type: .dynamic, targets: ["Shepherd"]),
+        .library(name: "Shepherd", targets: ["Shepherd"]),
     ],
     targets: [
         .target(name: "Shepherd"),

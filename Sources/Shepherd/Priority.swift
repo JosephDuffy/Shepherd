@@ -1,4 +1,4 @@
-/// The priority of a path handler within a router. Path handlers are queried in decending priority order.
+/// The priority of a router within a router. Routers are queried in decending priority order.
 public struct Priority: RawRepresentable, ExpressibleByIntegerLiteral, Hashable, Comparable {
 
     public static func < (lhs: Priority, rhs: Priority) -> Bool {

@@ -16,6 +16,7 @@ final class RouterTests: XCTestCase {
         }
 
         XCTAssertTrue(router.children.isEmpty)
+        XCTAssertTrue(router.parents.isEmpty)
         wait(for: [expectation], timeout: 1)
     }
 
@@ -40,14 +41,14 @@ final class RouterTests: XCTestCase {
 
             if let latestHandleParameters = parentRouter.latestHandleParameters {
                 XCTAssertEqual(latestHandleParameters.path as? String, path)
-                XCTAssertEqual(latestHandleParameters.ignoring.count, 1)
-                XCTAssert(latestHandleParameters.ignoring.first === router)
+                AssertRouterArrayEqual(latestHandleParameters.ignoring, [router])
             } else {
                 XCTFail("Router should query parent")
             }
         }
 
         XCTAssertTrue(router.children.isEmpty)
+        AssertRouterArrayEqual(router.parents, [parentRouter])
         wait(for: [parentExpectation, expectation], timeout: 1, enforceOrder: true)
     }
 
@@ -74,6 +75,7 @@ final class RouterTests: XCTestCase {
         }
 
         XCTAssertTrue(router.children.isEmpty)
+        AssertRouterArrayEqual(router.parents, [parentRouter])
         wait(for: [expectation, parentExpectation], timeout: 1, enforceOrder: true)
     }
 
@@ -99,14 +101,14 @@ final class RouterTests: XCTestCase {
 
             if let latestHandleParameters = parentRouter.latestHandleParameters {
                 XCTAssertEqual(latestHandleParameters.path as? String, path)
-                XCTAssertEqual(latestHandleParameters.ignoring.count, 1)
-                XCTAssert(latestHandleParameters.ignoring.first === router)
+                AssertRouterArrayEqual(latestHandleParameters.ignoring, [router])
             } else {
                 XCTFail("Router should query parent")
             }
         }
 
         XCTAssertTrue(router.children.isEmpty)
+        AssertRouterArrayEqual(router.parents, [parentRouter])
         wait(for: [parentExpectation, expectation], timeout: 1, enforceOrder: true)
     }
 
@@ -171,11 +173,13 @@ final class RouterTests: XCTestCase {
         let childRouter = Router()
         parentRouter.add(child: childRouter)
 
-        AssertChildrenArrayEqual(parentRouter.children, [childRouter])
+        AssertRouterArrayEqual(parentRouter.children, [childRouter])
         XCTAssert(childRouter.parent === parentRouter, "Adding child should set the parent")
+        AssertRouterArrayEqual(childRouter.parents, [parentRouter])
 
         parentRouter.remove(child: childRouter)
         XCTAssertNil(childRouter.parent, "Parent should be set to nil after removal")
+        XCTAssertTrue(childRouter.parents.isEmpty)
     }
 
     func testRouterRemovingNonChildRouter() {
@@ -186,10 +190,43 @@ final class RouterTests: XCTestCase {
         parentRouter1.add(child: childRouter1)
         parentRouter2.add(child: childRouter2)
         parentRouter2.remove(child: childRouter1)
-        AssertChildrenArrayEqual(parentRouter1.children, [childRouter1])
-        AssertChildrenArrayEqual(parentRouter2.children, [childRouter2])
+        AssertRouterArrayEqual(parentRouter1.children, [childRouter1])
+        AssertRouterArrayEqual(parentRouter2.children, [childRouter2])
         XCTAssert(childRouter1.parent === parentRouter1, "Child's parent should not be unset by a different parent")
         XCTAssert(childRouter2.parent === parentRouter2, "Child's parent should not be unset when removing a different child")
+    }
+
+    func testRouterWithMultipleParents() {
+        let parentRouter1 = Router()
+        let parentRouter2 = Router()
+        let parentRouter3 = Router()
+
+        parentRouter1.add(child: parentRouter2)
+        parentRouter2.add(child: parentRouter3)
+
+        AssertRouterArrayEqual(parentRouter2.parents, [parentRouter1])
+        AssertRouterArrayEqual(parentRouter3.parents, [parentRouter2, parentRouter1])
+    }
+
+    func testRemovingWithMultipleChildren() {
+        let parentRouter = Router()
+        let childRouter1 = Router()
+        let childRouter2 = Router()
+        let childRouter3 = Router()
+        let childRouterHigh1 = Router()
+        let childRouterHigh2 = Router()
+        let childRouterHigh3 = Router()
+        parentRouter.add(child: childRouter1)
+        parentRouter.add(child: childRouter2)
+        parentRouter.add(child: childRouter3)
+        parentRouter.add(child: childRouterHigh1, priority: .high)
+        parentRouter.add(child: childRouterHigh2, priority: .high)
+        parentRouter.add(child: childRouterHigh3, priority: .high)
+
+        parentRouter.remove(child: childRouter2)
+        parentRouter.remove(child: childRouterHigh3)
+
+        AssertRouterArrayEqual(parentRouter.children, [childRouterHigh1, childRouterHigh2, childRouter1, childRouter3])
     }
 
     func testRouterWithMultiplePriorityHandlers() {
@@ -267,14 +304,13 @@ final class RouterTests: XCTestCase {
 
             if let latestHandleParameters = parentRouter.latestHandleParameters {
                 XCTAssertEqual(latestHandleParameters.path as? String, path)
-                XCTAssertEqual(latestHandleParameters.ignoring.count, 1)
-                XCTAssert(latestHandleParameters.ignoring.first === router)
+                AssertRouterArrayEqual(latestHandleParameters.ignoring, [router])
             } else {
                 XCTFail("Router should query parent")
             }
         }
 
-        AssertChildrenArrayEqual(
+        AssertRouterArrayEqual(
             router.children,
             [
                 highPriorityHandler1,
@@ -289,7 +325,7 @@ final class RouterTests: XCTestCase {
             ],
             "Children should be ordered by priority"
         )
-        AssertChildrenArrayEqual(parentRouter.children, [router], "Children should only contain the immediate child")
+        AssertRouterArrayEqual(parentRouter.children, [router], "Children should only contain the immediate child")
         wait(
             for: [
                 highPriorityHandler1Expectation,
@@ -311,7 +347,7 @@ final class RouterTests: XCTestCase {
 
 }
 
-func AssertChildrenArrayEqual(_ expression1: @autoclosure () throws -> [PathHandler], _ expression2: @autoclosure () throws -> [PathHandler], _ message: @autoclosure () -> String = "", file: StaticString = #file, line: UInt = #line) rethrows {
+func AssertRouterArrayEqual(_ expression1: @autoclosure () throws -> [Router], _ expression2: @autoclosure () throws -> [Router], _ message: @autoclosure () -> String = "", file: StaticString = #file, line: UInt = #line) rethrows {
     let array1 = try expression1()
     let array2 = try expression2()
     guard array1.count == array2.count else {

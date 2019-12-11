@@ -1,6 +1,6 @@
-internal final class ClosurePathHandler<Path>: PathHandler {
+internal final class AsynchronousClosurePathHandler<Path>: Router {
 
-    internal typealias Handler = (_ route: Path, _ completionHandler: @escaping (_ didHandle: Bool) -> Void) -> Void
+    internal typealias Handler = Router.AsynchronousClosurePathHandler<Path>
 
     private let handler: Handler
 
@@ -8,7 +8,7 @@ internal final class ClosurePathHandler<Path>: PathHandler {
         self.handler = handler
     }
 
-    internal func handle<AnyPath>(path: AnyPath, completionHandler: ((PathHandler?) -> Void)?) {
+    internal override func handle<AnyPath>(path: AnyPath, ignoring: [Router] = [], completionHandler: ((Router?) -> Void)? = nil) {
         guard let route = path as? Path else {
             completionHandler?(nil)
             return
@@ -30,10 +30,10 @@ extension Router {
      - Parameter completionHandler: A closure to be called when the path has been handled, or it is determined the path
                                     cannot be handled.
      */
-    public typealias ClosurePathHandler<Path> = (_ path: Path, _ completionHandler: @escaping (_ didHandle: Bool) -> Void) -> Void
+    public typealias AsynchronousClosurePathHandler<Path> = (_ path: Path, _ completionHandler: @escaping (_ didHandle: Bool) -> Void) -> Void
 
     /**
-     Add the provided closure to be a path handler.
+     Add the provided closure to be a child of the router, handling routes of type `Path`.
 
      When the closure is called it should attempt to handle the path. If the path is handled the closure should be
      called with `true`, otherwise the closure should be called with `false`.
@@ -44,15 +44,15 @@ extension Router {
     @discardableResult
     public func addPathHandler<Path>(
         priority: Priority = .medium,
-        pathHandler: @escaping ClosurePathHandler<Path>
-    ) -> PathHandler {
-        let handler = Shepherd.ClosurePathHandler(handler: pathHandler)
+        pathHandler: @escaping AsynchronousClosurePathHandler<Path>
+    ) -> Router {
+        let handler = Shepherd.AsynchronousClosurePathHandler(handler: pathHandler)
         add(child: handler, priority: priority)
         return handler
     }
 
     /**
-     Add the provided closure to be a path handler.
+     Add the provided closure to be a child of the router, handling routes of type `Path`.
 
      When the closure is called it should attempt to handle the path. If the path is handled the closure should be
      called with `true`, otherwise the closure should be called with `false`.
@@ -65,8 +65,8 @@ extension Router {
     public func addHandlerForPaths<Path>(
         ofType pathType: Path.Type,
         priority: Priority = .medium,
-        pathHandler: @escaping ClosurePathHandler<Path>
-    ) -> PathHandler {
+        pathHandler: @escaping AsynchronousClosurePathHandler<Path>
+    ) -> Router {
         return addPathHandler(priority: priority, pathHandler: pathHandler)
     }
 
