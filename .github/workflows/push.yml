@@ -21,8 +21,9 @@ jobs:
       uses: actions/cache@v1
       with:
         path: .build
-        key: ${{ runner.os }}-xcode_${{ matrix.xcode }}-swiftpm-${{ hashFiles(format('{0}{1}', github.workspace, '/Package.resolved')) }}
+        key: ${{ runner.os }}-xcode_${{ matrix.xcode }}-swiftpm-${{ github.ref }}
         restore-keys: |
+          ${{ runner.os }}-xcode_${{ matrix.xcode }}-swiftpm-${{ github.base_ref }}
           ${{ runner.os }}-xcode_${{ matrix.xcode }}-swiftpm-
     - name: SwiftPM tests
       run: swift test --skip-update
@@ -92,8 +93,9 @@ jobs:
       uses: actions/cache@v1
       with:
         path: .build
-        key: ${{ runner.os }}-swift_${{ matrix.swift }}-swiftpm-${{ hashFiles(format('{0}{1}', github.workspace, '/Package.resolved')) }}
+        key: ${{ runner.os }}-swift_${{ matrix.swift }}-swiftpm-${{ github.ref }}
         restore-keys: |
+          ${{ runner.os }}-swift_${{ matrix.swift }}-swiftpm-${{ github.base_ref }}
           ${{ runner.os }}-swift_${{ matrix.swift }}-swiftpm-
 
     - name: Install Swift ${{ matrix.swift }} and test
