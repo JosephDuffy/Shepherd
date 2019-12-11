@@ -24,7 +24,7 @@ jobs:
     - name: Cache SwiftPM
       uses: actions/cache@v1
       with:
-        path: .build
+        path: DevelopmentDependencies/.build
         key: ${{ runner.os }}-swiftpm-dev-deps-${{ hashFiles(format('{0}{1}', github.workspace, '/DevelopmentDependencies/Package.resolved')) }}
         restore-keys: |
           ${{ runner.os }}-swiftpm-devdeps-
