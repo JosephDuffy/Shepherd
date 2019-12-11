@@ -43,4 +43,4 @@ func checkProjectVersions() {
 
 checkSwiftVersions()
 checkProjectVersions()
-SwiftLint.lint(inline: isPR, directory: "../")
+SwiftLint.lint(inline: isPR, directory: "../", lintAllFiles: true)
