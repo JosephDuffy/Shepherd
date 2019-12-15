@@ -28,5 +28,6 @@ source ${SCRIPT_DIRECTORY}/update-version.sh "v$NORMALISED_VERSION"
 
 git add .
 git commit -m "Set version to v$NORMALISED_VERSION"
-git tag "$NORMALISED_VERSION"
-git push origin "$NORMALISED_VERSION"
+git tag "v$NORMALISED_VERSION"
+git push origin master
+git push origin "v$NORMALISED_VERSION"
