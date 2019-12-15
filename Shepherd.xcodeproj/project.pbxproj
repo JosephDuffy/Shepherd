@@ -41,6 +41,10 @@
 		D974B8B1239F060A009DCA6E /* Router+parents.swift in Sources */ = {isa = PBXBuildFile; fileRef = D974B8AF239F060A009DCA6E /* Router+parents.swift */; };
 		D974B8B2239F060A009DCA6E /* Router+parents.swift in Sources */ = {isa = PBXBuildFile; fileRef = D974B8AF239F060A009DCA6E /* Router+parents.swift */; };
 		D974B8B3239F060A009DCA6E /* Router+parents.swift in Sources */ = {isa = PBXBuildFile; fileRef = D974B8AF239F060A009DCA6E /* Router+parents.swift */; };
+		D9C67B1223A5CEAF00239651 /* Router+decendents.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9C67B1123A5CE3000239651 /* Router+decendents.swift */; };
+		D9C67B1323A5CEAF00239651 /* Router+decendents.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9C67B1123A5CE3000239651 /* Router+decendents.swift */; };
+		D9C67B1423A5CEB000239651 /* Router+decendents.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9C67B1123A5CE3000239651 /* Router+decendents.swift */; };
+		D9C67B1523A5CEB000239651 /* Router+decendents.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9C67B1123A5CE3000239651 /* Router+decendents.swift */; };
 		D9E601CF2233E99D00B36B1E /* Shepherd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9E601C62233E99D00B36B1E /* Shepherd.framework */; };
 		D9E601E12233EBFA00B36B1E /* Shepherd.h in Headers */ = {isa = PBXBuildFile; fileRef = D91505B2221E024900EB5215 /* Shepherd.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D9FFA6292235A223005D9A4D /* Shepherd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9FFA6202235A223005D9A4D /* Shepherd.framework */; };
@@ -129,6 +133,7 @@
 		D974B8A0239EFFC7009DCA6E /* ClosurePathHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClosurePathHandler.swift; sourceTree = "<group>"; };
 		D974B8AF239F060A009DCA6E /* Router+parents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Router+parents.swift"; sourceTree = "<group>"; };
 		D9B77D40238DCF8600E3071C /* Dangerfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dangerfile.swift; sourceTree = SOURCE_ROOT; };
+		D9C67B1123A5CE3000239651 /* Router+decendents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Router+decendents.swift"; sourceTree = "<group>"; };
 		D9CA4437222FF3CD000E424B /* Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = SOURCE_ROOT; };
 		D9D933B4223492FD00E94AAE /* Shepherd.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Shepherd.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9E601C62233E99D00B36B1E /* Shepherd.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Shepherd.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -246,6 +251,7 @@
 				D921FC86239F647900FB1F9C /* AsynchronousClosurePathHandler.swift */,
 				D921FCA0239F915000FB1F9C /* SynchronousClosurePathHandler.swift */,
 				D974B8AF239F060A009DCA6E /* Router+parents.swift */,
+				D9C67B1123A5CE3000239651 /* Router+decendents.swift */,
 			);
 			path = Shepherd;
 			sourceTree = "<group>";
@@ -553,6 +559,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D974B8B0239F060A009DCA6E /* Router+parents.swift in Sources */,
+				D9C67B1223A5CEAF00239651 /* Router+decendents.swift in Sources */,
 				D968997A23847D09005F3F24 /* Priority.swift in Sources */,
 				D921FC87239F647900FB1F9C /* AsynchronousClosurePathHandler.swift in Sources */,
 				D921FCA2239F915000FB1F9C /* SynchronousClosurePathHandler.swift in Sources */,
@@ -576,6 +583,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D974B8B2239F060A009DCA6E /* Router+parents.swift in Sources */,
+				D9C67B1423A5CEB000239651 /* Router+decendents.swift in Sources */,
 				D968997C23847D09005F3F24 /* Priority.swift in Sources */,
 				D921FC89239F647900FB1F9C /* AsynchronousClosurePathHandler.swift in Sources */,
 				D921FCA4239F915000FB1F9C /* SynchronousClosurePathHandler.swift in Sources */,
@@ -588,6 +596,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D974B8B1239F060A009DCA6E /* Router+parents.swift in Sources */,
+				D9C67B1323A5CEAF00239651 /* Router+decendents.swift in Sources */,
 				D968997B23847D09005F3F24 /* Priority.swift in Sources */,
 				D921FC88239F647900FB1F9C /* AsynchronousClosurePathHandler.swift in Sources */,
 				D921FCA1239F915000FB1F9C /* SynchronousClosurePathHandler.swift in Sources */,
@@ -611,6 +620,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D974B8B3239F060A009DCA6E /* Router+parents.swift in Sources */,
+				D9C67B1523A5CEB000239651 /* Router+decendents.swift in Sources */,
 				D968997D23847D09005F3F24 /* Priority.swift in Sources */,
 				D921FC8A239F647900FB1F9C /* AsynchronousClosurePathHandler.swift in Sources */,
 				D921FCA3239F915000FB1F9C /* SynchronousClosurePathHandler.swift in Sources */,
