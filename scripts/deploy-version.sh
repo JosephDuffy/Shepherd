@@ -5,6 +5,11 @@ if [ $# -ne 1 ]; then
     exit 1
 fi
 
+if [ "$(git rev-parse --abbrev-ref HEAD)" -ne "master" ]; then
+    echo "Versions may only be deployed from the master branch"
+    exit 1
+fi
+
 if [ -n "$(git status --porcelain)" ]; then
     echo "Git repo must be clean"
     exit 1
