@@ -93,10 +93,10 @@ jobs:
       uses: actions/cache@v1
       with:
         path: .build
-        key: ${{ runner.os }}-swift_${{ matrix.swift }}-swiftpm-${{ github.ref }}
+        key: ${{ matrix.os }}-swift_${{ matrix.swift }}-swiftpm-${{ github.ref }}
         restore-keys: |
-          ${{ runner.os }}-swift_${{ matrix.swift }}-swiftpm-${{ github.base_ref }}
-          ${{ runner.os }}-swift_${{ matrix.swift }}-swiftpm-
+          ${{ matrix.os }}-swift_${{ matrix.swift }}-swiftpm-${{ github.base_ref }}
+          ${{ matrix.os }}-swift_${{ matrix.swift }}-swiftpm-
 
     - name: Install Swift ${{ matrix.swift }} and test
       env:
