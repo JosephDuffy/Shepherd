@@ -84,7 +84,7 @@ jobs:
       fail-fast: false
       matrix:
         os: [ubuntu-16.04, ubuntu-latest]
-        swift: ["5.0.3"]
+        swift: ["5.1.2"]
 
     steps:
     - uses: actions/checkout@v1
@@ -93,14 +93,14 @@ jobs:
       uses: actions/cache@v1
       with:
         path: .build
-        key: ${{ runner.os }}-swift_${{ matrix.swift }}-swiftpm-${{ github.ref }}
+        key: ${{ matrix.os }}-swift_${{ matrix.swift }}-swiftpm-${{ github.ref }}
         restore-keys: |
-          ${{ runner.os }}-swift_${{ matrix.swift }}-swiftpm-${{ github.base_ref }}
-          ${{ runner.os }}-swift_${{ matrix.swift }}-swiftpm-
+          ${{ matrix.os }}-swift_${{ matrix.swift }}-swiftpm-${{ github.base_ref }}
+          ${{ matrix.os }}-swift_${{ matrix.swift }}-swiftpm-
 
     - name: Install Swift ${{ matrix.swift }} and test
       env:
         SWIFT_VERSION: ${{ matrix.swift }}
       run: |
         eval "$(curl -sL https://swiftenv.fuller.li/install.sh)"
-        swift test --skip-update
+        swift test --skip-update --enable-test-discovery
