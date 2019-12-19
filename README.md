@@ -1,6 +1,7 @@
 # Shepherd
 
 [![Build Status](https://github.com/JosephDuffy/Shepherd/workflows/Tests/badge.svg)](https://launch-editor.github.com/actions?workflowID=Tests&event=push&nwo=JosephDuffy%2FShepherd)
+[![codecov](https://codecov.io/gh/JosephDuffy/Shepherd/branch/master/graph/badge.svg)](https://codecov.io/gh/JosephDuffy/Shepherd)
 [![Documentation](https://josephduffy.github.io/Shepherd/badge.svg)](https://josephduffy.github.io/Shepherd/)
 ![Compatible with macOS, iOS, watchOS, tvOS, and Linux](https://img.shields.io/badge/platforms-macOS%20%7C%20iOS%20%7C%20watchOS%20%7C%20tvOS%20%7C%20Linux-4BC51D.svg)
 [![SwiftPM Compatible](https://img.shields.io/badge/SwiftPM-compatible-4BC51D.svg?style=flat)](https://github.com/apple/swift-package-manager)
