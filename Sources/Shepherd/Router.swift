@@ -22,7 +22,7 @@ open class Router {
 
     /// An array of the adjacent router in the tree of router, ordered by priority. If the
     /// priority of 2 routers are the same they will be ordered by the order they were added.
-    private var routeHandlers: [Router] {
+    public var routeHandlers: [Router] {
         var tree = _children
         parent.map { tree.append(($0, .parent)) }
         return tree.sorted(by: { $0.priority > $1.priority }).map { $0.router }
@@ -49,8 +49,10 @@ open class Router {
     open func handle<Path>(
         path: Path,
         ignoring: [Router] = [],
+        executor previousExecutor: PathExecutor<Path>? = nil,
         completionHandler: ((Router?) -> Void)? = nil
     ) {
+        let executor
         var iterator = routeHandlers.makeIterator()
 
         var ignoringIncludingSelf = ignoring

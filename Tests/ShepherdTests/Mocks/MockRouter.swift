@@ -9,7 +9,12 @@ class MockRouter<PathType: Equatable>: Router {
     //swiftlint:disable weak_delegate
     var handleDelegate: (() -> Void)?
 
-    override func handle<Path>(path: Path, ignoring: [Router] = [], completionHandler: ((Router?) -> Void)? = nil) {
+    override func handle<Path>(
+        path: Path,
+        ignoring: [Router] = [],
+        executor previousExecutor: PathExecutor<Path>? = nil,
+        completionHandler: ((Router?) -> Void)? = nil
+    ) {
         latestHandleParameters = (path, ignoring, completionHandler)
         handleDelegate?()
 

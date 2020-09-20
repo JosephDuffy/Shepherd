@@ -8,7 +8,12 @@ internal final class SynchronousClosurePathHandler<Path>: Router {
         self.handler = handler
     }
 
-    internal override func handle<AnyPath>(path: AnyPath, ignoring: [Router] = [], completionHandler: ((Router?) -> Void)? = nil) {
+    internal override func handle<AnyPath>(
+        path: AnyPath,
+        ignoring: [Router] = [],
+        executor previousExecutor: PathExecutor<AnyPath>? = nil,
+        completionHandler: ((Router?) -> Void)? = nil
+    ) {
         guard let route = path as? Path else {
             completionHandler?(nil)
             return
